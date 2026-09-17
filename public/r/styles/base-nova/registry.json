@@ -1227,6 +1227,136 @@
       }
     },
     {
+      "name": "c-attachment-1",
+      "type": "registry:block",
+      "title": "Single file attachment in an assistant reply",
+      "description": "Single file attachment in an assistant reply",
+      "dependencies": [],
+      "registryDependencies": [
+        "attachment"
+      ],
+      "files": [
+        {
+          "path": "c-attachment-1.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-attachment-1.tsx"
+        }
+      ],
+      "meta": {
+        "order": 1,
+        "gridSize": 2
+      }
+    },
+    {
+      "name": "c-attachment-2",
+      "type": "registry:block",
+      "title": "Composer tray with removable attachments",
+      "description": "Composer tray with removable attachments",
+      "dependencies": [],
+      "registryDependencies": [
+        "attachment",
+        "field",
+        "input-group"
+      ],
+      "files": [
+        {
+          "path": "c-attachment-2.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-attachment-2.tsx"
+        }
+      ],
+      "meta": {
+        "order": 2,
+        "gridSize": 2
+      }
+    },
+    {
+      "name": "c-attachment-3",
+      "type": "registry:block",
+      "title": "Image thumbnails in a snapping strip",
+      "description": "Image thumbnails in a snapping strip",
+      "dependencies": [],
+      "registryDependencies": [
+        "attachment"
+      ],
+      "files": [
+        {
+          "path": "c-attachment-3.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-attachment-3.tsx"
+        }
+      ],
+      "meta": {
+        "order": 3,
+        "gridSize": 2
+      }
+    },
+    {
+      "name": "c-attachment-4",
+      "type": "registry:block",
+      "title": "Three sizes carrying three levels of an answer",
+      "description": "Three sizes carrying three levels of an answer",
+      "dependencies": [],
+      "registryDependencies": [
+        "attachment"
+      ],
+      "files": [
+        {
+          "path": "c-attachment-4.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-attachment-4.tsx"
+        }
+      ],
+      "meta": {
+        "order": 4,
+        "gridSize": 2
+      }
+    },
+    {
+      "name": "c-attachment-5",
+      "type": "registry:block",
+      "title": "Upload queue across all five states",
+      "description": "Upload queue across all five states",
+      "dependencies": [],
+      "registryDependencies": [
+        "attachment",
+        "spinner"
+      ],
+      "files": [
+        {
+          "path": "c-attachment-5.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-attachment-5.tsx"
+        }
+      ],
+      "meta": {
+        "order": 5,
+        "gridSize": 2
+      }
+    },
+    {
+      "name": "c-attachment-6",
+      "type": "registry:block",
+      "title": "File picker that fills an attachment tray",
+      "description": "File picker that fills an attachment tray",
+      "dependencies": [],
+      "registryDependencies": [
+        "attachment",
+        "@reui/use-file-upload"
+      ],
+      "files": [
+        {
+          "path": "c-attachment-6.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-attachment-6.tsx"
+        }
+      ],
+      "meta": {
+        "order": 6,
+        "gridSize": 2
+      }
+    },
+    {
       "name": "c-autocomplete-1",
       "type": "registry:block",
       "title": "Basic autocomplete control",
@@ -3008,6 +3138,161 @@
       ],
       "meta": {
         "order": 9
+      }
+    },
+    {
+      "name": "c-bubble-1",
+      "type": "registry:block",
+      "title": "Support thread with sender alignment",
+      "description": "A two sided billing thread where align and variant carry the sender.",
+      "dependencies": [],
+      "registryDependencies": [
+        "avatar",
+        "bubble",
+        "card"
+      ],
+      "files": [
+        {
+          "path": "c-bubble-1.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-bubble-1.tsx"
+        }
+      ],
+      "meta": {
+        "order": 1,
+        "gridSize": 2
+      }
+    },
+    {
+      "name": "c-bubble-2",
+      "type": "registry:block",
+      "title": "Bubble variants in a release thread",
+      "description": "All seven variants doing the job each one is for, in one deploy thread.",
+      "dependencies": [],
+      "registryDependencies": [
+        "bubble"
+      ],
+      "files": [
+        {
+          "path": "c-bubble-2.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-bubble-2.tsx"
+        }
+      ],
+      "meta": {
+        "order": 2,
+        "gridSize": 2
+      }
+    },
+    {
+      "name": "c-bubble-3",
+      "type": "registry:block",
+      "title": "Grouped consecutive messages",
+      "description": "Consecutive turns from one sender collapse into a single BubbleGroup.",
+      "dependencies": [],
+      "registryDependencies": [
+        "bubble"
+      ],
+      "files": [
+        {
+          "path": "c-bubble-3.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-bubble-3.tsx"
+        }
+      ],
+      "meta": {
+        "order": 3,
+        "gridSize": 2
+      }
+    },
+    {
+      "name": "c-bubble-4",
+      "type": "registry:block",
+      "title": "Message reactions and a reaction button",
+      "description": "A static emoji row, a pressable reaction with a count, and a top anchored row.",
+      "dependencies": [],
+      "registryDependencies": [
+        "bubble",
+        "button",
+        "card"
+      ],
+      "files": [
+        {
+          "path": "c-bubble-4.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-bubble-4.tsx"
+        }
+      ],
+      "meta": {
+        "order": 4,
+        "gridSize": 2
+      }
+    },
+    {
+      "name": "c-bubble-5",
+      "type": "registry:block",
+      "title": "Long reply with show more",
+      "description": "A long assistant answer folds to its first paragraph behind a Collapsible.",
+      "dependencies": [],
+      "registryDependencies": [
+        "bubble",
+        "button",
+        "collapsible"
+      ],
+      "files": [
+        {
+          "path": "c-bubble-5.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-bubble-5.tsx"
+        }
+      ],
+      "meta": {
+        "order": 5,
+        "gridSize": 2
+      }
+    },
+    {
+      "name": "c-bubble-6",
+      "type": "registry:block",
+      "title": "Quick reply bubbles and an action row",
+      "description": "Tinted bubbles that are real buttons and a link, plus an action row after the pick.",
+      "dependencies": [],
+      "registryDependencies": [
+        "bubble",
+        "button",
+        "card"
+      ],
+      "files": [
+        {
+          "path": "c-bubble-6.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-bubble-6.tsx"
+        }
+      ],
+      "meta": {
+        "order": 6,
+        "gridSize": 2
+      }
+    },
+    {
+      "name": "c-bubble-7",
+      "type": "registry:block",
+      "title": "Assistant answer with formatted content",
+      "description": "A ghost bubble carrying a heading, a list, emphasis and inline code.",
+      "dependencies": [],
+      "registryDependencies": [
+        "bubble"
+      ],
+      "files": [
+        {
+          "path": "c-bubble-7.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-bubble-7.tsx"
+        }
+      ],
+      "meta": {
+        "order": 7,
+        "gridSize": 1
       }
     },
     {
@@ -17492,6 +17777,137 @@
       }
     },
     {
+      "name": "c-marker-1",
+      "type": "registry:block",
+      "title": "Default, separator, and border markers",
+      "description": "Default, separator, and border markers",
+      "dependencies": [],
+      "registryDependencies": [
+        "marker"
+      ],
+      "files": [
+        {
+          "path": "c-marker-1.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-marker-1.tsx"
+        }
+      ],
+      "meta": {
+        "order": 1,
+        "gridSize": 2
+      }
+    },
+    {
+      "name": "c-marker-2",
+      "type": "registry:block",
+      "title": "Tool call log with icon markers",
+      "description": "Tool call log with icon markers",
+      "dependencies": [],
+      "registryDependencies": [
+        "marker"
+      ],
+      "files": [
+        {
+          "path": "c-marker-2.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-marker-2.tsx"
+        }
+      ],
+      "meta": {
+        "order": 2,
+        "gridSize": 2
+      }
+    },
+    {
+      "name": "c-marker-3",
+      "type": "registry:block",
+      "title": "Run status markers with a live step",
+      "description": "Run status markers with a live step",
+      "dependencies": [],
+      "registryDependencies": [
+        "@reui/badge",
+        "card",
+        "marker",
+        "spinner"
+      ],
+      "files": [
+        {
+          "path": "c-marker-3.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-marker-3.tsx"
+        }
+      ],
+      "meta": {
+        "order": 3,
+        "gridSize": 2
+      }
+    },
+    {
+      "name": "c-marker-4",
+      "type": "registry:block",
+      "title": "Agent run log grouped by phase separators",
+      "description": "Agent run log grouped by phase separators",
+      "dependencies": [],
+      "registryDependencies": [
+        "card",
+        "marker"
+      ],
+      "files": [
+        {
+          "path": "c-marker-4.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-marker-4.tsx"
+        }
+      ],
+      "meta": {
+        "order": 4,
+        "gridSize": 2
+      }
+    },
+    {
+      "name": "c-marker-5",
+      "type": "registry:block",
+      "title": "Changed files summary with border markers",
+      "description": "Changed files summary with border markers",
+      "dependencies": [],
+      "registryDependencies": [
+        "@reui/badge",
+        "marker"
+      ],
+      "files": [
+        {
+          "path": "c-marker-5.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-marker-5.tsx"
+        }
+      ],
+      "meta": {
+        "order": 5,
+        "gridSize": 2
+      }
+    },
+    {
+      "name": "c-marker-6",
+      "type": "registry:block",
+      "title": "Markers as links and as an action button",
+      "description": "Markers as links and as an action button",
+      "dependencies": [],
+      "registryDependencies": [
+        "marker"
+      ],
+      "files": [
+        {
+          "path": "c-marker-6.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-marker-6.tsx"
+        }
+      ],
+      "meta": {
+        "order": 6,
+        "gridSize": 2
+      }
+    },
+    {
       "name": "c-menubar-1",
       "type": "registry:block",
       "title": "Basic menubar.",
@@ -17589,6 +18005,334 @@
       ],
       "meta": {
         "order": 5
+      }
+    },
+    {
+      "name": "c-message-1",
+      "type": "registry:block",
+      "title": "Two-sided conversation",
+      "description": "Incoming and outgoing rows separated by nothing but the align prop.",
+      "dependencies": [],
+      "registryDependencies": [
+        "bubble",
+        "message"
+      ],
+      "files": [
+        {
+          "path": "c-message-1.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-message-1.tsx"
+        }
+      ],
+      "meta": {
+        "order": 1,
+        "gridSize": 2
+      }
+    },
+    {
+      "name": "c-message-2",
+      "type": "registry:block",
+      "title": "Avatars on both sides",
+      "description": "Bottom-anchored avatars that flip with the row, plus a presence dot.",
+      "dependencies": [],
+      "registryDependencies": [
+        "avatar",
+        "bubble",
+        "message"
+      ],
+      "files": [
+        {
+          "path": "c-message-2.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-message-2.tsx"
+        }
+      ],
+      "meta": {
+        "order": 2,
+        "gridSize": 2
+      }
+    },
+    {
+      "name": "c-message-3",
+      "type": "registry:block",
+      "title": "Sender name and delivery status",
+      "description": "Header for identity, footer for status, and how each one picks its side.",
+      "dependencies": [],
+      "registryDependencies": [
+        "bubble",
+        "message"
+      ],
+      "files": [
+        {
+          "path": "c-message-3.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-message-3.tsx"
+        }
+      ],
+      "meta": {
+        "order": 3,
+        "gridSize": 2
+      }
+    },
+    {
+      "name": "c-message-4",
+      "type": "registry:block",
+      "title": "Reply actions in the footer",
+      "description": "Copy, regenerate and rating controls under an unframed assistant reply.",
+      "dependencies": [],
+      "registryDependencies": [
+        "bubble",
+        "button",
+        "message"
+      ],
+      "files": [
+        {
+          "path": "c-message-4.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-message-4.tsx"
+        }
+      ],
+      "meta": {
+        "order": 4,
+        "gridSize": 2
+      }
+    },
+    {
+      "name": "c-message-5",
+      "type": "registry:block",
+      "title": "Files shared in a thread",
+      "description": "Image and document attachments stacked with the bubble in one message.",
+      "dependencies": [],
+      "registryDependencies": [
+        "attachment",
+        "avatar",
+        "bubble",
+        "message"
+      ],
+      "files": [
+        {
+          "path": "c-message-5.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-message-5.tsx"
+        }
+      ],
+      "meta": {
+        "order": 5,
+        "gridSize": 2
+      }
+    },
+    {
+      "name": "c-message-6",
+      "type": "registry:block",
+      "title": "Consecutive messages from one sender",
+      "description": "A run of three messages under a single avatar, using MessageGroup.",
+      "dependencies": [],
+      "registryDependencies": [
+        "avatar",
+        "bubble",
+        "message"
+      ],
+      "files": [
+        {
+          "path": "c-message-6.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-message-6.tsx"
+        }
+      ],
+      "meta": {
+        "order": 6,
+        "gridSize": 2
+      }
+    },
+    {
+      "name": "c-message-7",
+      "type": "registry:block",
+      "title": "Streaming reply with a pending state",
+      "description": "One assistant row moving from thinking, to typing, to settled.",
+      "dependencies": [],
+      "registryDependencies": [
+        "bubble",
+        "button",
+        "marker",
+        "message",
+        "spinner"
+      ],
+      "files": [
+        {
+          "path": "c-message-7.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-message-7.tsx"
+        }
+      ],
+      "meta": {
+        "order": 7,
+        "gridSize": 1
+      }
+    },
+    {
+      "name": "c-message-scroller-1",
+      "type": "registry:block",
+      "title": "Chat transcript with jump to latest",
+      "description": "A scroll region that opens at the live edge with a jump to latest control.",
+      "dependencies": [],
+      "registryDependencies": [
+        "avatar",
+        "bubble",
+        "card",
+        "message",
+        "message-scroller"
+      ],
+      "files": [
+        {
+          "path": "c-message-scroller-1.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-message-scroller-1.tsx"
+        }
+      ],
+      "meta": {
+        "order": 1,
+        "gridSize": 1,
+        "previewHeight": "420"
+      }
+    },
+    {
+      "name": "c-message-scroller-2",
+      "type": "registry:block",
+      "title": "Streaming reply that follows the edge",
+      "description": "autoScroll pins the viewport while tokens arrive, and releases the moment the reader scrolls up.",
+      "dependencies": [],
+      "registryDependencies": [
+        "avatar",
+        "@reui/badge",
+        "bubble",
+        "button",
+        "card",
+        "message",
+        "message-scroller",
+        "spinner"
+      ],
+      "files": [
+        {
+          "path": "c-message-scroller-2.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-message-scroller-2.tsx"
+        }
+      ],
+      "meta": {
+        "order": 2,
+        "gridSize": 1,
+        "previewHeight": "480"
+      }
+    },
+    {
+      "name": "c-message-scroller-3",
+      "type": "registry:block",
+      "title": "Anchored turn with a previous peek",
+      "description": "scrollAnchor lifts a sent message near the top while a slice of the previous turn stays visible.",
+      "dependencies": [],
+      "registryDependencies": [
+        "avatar",
+        "bubble",
+        "card",
+        "input-group",
+        "message",
+        "message-scroller"
+      ],
+      "files": [
+        {
+          "path": "c-message-scroller-3.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-message-scroller-3.tsx"
+        }
+      ],
+      "meta": {
+        "order": 3,
+        "gridSize": 1,
+        "previewHeight": "500"
+      }
+    },
+    {
+      "name": "c-message-scroller-4",
+      "type": "registry:block",
+      "title": "Opening position for a saved thread",
+      "description": "Compare start, end and last-anchor as the place a reopened thread opens at.",
+      "dependencies": [],
+      "registryDependencies": [
+        "bubble",
+        "card",
+        "marker",
+        "message",
+        "message-scroller",
+        "tabs"
+      ],
+      "files": [
+        {
+          "path": "c-message-scroller-4.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-message-scroller-4.tsx"
+        }
+      ],
+      "meta": {
+        "order": 4,
+        "gridSize": 1,
+        "previewHeight": "500"
+      }
+    },
+    {
+      "name": "c-message-scroller-5",
+      "type": "registry:block",
+      "title": "Load earlier without losing your place",
+      "description": "Older turns prepend above the reader while the row they were reading stays put.",
+      "dependencies": [],
+      "registryDependencies": [
+        "avatar",
+        "@reui/badge",
+        "bubble",
+        "button",
+        "card",
+        "marker",
+        "message",
+        "message-scroller",
+        "spinner"
+      ],
+      "files": [
+        {
+          "path": "c-message-scroller-5.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-message-scroller-5.tsx"
+        }
+      ],
+      "meta": {
+        "order": 5,
+        "gridSize": 1,
+        "previewHeight": "460"
+      }
+    },
+    {
+      "name": "c-message-scroller-6",
+      "type": "registry:block",
+      "title": "Thread navigator for stepping turns",
+      "description": "A footer navigator that reports the turn you are reading and jumps between turns.",
+      "dependencies": [],
+      "registryDependencies": [
+        "avatar",
+        "bubble",
+        "button",
+        "card",
+        "message",
+        "message-scroller"
+      ],
+      "files": [
+        {
+          "path": "c-message-scroller-6.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-message-scroller-6.tsx"
+        }
+      ],
+      "meta": {
+        "order": 6,
+        "gridSize": 1,
+        "previewHeight": "480"
       }
     },
     {
@@ -18792,6 +19536,177 @@
       ],
       "meta": {
         "order": 8
+      }
+    },
+    {
+      "name": "c-questionnaire-1",
+      "type": "registry:block",
+      "title": "Guided workspace setup",
+      "description": "Three required questions in a card, with progress, navigation and a summary on submit.",
+      "dependencies": [],
+      "registryDependencies": [
+        "button",
+        "card",
+        "questionnaire"
+      ],
+      "files": [
+        {
+          "path": "c-questionnaire-1.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-questionnaire-1.tsx"
+        }
+      ],
+      "meta": {
+        "order": 1,
+        "gridSize": 2
+      }
+    },
+    {
+      "name": "c-questionnaire-2",
+      "type": "registry:block",
+      "title": "Multi-select answers",
+      "description": "A checkbox question that accepts several answers, with a live count and a chip summary.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@reui/badge",
+        "button",
+        "card",
+        "questionnaire"
+      ],
+      "files": [
+        {
+          "path": "c-questionnaire-2.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-questionnaire-2.tsx"
+        }
+      ],
+      "meta": {
+        "order": 2,
+        "gridSize": 2
+      }
+    },
+    {
+      "name": "c-questionnaire-3",
+      "type": "registry:block",
+      "title": "A written answer beside the choices",
+      "description": "A text input sitting with the fixed choices, so an answer can be typed instead of picked.",
+      "dependencies": [],
+      "registryDependencies": [
+        "button",
+        "card",
+        "label",
+        "questionnaire"
+      ],
+      "files": [
+        {
+          "path": "c-questionnaire-3.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-questionnaire-3.tsx"
+        }
+      ],
+      "meta": {
+        "order": 3,
+        "gridSize": 2
+      }
+    },
+    {
+      "name": "c-questionnaire-4",
+      "type": "registry:block",
+      "title": "Segmented progress with step labels",
+      "description": "A custom progress bar built from the progress render state, over a four question flow.",
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "button",
+        "empty",
+        "questionnaire"
+      ],
+      "files": [
+        {
+          "path": "c-questionnaire-4.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-questionnaire-4.tsx"
+        }
+      ],
+      "meta": {
+        "order": 4,
+        "gridSize": 2
+      }
+    },
+    {
+      "name": "c-questionnaire-5",
+      "type": "registry:block",
+      "title": "An optional question with skip",
+      "description": "A question the visitor may skip on purpose, with the skipped state carried into the summary.",
+      "dependencies": [
+        "@shadcn/react"
+      ],
+      "registryDependencies": [
+        "@reui/badge",
+        "button",
+        "card",
+        "questionnaire"
+      ],
+      "files": [
+        {
+          "path": "c-questionnaire-5.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-questionnaire-5.tsx"
+        }
+      ],
+      "meta": {
+        "order": 5,
+        "gridSize": 2
+      }
+    },
+    {
+      "name": "c-questionnaire-6",
+      "type": "registry:block",
+      "title": "A rule that sends you back",
+      "description": "A cross-question rule checked on submit, returning the flow to the question that broke it.",
+      "dependencies": [],
+      "registryDependencies": [
+        "button",
+        "card",
+        "questionnaire"
+      ],
+      "files": [
+        {
+          "path": "c-questionnaire-6.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-questionnaire-6.tsx"
+        }
+      ],
+      "meta": {
+        "order": 6,
+        "gridSize": 2
+      }
+    },
+    {
+      "name": "c-questionnaire-7",
+      "type": "registry:block",
+      "title": "A branch that appears when it applies",
+      "description": "A question that only joins the flow after an earlier answer, with avatars, reset and a summary.",
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "card",
+        "questionnaire"
+      ],
+      "files": [
+        {
+          "path": "c-questionnaire-7.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-questionnaire-7.tsx"
+        }
+      ],
+      "meta": {
+        "order": 7,
+        "gridSize": 2
       }
     },
     {
@@ -20620,6 +21535,139 @@
       ],
       "meta": {
         "order": 4
+      }
+    },
+    {
+      "name": "c-sidebar-1",
+      "type": "registry:block",
+      "title": "Application shell with a workspace switcher",
+      "description": "Grouped navigation with count badges, row menus and a footer account menu.",
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "breadcrumb",
+        "button",
+        "card",
+        "dropdown-menu",
+        "sidebar"
+      ],
+      "files": [
+        {
+          "path": "c-sidebar-1.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-sidebar-1.tsx"
+        }
+      ],
+      "meta": {
+        "order": 1,
+        "gridSize": 1,
+        "previewHeight": "560"
+      }
+    },
+    {
+      "name": "c-sidebar-2",
+      "type": "registry:block",
+      "title": "Icon rail that collapses",
+      "description": "Labels give way to tooltips at 3rem, with a rail and a trigger to drive it.",
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "avatar",
+        "button",
+        "sidebar"
+      ],
+      "files": [
+        {
+          "path": "c-sidebar-2.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-sidebar-2.tsx"
+        }
+      ],
+      "meta": {
+        "order": 2,
+        "gridSize": 1,
+        "previewHeight": "560"
+      }
+    },
+    {
+      "name": "c-sidebar-3",
+      "type": "registry:block",
+      "title": "Documentation nav with sub-menus",
+      "description": "A search field, sections that collapse and a sub-tree under the current page.",
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "collapsible",
+        "sidebar"
+      ],
+      "files": [
+        {
+          "path": "c-sidebar-3.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-sidebar-3.tsx"
+        }
+      ],
+      "meta": {
+        "order": 3,
+        "gridSize": 1,
+        "previewHeight": "560"
+      }
+    },
+    {
+      "name": "c-sidebar-4",
+      "type": "registry:block",
+      "title": "Right-hand inspector panel",
+      "description": "A floating off-canvas panel with row actions, linked counts and a status badge.",
+      "dependencies": [],
+      "registryDependencies": [
+        "avatar",
+        "@reui/badge",
+        "button",
+        "dropdown-menu",
+        "sidebar"
+      ],
+      "files": [
+        {
+          "path": "c-sidebar-4.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-sidebar-4.tsx"
+        }
+      ],
+      "meta": {
+        "order": 4,
+        "gridSize": 1,
+        "previewHeight": "560"
+      }
+    },
+    {
+      "name": "c-sidebar-5",
+      "type": "registry:block",
+      "title": "Filtering, loading and empty states",
+      "description": "A filter field, skeleton rows while a refresh runs, and a real empty state.",
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "button",
+        "card",
+        "input-group",
+        "sidebar"
+      ],
+      "files": [
+        {
+          "path": "c-sidebar-5.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-sidebar-5.tsx"
+        }
+      ],
+      "meta": {
+        "order": 5,
+        "gridSize": 1,
+        "previewHeight": "560"
       }
     },
     {

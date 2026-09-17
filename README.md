@@ -8,7 +8,7 @@
 [![React](https://img.shields.io/badge/React-18%2B-blue?logo=react)](https://react.dev/)
 [![Tailwind CSS](https://img.shields.io/badge/Tailwind%20CSS-4%2B-blue?logo=tailwindcss)](https://tailwindcss.com/)
 
-**Go beyond AI defaults and streamline high-end shadcn projects faster without touching the essentials. 1,105 free components and composed examples built with realistic dashboard layouts.**
+**Go beyond AI defaults and streamline high-end shadcn projects faster without touching the essentials. 1,149 free components and composed examples built with realistic dashboard layouts.**
 
 [Explore the component catalog](https://reui.io/components?utm_source=github&utm_medium=readme) · [Component Docs](https://reui.io/docs?utm_source=github&utm_medium=readme) · [ReUI Pro](https://reui.io/pricing?utm_source=github&utm_medium=readme) · [GitHub](https://github.com/keenthemes/reui)
 
@@ -18,12 +18,12 @@
 
 ## About ReUI
 
-ReUI is a free, open-source component library for the [shadcn/ui](https://ui.shadcn.com/) ecosystem. Explore 1,105 production-ready components across 74 categories, each shown inside realistic dashboard layouts (not isolated demos), and copy them directly into your React projects.
+ReUI is a free, open-source component library for the [shadcn/ui](https://ui.shadcn.com/) ecosystem. Explore 1,149 production-ready components across 81 categories, each shown inside realistic dashboard layouts (not isolated demos), and copy them directly into your React projects.
 
 ### Why ReUI?
 
 - **22 In-House component primitives not in default shadcn/ui** - Data Grid, Event Calendar, Gantt, Kanban, Filters, Cascader, Code Block, Sortable, Timeline, Stepper, Tree, and more, built for real-world dashboard requirements
-- **1,105 registry components** - Reusable examples composed from shadcn/ui primitives into real-world product flows
+- **1,149 registry components** - Reusable examples composed from shadcn/ui primitives into real-world product flows
 - **Dual Component library support** - Radix UI and Base UI versions for all 22 in-house components
 - **Compatible with Shadcn Create styles and settings** - Vega, Nova, Maia, Lyra & Mira.
 
@@ -31,7 +31,7 @@ ReUI is a free, open-source component library for the [shadcn/ui](https://ui.sha
 
 ## Key Features
 
-- **1,105 free examples** - Production-ready, copy-paste layouts for dashboards, forms, tables, and more
+- **1,149 free examples** - Production-ready, copy-paste layouts for dashboards, forms, tables, and more
 - **22 In-house Components** - Custom in-house components not found in base shadcn/ui
 - **Copy-and-Own Model** - No npm package, no lock-in. Own the source code in your repo
 - **Dual API** - Radix UI and Base UI versions for all in-house components
@@ -77,7 +77,7 @@ Custom-built, shadcn-compatible components not available in base shadcn/ui. Each
 
 ---
 
-### Shadcn components with example library (52)
+### Shadcn components with example library (59)
 
 All standard shadcn/ui primitives are included with many composed examples:
 
@@ -86,8 +86,10 @@ All standard shadcn/ui primitives are included with many composed examples:
 | **Accordion** | 11 | FAQ layouts, settings panels, and help sections | [Accordion examples](https://reui.io/components/accordion?utm_source=github&utm_medium=readme) |
 | **Alert Dialog** | 14 | Delete confirmations, destructive actions, and critical decisions | [Alert Dialog examples](https://reui.io/components/alert-dialog?utm_source=github&utm_medium=readme) |
 | **Aspect Ratio** | 8 | Responsive media, image galleries, and video previews | [Aspect Ratio examples](https://reui.io/components/aspect-ratio?utm_source=github&utm_medium=readme) |
+| **Attachment** | 6 | Chat composers, upload states, and file previews | [Attachment examples](https://reui.io/components/attachment?utm_source=github&utm_medium=readme) |
 | **Avatar** | 35 | User profiles, team directories, and comment threads | [Avatar examples](https://reui.io/components/avatar?utm_source=github&utm_medium=readme) |
 | **Breadcrumb** | 15 | Navigation trails, docs hierarchy, and app wayfinding | [Breadcrumb examples](https://reui.io/components/breadcrumb?utm_source=github&utm_medium=readme) |
+| **Bubble** | 7 | Chat threads, assistant replies, and message reactions | [Bubble examples](https://reui.io/components/bubble?utm_source=github&utm_medium=readme) |
 | **Button** | 61 | Primary actions, form submissions, and toolbar controls | [Button examples](https://reui.io/components/button?utm_source=github&utm_medium=readme) |
 | **Button Group** | 57 | Segmented controls, toolbar actions, and view switchers | [Button Group examples](https://reui.io/components/button-group?utm_source=github&utm_medium=readme) |
 | **Calendar** | 30 | Date picking, scheduling flows, and booking interfaces | [Calendar examples](https://reui.io/components/calendar?utm_source=github&utm_medium=readme) |
@@ -112,18 +114,23 @@ All standard shadcn/ui primitives are included with many composed examples:
 | **Item** | 12 | List rows, settings items, and action rows | [Item examples](https://reui.io/components/item?utm_source=github&utm_medium=readme) |
 | **Kbd** | 6 | Hotkey hints, command docs, and shortcut legends | [Kbd examples](https://reui.io/components/kbd?utm_source=github&utm_medium=readme) |
 | **Label** | 13 | Form labels, accessible inputs, and field pairing | [Label examples](https://reui.io/components/label?utm_source=github&utm_medium=readme) |
+| **Marker** | 6 | Agent run logs, inline status lines, and labeled separators | [Marker examples](https://reui.io/components/marker?utm_source=github&utm_medium=readme) |
 | **Menubar** | 5 | Desktop navigation, editor menus, and app commands | [Menubar examples](https://reui.io/components/menubar?utm_source=github&utm_medium=readme) |
+| **Message** | 7 | Chat transcripts, assistant replies, and support threads | [Message examples](https://reui.io/components/message?utm_source=github&utm_medium=readme) |
+| **Message Scroller** | 6 | Chat transcripts, streaming replies, and jump-to-latest scrolling | [Message Scroller examples](https://reui.io/components/message-scroller?utm_source=github&utm_medium=readme) |
 | **Native Select** | 6 | Lightweight selects, mobile-friendly forms, and basic option picking | [Native Select examples](https://reui.io/components/native-select?utm_source=github&utm_medium=readme) |
 | **Navigation Menu** | 4 | Site navigation, mega menus, and product navigation | [Navigation Menu examples](https://reui.io/components/navigation-menu?utm_source=github&utm_medium=readme) |
 | **Pagination** | 15 | Table pagination, search results, and content archives | [Pagination examples](https://reui.io/components/pagination?utm_source=github&utm_medium=readme) |
 | **Popover** | 11 | Inline settings, contextual actions, and lightweight overlays | [Popover examples](https://reui.io/components/popover?utm_source=github&utm_medium=readme) |
 | **Progress** | 8 | Upload progress, goal tracking, and setup steps | [Progress examples](https://reui.io/components/progress?utm_source=github&utm_medium=readme) |
+| **Questionnaire** | 7 | Onboarding surveys, multi-step question flows, and guided feedback | [Questionnaire examples](https://reui.io/components/questionnaire?utm_source=github&utm_medium=readme) |
 | **Radio Group** | 17 | Single-choice forms, plan selection, and settings preferences | [Radio Group examples](https://reui.io/components/radio-group?utm_source=github&utm_medium=readme) |
 | **Resizable** | 10 | Split panes, workspace layouts, and draggable dividers | [Resizable examples](https://reui.io/components/resizable?utm_source=github&utm_medium=readme) |
 | **Scroll Area** | 5 | Custom scroll regions, sidebar panes, and dense lists | [Scroll Area examples](https://reui.io/components/scroll-area?utm_source=github&utm_medium=readme) |
 | **Select** | 33 | Form selection, settings menus, and filter controls | [Select examples](https://reui.io/components/select?utm_source=github&utm_medium=readme) |
 | **Separator** | 6 | Content grouping, toolbar dividers, and section breaks | [Separator examples](https://reui.io/components/separator?utm_source=github&utm_medium=readme) |
 | **Sheet** | 4 | Slide-over details, side panels, and task flows | [Sheet examples](https://reui.io/components/sheet?utm_source=github&utm_medium=readme) |
+| **Sidebar** | 5 | App shells, collapsible side navigation, and dashboard layouts | [Sidebar examples](https://reui.io/components/sidebar?utm_source=github&utm_medium=readme) |
 | **Skeleton** | 10 | Loading placeholders, perceived performance, and content previews | [Skeleton examples](https://reui.io/components/skeleton?utm_source=github&utm_medium=readme) |
 | **Slider** | 12 | Range filters, pricing controls, and media settings | [Slider examples](https://reui.io/components/slider?utm_source=github&utm_medium=readme) |
 | **Sonner** | 21 | Success feedback, error states, and non-blocking updates | [Sonner examples](https://reui.io/components/sonner?utm_source=github&utm_medium=readme) |
@@ -152,7 +159,7 @@ npx shadcn@latest add @reui/c-filters-5
 
 ### Quick Start
 
-1. **Browse the catalog** - Visit [reui.io/components](https://reui.io/components?utm_source=github&utm_medium=readme) to explore 1,105 composed examples (`c-*` blocks)
+1. **Browse the catalog** - Visit [reui.io/components](https://reui.io/components?utm_source=github&utm_medium=readme) to explore 1,149 composed examples (`c-*` blocks)
 2. **Copy code** - Each example includes a ready-to-use code snippet
 3. **Customize** - Modify with your Tailwind CSS tokens and design system
 4. **Own it** - The code lives in your repo, not a package

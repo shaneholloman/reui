@@ -2,6 +2,7 @@
 
 import * as React from "react"
 
+import { shouldFullBleedComponentPreview } from "@/lib/component-preview-frame"
 import { useConfig } from "@/hooks/use-config"
 import { Button } from "@/components/ui/button"
 import { Sheet, SheetTrigger } from "@/components/ui/sheet"
@@ -33,11 +34,15 @@ export const ComponentCard = React.memo(function ComponentCard({
   const base = _propBase || config?.base || "base"
   const isFullWidth = component.meta?.gridSize === 1
   const description = component.description || component.title || component.name
+  // Keyed on the same field as the preview below, so the inset and the frame
+  // can never disagree about which category this is.
+  const fullBleed = shouldFullBleedComponentPreview(component.primaryCategory)
 
   return (
     <ComponentCardContainer
       className={className}
       isFullWidth={isFullWidth}
+      fullBleed={fullBleed}
       footer={
         <>
           <p className="text-site-muted-foreground flex flex-1 items-center gap-1.5 truncate text-xs">

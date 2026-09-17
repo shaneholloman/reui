@@ -105,6 +105,9 @@ importers:
       '@reui/components-base-aspect-ratio':
         specifier: workspace:*
         version: link:packages/registry/bases/base/components/aspect-ratio
+      '@reui/components-base-attachment':
+        specifier: workspace:*
+        version: link:packages/registry/bases/base/components/attachment
       '@reui/components-base-autocomplete':
         specifier: workspace:*
         version: link:packages/registry/bases/base/components/autocomplete
@@ -117,6 +120,9 @@ importers:
       '@reui/components-base-breadcrumb':
         specifier: workspace:*
         version: link:packages/registry/bases/base/components/breadcrumb
+      '@reui/components-base-bubble':
+        specifier: workspace:*
+        version: link:packages/registry/bases/base/components/bubble
       '@reui/components-base-button':
         specifier: workspace:*
         version: link:packages/registry/bases/base/components/button
@@ -222,9 +228,18 @@ importers:
       '@reui/components-base-label':
         specifier: workspace:*
         version: link:packages/registry/bases/base/components/label
+      '@reui/components-base-marker':
+        specifier: workspace:*
+        version: link:packages/registry/bases/base/components/marker
       '@reui/components-base-menubar':
         specifier: workspace:*
         version: link:packages/registry/bases/base/components/menubar
+      '@reui/components-base-message':
+        specifier: workspace:*
+        version: link:packages/registry/bases/base/components/message
+      '@reui/components-base-message-scroller':
+        specifier: workspace:*
+        version: link:packages/registry/bases/base/components/message-scroller
       '@reui/components-base-native-select':
         specifier: workspace:*
         version: link:packages/registry/bases/base/components/native-select
@@ -246,6 +261,9 @@ importers:
       '@reui/components-base-progress':
         specifier: workspace:*
         version: link:packages/registry/bases/base/components/progress
+      '@reui/components-base-questionnaire':
+        specifier: workspace:*
+        version: link:packages/registry/bases/base/components/questionnaire
       '@reui/components-base-radio-group':
         specifier: workspace:*
         version: link:packages/registry/bases/base/components/radio-group
@@ -270,6 +288,9 @@ importers:
       '@reui/components-base-sheet':
         specifier: workspace:*
         version: link:packages/registry/bases/base/components/sheet
+      '@reui/components-base-sidebar':
+        specifier: workspace:*
+        version: link:packages/registry/bases/base/components/sidebar
       '@reui/components-base-skeleton':
         specifier: workspace:*
         version: link:packages/registry/bases/base/components/skeleton
@@ -327,6 +348,9 @@ importers:
       '@reui/components-radix-aspect-ratio':
         specifier: workspace:*
         version: link:packages/registry/bases/radix/components/aspect-ratio
+      '@reui/components-radix-attachment':
+        specifier: workspace:*
+        version: link:packages/registry/bases/radix/components/attachment
       '@reui/components-radix-autocomplete':
         specifier: workspace:*
         version: link:packages/registry/bases/radix/components/autocomplete
@@ -339,6 +363,9 @@ importers:
       '@reui/components-radix-breadcrumb':
         specifier: workspace:*
         version: link:packages/registry/bases/radix/components/breadcrumb
+      '@reui/components-radix-bubble':
+        specifier: workspace:*
+        version: link:packages/registry/bases/radix/components/bubble
       '@reui/components-radix-button':
         specifier: workspace:*
         version: link:packages/registry/bases/radix/components/button
@@ -444,9 +471,18 @@ importers:
       '@reui/components-radix-label':
         specifier: workspace:*
         version: link:packages/registry/bases/radix/components/label
+      '@reui/components-radix-marker':
+        specifier: workspace:*
+        version: link:packages/registry/bases/radix/components/marker
       '@reui/components-radix-menubar':
         specifier: workspace:*
         version: link:packages/registry/bases/radix/components/menubar
+      '@reui/components-radix-message':
+        specifier: workspace:*
+        version: link:packages/registry/bases/radix/components/message
+      '@reui/components-radix-message-scroller':
+        specifier: workspace:*
+        version: link:packages/registry/bases/radix/components/message-scroller
       '@reui/components-radix-native-select':
         specifier: workspace:*
         version: link:packages/registry/bases/radix/components/native-select
@@ -468,6 +504,9 @@ importers:
       '@reui/components-radix-progress':
         specifier: workspace:*
         version: link:packages/registry/bases/radix/components/progress
+      '@reui/components-radix-questionnaire':
+        specifier: workspace:*
+        version: link:packages/registry/bases/radix/components/questionnaire
       '@reui/components-radix-radio-group':
         specifier: workspace:*
         version: link:packages/registry/bases/radix/components/radio-group
@@ -492,6 +531,9 @@ importers:
       '@reui/components-radix-sheet':
         specifier: workspace:*
         version: link:packages/registry/bases/radix/components/sheet
+      '@reui/components-radix-sidebar':
+        specifier: workspace:*
+        version: link:packages/registry/bases/radix/components/sidebar
       '@reui/components-radix-skeleton':
         specifier: workspace:*
         version: link:packages/registry/bases/radix/components/skeleton
@@ -537,6 +579,9 @@ importers:
       '@reui/components-radix-tree':
         specifier: workspace:*
         version: link:packages/registry/bases/radix/components/tree
+      '@shadcn/react':
+        specifier: ^0.3.1
+        version: 0.3.1(@types/react@19.2.17)(react@19.2.7)
       '@tabler/icons-react':
         specifier: ^3.41.1
         version: 3.44.0(react@19.2.7)
@@ -788,6 +833,15 @@ importers:
         specifier: '>=18'
         version: 19.2.7(react@19.2.7)
 
+  packages/registry/bases/base/components/attachment:
+    dependencies:
+      react:
+        specifier: '>=18'
+        version: 19.2.7
+      react-dom:
+        specifier: '>=18'
+        version: 19.2.7(react@19.2.7)
+
   packages/registry/bases/base/components/autocomplete:
     dependencies:
       '@base-ui/react':
@@ -865,6 +919,15 @@ importers:
       cn:
         specifier: ^0.3.0
         version: 0.3.0
+      react:
+        specifier: '>=18'
+        version: 19.2.7
+      react-dom:
+        specifier: '>=18'
+        version: 19.2.7(react@19.2.7)
+
+  packages/registry/bases/base/components/bubble:
+    dependencies:
       react:
         specifier: '>=18'
         version: 19.2.7
@@ -1523,8 +1586,53 @@ importers:
         specifier: '>=18'
         version: 19.2.7(react@19.2.7)
 
+  packages/registry/bases/base/components/marker:
+    dependencies:
+      '@base-ui/react':
+        specifier: 1.5.0
+        version: 1.5.0(@date-fns/tz@1.5.0)(@types/react@19.2.17)(date-fns@4.4.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      class-variance-authority:
+        specifier: ^0.7.1
+        version: 0.7.1
+      cn:
+        specifier: ^0.3.0
+        version: 0.3.0
+      react:
+        specifier: '>=18'
+        version: 19.2.7
+      react-dom:
+        specifier: '>=18'
+        version: 19.2.7(react@19.2.7)
+
   packages/registry/bases/base/components/menubar:
     dependencies:
+      react:
+        specifier: '>=18'
+        version: 19.2.7
+      react-dom:
+        specifier: '>=18'
+        version: 19.2.7(react@19.2.7)
+
+  packages/registry/bases/base/components/message:
+    dependencies:
+      react:
+        specifier: '>=18'
+        version: 19.2.7
+      react-dom:
+        specifier: '>=18'
+        version: 19.2.7(react@19.2.7)
+
+  packages/registry/bases/base/components/message-scroller:
+    dependencies:
+      '@base-ui/react':
+        specifier: 1.5.0
+        version: 1.5.0(@date-fns/tz@1.5.0)(@types/react@19.2.17)(date-fns@4.4.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      class-variance-authority:
+        specifier: ^0.7.1
+        version: 0.7.1
+      cn:
+        specifier: ^0.3.0
+        version: 0.3.0
       react:
         specifier: '>=18'
         version: 19.2.7
@@ -1637,6 +1745,24 @@ importers:
         specifier: '>=18'
         version: 19.2.7(react@19.2.7)
 
+  packages/registry/bases/base/components/questionnaire:
+    dependencies:
+      '@base-ui/react':
+        specifier: 1.5.0
+        version: 1.5.0(@date-fns/tz@1.5.0)(@types/react@19.2.17)(date-fns@4.4.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      class-variance-authority:
+        specifier: ^0.7.1
+        version: 0.7.1
+      cn:
+        specifier: ^0.3.0
+        version: 0.3.0
+      react:
+        specifier: '>=18'
+        version: 19.2.7
+      react-dom:
+        specifier: '>=18'
+        version: 19.2.7(react@19.2.7)
+
   packages/registry/bases/base/components/radio-group:
     dependencies:
       class-variance-authority:
@@ -1729,6 +1855,24 @@ importers:
 
   packages/registry/bases/base/components/sheet:
     dependencies:
+      react:
+        specifier: '>=18'
+        version: 19.2.7
+      react-dom:
+        specifier: '>=18'
+        version: 19.2.7(react@19.2.7)
+
+  packages/registry/bases/base/components/sidebar:
+    dependencies:
+      '@base-ui/react':
+        specifier: 1.5.0
+        version: 1.5.0(@date-fns/tz@1.5.0)(@types/react@19.2.17)(date-fns@4.4.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      class-variance-authority:
+        specifier: ^0.7.1
+        version: 0.7.1
+      cn:
+        specifier: ^0.3.0
+        version: 0.3.0
       react:
         specifier: '>=18'
         version: 19.2.7
@@ -2039,6 +2183,15 @@ importers:
         specifier: '>=18'
         version: 19.2.7(react@19.2.7)
 
+  packages/registry/bases/radix/components/attachment:
+    dependencies:
+      react:
+        specifier: '>=18'
+        version: 19.2.7
+      react-dom:
+        specifier: '>=18'
+        version: 19.2.7(react@19.2.7)
+
   packages/registry/bases/radix/components/autocomplete:
     dependencies:
       '@base-ui/react':
@@ -2116,6 +2269,15 @@ importers:
       radix-ui:
         specifier: ^1.4.3
         version: 1.6.2(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      react:
+        specifier: '>=18'
+        version: 19.2.7
+      react-dom:
+        specifier: '>=18'
+        version: 19.2.7(react@19.2.7)
+
+  packages/registry/bases/radix/components/bubble:
+    dependencies:
       react:
         specifier: '>=18'
         version: 19.2.7
@@ -2777,8 +2939,53 @@ importers:
         specifier: '>=18'
         version: 19.2.7(react@19.2.7)
 
+  packages/registry/bases/radix/components/marker:
+    dependencies:
+      class-variance-authority:
+        specifier: ^0.7.1
+        version: 0.7.1
+      cn:
+        specifier: ^0.3.0
+        version: 0.3.0
+      radix-ui:
+        specifier: ^1.4.3
+        version: 1.6.2(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      react:
+        specifier: '>=18'
+        version: 19.2.7
+      react-dom:
+        specifier: '>=18'
+        version: 19.2.7(react@19.2.7)
+
   packages/registry/bases/radix/components/menubar:
     dependencies:
+      react:
+        specifier: '>=18'
+        version: 19.2.7
+      react-dom:
+        specifier: '>=18'
+        version: 19.2.7(react@19.2.7)
+
+  packages/registry/bases/radix/components/message:
+    dependencies:
+      react:
+        specifier: '>=18'
+        version: 19.2.7
+      react-dom:
+        specifier: '>=18'
+        version: 19.2.7(react@19.2.7)
+
+  packages/registry/bases/radix/components/message-scroller:
+    dependencies:
+      class-variance-authority:
+        specifier: ^0.7.1
+        version: 0.7.1
+      cn:
+        specifier: ^0.3.0
+        version: 0.3.0
+      radix-ui:
+        specifier: ^1.4.3
+        version: 1.6.2(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       react:
         specifier: '>=18'
         version: 19.2.7
@@ -2891,6 +3098,24 @@ importers:
         specifier: '>=18'
         version: 19.2.7(react@19.2.7)
 
+  packages/registry/bases/radix/components/questionnaire:
+    dependencies:
+      class-variance-authority:
+        specifier: ^0.7.1
+        version: 0.7.1
+      cn:
+        specifier: ^0.3.0
+        version: 0.3.0
+      radix-ui:
+        specifier: ^1.4.3
+        version: 1.6.2(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      react:
+        specifier: '>=18'
+        version: 19.2.7
+      react-dom:
+        specifier: '>=18'
+        version: 19.2.7(react@19.2.7)
+
   packages/registry/bases/radix/components/radio-group:
     dependencies:
       class-variance-authority:
@@ -2983,6 +3208,24 @@ importers:
 
   packages/registry/bases/radix/components/sheet:
     dependencies:
+      react:
+        specifier: '>=18'
+        version: 19.2.7
+      react-dom:
+        specifier: '>=18'
+        version: 19.2.7(react@19.2.7)
+
+  packages/registry/bases/radix/components/sidebar:
+    dependencies:
+      class-variance-authority:
+        specifier: ^0.7.1
+        version: 0.7.1
+      cn:
+        specifier: ^0.3.0
+        version: 0.3.0
+      radix-ui:
+        specifier: ^1.4.3
+        version: 1.6.2(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
       react:
         specifier: '>=18'
         version: 19.2.7
@@ -3379,8 +3622,8 @@ packages:
       '@date-fns/tz': ^1.2.0
       '@types/react': ^17 || ^18 || ^19
       date-fns: ^4.0.0
-      react: ^17 || ^18 || ^19
-      react-dom: ^17 || ^18 || ^19
+      react: 19.2.7
+      react-dom: 19.2.7
     peerDependenciesMeta:
       '@date-fns/tz':
         optional: true
@@ -4841,6 +5084,17 @@ packages:
       eslint: '>=9.30.0'
     peerDependenciesMeta:
       eslint:
+        optional: true
+
+  '@shadcn/react@0.3.1':
+    resolution: {integrity: sha512-2gOR0HDMtWeRsCZfNDaU0YDFdgH3zsDQ6lz67Fv/y/qjY9y+R8kJqAn6q56phqv7/zHi0wqURjntrNO9zL7vnQ==}
+    peerDependencies:
+      '@types/react': '>=19'
+      react: '>=19'
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+      react:
         optional: true
 
   '@shikijs/core@4.3.1':
@@ -10047,6 +10301,11 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
       - typescript
+
+  '@shadcn/react@0.3.1(@types/react@19.2.17)(react@19.2.7)':
+    optionalDependencies:
+      '@types/react': 19.2.17
+      react: 19.2.7
 
   '@shikijs/core@4.3.1':
     dependencies:

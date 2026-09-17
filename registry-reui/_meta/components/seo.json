@@ -523,7 +523,7 @@
       "integrationBody": [
         "Pair alert-dialog with a [Shadcn Button](/components/button) to trigger it; use the destructive variant for delete and a secondary variant for cancel. Include a [Shadcn Badge](/docs/components/base/badge) in the title if the action affects multiple items ('Delete 5 files?').",
         "Use [Shadcn Checkbox](/components/checkbox) or [Shadcn Input](/components/input) inside the dialog body to gate the destructive button, preventing accidental clicks. Add a [Shadcn Popover](/components/popover) for quick help text if users question why a confirmation is needed.",
-        "When the action succeeds or fails, show a [Shadcn Alert](/docs/components/base/alert) on the page confirming the result. Combine alert-dialog with [Sonner](/components/toast) for async operations that take time so users can close the dialog before the operation completes."
+        "When the action succeeds or fails, show a [Shadcn Alert](/docs/components/base/alert) on the page confirming the result. Combine alert-dialog with [Sonner](/components/sonner) for async operations that take time so users can close the dialog before the operation completes."
       ]
     }
   },
@@ -629,6 +629,132 @@
         "Wrap images inside [Shadcn Card](/components/card) with an aspect-ratio container so images scale responsively while text and actions stay below. Use a [Shadcn Skeleton](/components/skeleton) at the same ratio for loading states.",
         "Combine aspect-ratio with [Shadcn Badge](/docs/components/base/badge) overlays to mark images as new, featured, or out-of-stock. Pair with [Shadcn Button](/components/button) as action overlays on hover when images need quick interactions.",
         "In gallery layouts, use aspect-ratio across multiple [Shadcn Popover](/components/popover) or lightbox components so all thumbnails maintain consistent proportions. Add [Shadcn Input](/components/input) next to the gallery for search and filtering."
+      ]
+    }
+  },
+  "attachment": {
+    "description": "{{count}} shadcn attachment components for chat composers, upload queues, and image previews. File chips with idle, uploading, error, and done states.",
+    "intro": "Browse {{count}} production-ready shadcn attachment components for AI chat composers, upload queues, and file pickers. Attachment is compatible with Radix UI and Base UI composition and fully aligned with Shadcn Create, so radius, colors, and typography match your design tokens.",
+    "keywords": [
+      "shadcn attachment",
+      "shadcn attachment component",
+      "shadcn/ui attachment",
+      "react file attachment component",
+      "react chat attachment ui",
+      "ai chat file attachment react",
+      "react file chip component",
+      "tailwind attachment card",
+      "react attachment list component",
+      "chat composer attachment react",
+      "react image attachment thumbnail",
+      "react upload state ui",
+      "react file picker button",
+      "next.js file attachment component",
+      "base ui attachment",
+      "radix attachment",
+      "shadcn create",
+      "reui attachment examples"
+    ],
+    "content": {
+      "title": "Shadcn Attachment: File Chips, Upload States, and Image Previews",
+      "summary": [
+        "Shadcn Attachment is a file chip built from parts: a media slot, a title, a description, an actions row, and an optional full-card trigger. The root draws its own border, card background, and radius, so it drops into a composer or a reply without a wrapper. It ships in both twins, Base UI and Radix, and all 8 Shadcn Create styles carry their own attachment rules.",
+        "One `state` prop covers the lifecycle: idle, uploading, processing, error, and done. Idle gets a dashed border, uploading and processing shimmer the title, and error switches the border, the media, and the description to the destructive color, so a failed file reads as failed without extra markup.",
+        "ReUI shows attachment components where they actually appear: assistant replies, composer trays, snapping image strips, upload queues, and file pickers, next to [Shadcn Input Group](/components/input-group) and [Shadcn Field](/components/field). The sections below cover what the component is, why teams use it, the features that matter, and how to wire it to real uploads."
+      ],
+      "sections": [
+        {
+          "title": "What is Shadcn Attachment?",
+          "paragraphs": [
+            "An attachment is the small card that stands in for a file: an icon or a thumbnail, the file name, one line of metadata, and whatever actions the file allows. Shadcn Attachment splits that into 9 parts, from AttachmentMedia and AttachmentTitle through AttachmentActions to AttachmentGroup, so the same markup holds whether the card is a dense composer chip or a full-width row.",
+            "The parts carry the fiddly details. Title and description truncate instead of wrapping, so a long file name cannot push the actions off the row. AttachmentMedia with `variant=\"image\"` crops a child image square, so thumbnails line up without sizing classes of their own. AttachmentGroup is a scrolling, snapping row with the scrollbar hidden, so the fifth file scrolls into view instead of adding a second line."
+          ]
+        },
+        {
+          "title": "Why Use Shadcn Attachment?",
+          "paragraphs": [
+            "Teams hand-roll this card and hit the same 3 problems: the file name wraps and breaks the row, the failure state is a red border with no reason beside it, and a click overlay on the card swallows the remove button. Attachment answers all 3 in the primitive, with truncation on the text parts, a description that stays legible in the error state, and a trigger layered under the actions row so both keep their hit areas.",
+            "The {{count}} components on this page are the parts, not the finished product. The assembled surface is Pro: 9 of the 12 [AI Chat](/blocks/ai-agents/ai-chat) blocks import this same Attachment, inside streaming threads, reply details, and composers that hold their own context chips. Copy a chip from this page, or start from a chat surface that already has one."
+          ]
+        },
+        {
+          "title": "Shadcn Attachment Features",
+          "featureItems": [
+            {
+              "title": "5 Upload States on One Prop.",
+              "description": "`state` accepts idle, uploading, processing, error, and done. Idle draws a dashed border, uploading and processing shimmer the title, and error recolors the border, the media, and the description."
+            },
+            {
+              "title": "Media Slot for Icons or Images.",
+              "description": "AttachmentMedia is a square, centered box. Set `variant=\"image\"` and a child image is cropped to fill it, so a strip of thumbnails lines up without per-image classes."
+            },
+            {
+              "title": "Truncating Title and Description.",
+              "description": "Both text parts truncate at the card width. Long file names and long error messages stay on one line, and the actions keep their place at the end of the row."
+            },
+            {
+              "title": "Actions Over a Full-Card Trigger.",
+              "description": "AttachmentAction renders a [Shadcn Button](/components/button) as a ghost icon button by default. AttachmentTrigger covers the card for select or preview and sits under the actions row in the stacking order, so a remove button still receives its click."
+            },
+            {
+              "title": "Scrolling, Snapping Group.",
+              "description": "AttachmentGroup keeps chips on one line, hides the scrollbar, and snaps each card into place, so a composer tray never grows a second row when another file is added."
+            },
+            {
+              "title": "3 Sizes and 2 Orientations.",
+              "description": "`size` takes default, sm, and xs, and `orientation` takes horizontal and vertical. The same markup becomes a dense composer chip or a vertical thumbnail card, with padding and media size set per style."
+            },
+            {
+              "title": "Shadcn Create Compatible.",
+              "description": "All 8 Shadcn Create styles (Vega, Nova, Maia, Lyra, Mira, Luma, Sera, and Rhea) carry their own attachment rules, so the card runs from square corners in Lyra to a deep radius in Luma with no markup change."
+            }
+          ]
+        },
+        {
+          "title": "Wiring Attachment to a Picker and an Upload Queue",
+          "paragraphs": [
+            "Attachment renders state, it does not move bytes. For picking, pair it with the `useFileUpload` hook from [Shadcn File Upload](/docs/components/base/file-upload): render a card in the idle state, put `openFileDialog` on the AttachmentTrigger that covers it, spread `getInputProps` onto a visually hidden input, and call `removeFile` from the action on each chip.",
+            "For a queue, hold your own rows and map transfer status onto `state`: uploading while bytes move, processing while the file is scanned or parsed, error with the reason written into AttachmentDescription, done when it lands. Show a [Shadcn Spinner](/components/spinner) inside AttachmentMedia while a file is in flight, and put the percentage in the description or beside the card with [Shadcn Progress](/components/progress)."
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is a Shadcn Attachment used for in real products?",
+          "answer": "Chat composers that hold files before a message is sent, assistant replies that return a document, upload queues in settings and support forms, and file pickers. Anywhere a file needs a name, a size, a state, and a way to remove it, the attachment card is the row."
+        },
+        {
+          "question": "Does Shadcn Attachment upload files?",
+          "answer": "No. It is presentational: it renders the card and reflects the state you pass in. Use your own transfer code, or the `useFileUpload` hook from [Shadcn File Upload](/docs/components/base/file-upload) for the file dialog, size and type validation, and preview URLs."
+        },
+        {
+          "question": "How do I show upload progress on an attachment?",
+          "answer": "Set `state` to uploading and the title shimmers on its own. Put the percentage in AttachmentDescription, the line that stays readable at every size, or render a [Shadcn Progress](/components/progress) bar beside the card when the transfer is long enough to watch."
+        },
+        {
+          "question": "How do I make the whole card clickable and still keep a remove button?",
+          "answer": "Use AttachmentTrigger. It covers the card as an overlay and sits below AttachmentActions in the stacking order, so the remove button keeps its own hit area. To render the trigger as a link instead of a button, use `render` in the Base UI twin or `asChild` in the Radix twin."
+        },
+        {
+          "question": "What is the difference between Attachment and Item?",
+          "answer": "[Shadcn Item](/components/item) is the general row: media, title, description, actions. Attachment is the file-specific version. It adds the `state` lifecycle, square image cropping in the media slot, and AttachmentGroup for a scrolling tray. Use Item for list rows, Attachment for files."
+        },
+        {
+          "question": "How do I keep a row of attachments from wrapping onto a second line?",
+          "answer": "Wrap the chips in AttachmentGroup. It holds every card at its own width and scrolls horizontally with snapping, so a fifth file never changes the height of a composer. If the cards carry no buttons, give the group a `tabIndex` so keyboard users can still scroll it."
+        },
+        {
+          "question": "Is Shadcn Attachment accessible out of the box?",
+          "answer": "The parts give you the structure, you own the labels. Give icon-only actions an aria-label that names the file, keep the failure reason in AttachmentDescription so the error is not carried by color alone, and announce count changes in a live region when chips can be added and removed."
+        }
+      ]
+    },
+    "relatedComponents": {
+      "title": "Integrating With Other Components",
+      "integrationBody": [
+        "For a composer, put AttachmentGroup in a block-start [Shadcn Input Group](/components/input-group) addon above the textarea, with the attach and send controls in the block-end addon. Wrap the whole control in a [Shadcn Field](/components/field) for the label and helper text, and use [Shadcn Button](/components/button) for the actions the chips do not own.",
+        "In a thread, attachments sit inside [Shadcn Bubble](/components/bubble) or [Shadcn Message](/components/message) parts as the files a turn carried. Use [Shadcn Empty](/components/empty) for the state before anything is attached, [Shadcn Tooltip](/components/tooltip) to show a file name that had to truncate, and [Shadcn Dropdown Menu](/components/dropdown-menu) when a chip needs more than 2 actions.",
+        "For uploads, combine attachments with [Shadcn File Upload](/docs/components/base/file-upload) for the picker and [Shadcn Progress](/components/progress) or [Shadcn Spinner](/components/spinner) for transfer state. When you want the finished surface rather than the parts, [AI Chat](/blocks/ai-agents/ai-chat) has 12 Pro blocks, 9 of which already import Attachment across 16 files, wired into threads, composers, and reply details."
       ]
     }
   },
@@ -1104,6 +1230,136 @@
         "Place breadcrumbs at the top of a page, above the [Shadcn Card](/components/card) or main heading. Pair with a [Shadcn Button](/components/button) with an icon for a Back action as an alternative.",
         "Combine breadcrumbs with [Shadcn Navigation Menu](/components/navigation-menu) to provide both hierarchical and flat navigation options. Use breadcrumbs in [Shadcn Dialog](/components/dialog) or [Shadcn Sheet](/components/sheet) on mobile to preserve space.",
         "Add breadcrumbs to [Shadcn Table](/components/table) headers to show context for filtered data. In admin tools, pair breadcrumbs with [Shadcn Pagination](/components/pagination) to show the full path while navigating results."
+      ]
+    }
+  },
+  "bubble": {
+    "description": "Free shadcn bubble components for chat threads, AI assistant replies, and message reactions. {{count}} Tailwind CSS chat bubble layouts for React and Next.js.",
+    "intro": "Browse {{count}} production-ready shadcn bubble components for chat threads, AI assistant answers, grouped messages, quick replies, and emoji reactions. Shadcn Bubble is compatible with *Radix UI* and *Base UI* composition and is fully aligned with Shadcn Create style options, so the radius, padding, and text size in the previews match the code you ship.",
+    "keywords": [
+      "shadcn bubble",
+      "shadcn/ui bubble",
+      "react chat bubble component",
+      "chat bubble tailwind css",
+      "next.js chat message bubble",
+      "ai chat bubble react",
+      "assistant message bubble react",
+      "chat bubble reactions react",
+      "chat bubble variants",
+      "grouped chat messages react",
+      "chat bubble alignment left right",
+      "quick reply buttons chat react",
+      "collapsible chat message react",
+      "accessible chat bubble component",
+      "base ui chat bubble",
+      "radix ui chat bubble",
+      "shadcn create",
+      "reui bubble examples"
+    ],
+    "searchAliases": [
+      "chat bubble",
+      "message bubble"
+    ],
+    "content": {
+      "title": "Shadcn Bubble: Chat Threads, Assistant Replies, and Reactions",
+      "summary": [
+        "Shadcn Bubble is the message body of a conversation, split into 4 parts: BubbleGroup for consecutive turns from one sender, Bubble for the turn itself, BubbleContent for the text or markup, and BubbleReactions for an emoji row pinned to the bubble edge. It follows *Radix UI* and *Base UI* composition and reads its radius, padding, and text size from the active Shadcn Create style.",
+        "A bubble sizes to its content and caps at 80% of the thread width, and it takes its side from an `align` prop. A two sided transcript is therefore a map over your messages, not a set of hand written widths and margins.",
+        "ReUI shows bubbles inside real chat surfaces (a support thread, a release conversation, a folded assistant answer, a quick reply flow) beside [Shadcn Avatar](/components/avatar), [Shadcn Card](/components/card), and [Shadcn Button](/components/button), so you can judge density, grouping, and reaction placement in context. The sections below cover what the component is, why teams use it, which features matter, and how it fits a full chat surface."
+      ],
+      "sections": [
+        {
+          "title": "What is Shadcn Bubble?",
+          "paragraphs": [
+            "A bubble is the container around one message in a thread. Shadcn Bubble keeps that container dumb on purpose: Bubble carries the side and the color, BubbleContent carries the text, BubbleGroup tightens the gap between consecutive turns from one sender, and BubbleReactions hangs a reaction row off the bubble edge. There is no transcript state, no scroll logic, and no markdown parser inside it.",
+            "The {{count}} components here cover a two sided support thread, all 7 variants in one release conversation, grouped consecutive messages, reaction rows (static and pressable), a long assistant answer folded behind a [Shadcn Collapsible](/components/collapsible), tinted quick replies that are real buttons and links, and a ghost assistant answer with a heading, a list, and inline code. They are there so you can settle bubble width, grouping gap, and reaction placement before you wire a transcript to a stream."
+          ]
+        },
+        {
+          "title": "Why Use Shadcn Bubble?",
+          "paragraphs": [
+            "Chat surfaces are usually the part of a product that gets hand rolled, and the things that go wrong are small and repetitive: the right hand side silently drops out because the wrapper is a grid rather than a flex column, consecutive messages read as separate turns, a reaction pill overlaps the next message, or one long URL pushes the whole thread sideways. Bubble answers each of those in a single file that pulls in no other registry components.",
+            "It is also the primitive the paid work is built on. 11 of the 12 [AI Chat blocks](/blocks/ai-agents/ai-chat) import this same Bubble component, across 16 files, so the thread you assemble from the free components on this page is the thread that sits inside a streaming transcript with a composer, a model picker, citations, and code artifacts. Start here, and moving up to an assembled surface is a change of shell, not a rewrite of your message rendering."
+          ]
+        },
+        {
+          "title": "Shadcn Bubble Features",
+          "featureItems": [
+            {
+              "title": "7 Variants.",
+              "description": "`default`, `secondary`, `muted`, `tinted`, `outline`, `ghost`, and `destructive` sit on the Bubble root and paint the content child, so one prop covers a user turn, an agent turn, a quoted artifact, and a failure notice."
+            },
+            {
+              "title": "Sender Alignment.",
+              "description": "`align` takes start or end and resolves to align-self, so the thread wrapper has to be a flex column. Pair the side with a variant, because a reader who cannot separate the two colors still has the alignment."
+            },
+            {
+              "title": "Ghost for Assistant Prose.",
+              "description": "The ghost variant clears the background, the padding, and the 80% width cap, which is what lets a structured assistant answer use the full row while user turns stay inset."
+            },
+            {
+              "title": "Grouped Turns.",
+              "description": "BubbleGroup is a flex column with a tighter internal gap than the thread. That gap difference is the whole grouping signal, so 3 lines from one sender read as one turn."
+            },
+            {
+              "title": "Reaction Rows.",
+              "description": "BubbleReactions is absolutely positioned with `side` (top or bottom) and `align` (start or end), translated outside the bubble edge. It rings itself in the card color, so it reads cleanly when the thread sits on a [Shadcn Card](/components/card)."
+            },
+            {
+              "title": "Bubbles That Are Buttons.",
+              "description": "BubbleContent is polymorphic (`render` in the Base UI twin, `asChild` in the Radix twin), so a quick reply can be a real button or anchor. The hover and the focus ring ship with the variant, but only when the content element itself is the button or the link."
+            },
+            {
+              "title": "Shadcn Create Compatible.",
+              "description": "All 8 Shadcn Create themes (Vega, Nova, Maia, Lyra, Mira, Luma, Sera, and Rhea) drive the bubble radius, padding, and text size together, so bubbles are square in Lyra and Sera and fully rounded in Luma, Maia, and Rhea without touching the component."
+            }
+          ]
+        },
+        {
+          "title": "Building a Full Chat Surface",
+          "paragraphs": [
+            "Bubble covers the message body and stops there, which keeps the rest of the surface yours to choose. Avatars, sender names, timestamps, and per turn actions belong to [Shadcn Message](/components/message), which has avatar, header, and footer slots and a grouping wrapper of its own. Scroll behavior and the jump to latest control belong to [Shadcn Message Scroller](/components/message-scroller), and file chips on a turn belong to [Shadcn Attachment](/components/attachment).",
+            "For the composer, put a [Shadcn Textarea](/components/textarea) or a [Shadcn Input Group](/components/input-group) under the thread with a send [Shadcn Button](/components/button), and keep the thread itself inside a [Shadcn Card](/components/card) or a [Shadcn Scroll Area](/components/scroll-area) so the reaction rings and the bubble edges have a surface to sit on. One rule is worth repeating: the per style sheet loads in the base layer, so a plain `text-sm` or `rounded-lg` on BubbleContent outranks it and pins one theme's value across all 8."
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is a Shadcn Bubble used for in real products?",
+          "answer": "AI assistant transcripts, support and sales inboxes, in app chat, comment threads, and any log of turns where the sender matters. Anywhere a message needs a side, a color, and a body that wraps cleanly, a bubble is less work than a set of custom flex rules per sender."
+        },
+        {
+          "question": "How do I put sent messages on the right and received on the left?",
+          "answer": "Set `align` to end on the sender's bubbles and leave the rest on the default start. The prop resolves to align-self, so the wrapper has to be a flex column, and a grid or block wrapper drops the right hand side without an error. Carry the sender in the variant as well, so the side is not the only signal."
+        },
+        {
+          "question": "Which variant should I use for AI assistant replies?",
+          "answer": "Ghost. It is the only variant that clears the frame, the padding, and the 80% width cap, so a structured answer with a heading, a list, and inline code spans the row and reads as a document rather than as a chat quote. Keep user turns on default or tinted so the two sides stay distinguishable."
+        },
+        {
+          "question": "How do I group consecutive messages from the same sender?",
+          "answer": "Wrap those turns in a BubbleGroup. The group's internal gap is tighter than the thread gap, and that difference is what makes the lines read as one turn, so do not equalize the two. Keep `align` on each Bubble: the group stretches to the column and has no side of its own."
+        },
+        {
+          "question": "Can a bubble itself be a button or a link?",
+          "answer": "Yes, and that is how quick replies are built. The Base UI twin takes `render` with the label staying as BubbleContent's children, while the Radix twin takes `asChild` with the label nested inside the single child element. They are structurally different, so swapping only the prop name when porting leaves you with a button that has no accessible name."
+        },
+        {
+          "question": "How do reactions attach to a bubble?",
+          "answer": "Render BubbleReactions inside the Bubble and position it with `side` and `align`. It is absolutely positioned and translated most of the way outside the bubble edge, so a thread that carries reactions needs a larger gap than a plain one, or the pill lands on the next message. The row also drops its own padding as soon as it contains a button, so an interactive row should hold exactly one control and let that control supply the hit area."
+        },
+        {
+          "question": "Does Shadcn Bubble add dependencies or lock my styling?",
+          "answer": "The registry item is a single file and lists no other registry components, so installing bubble does not pull a chat framework behind it. Styling comes from the active Shadcn Create style, which sets radius, padding, and text size together on the content element. Because those rules load in the base layer, any utility you add on BubbleContent wins for every theme at once, so use one when you mean to override all 8 and leave the ladder alone when you do not."
+        }
+      ]
+    },
+    "relatedComponents": {
+      "title": "Integrating With Other Components",
+      "integrationBody": [
+        "Put the thread inside a [Shadcn Card](/components/card) with a [Shadcn Avatar](/components/avatar) and a short status line in the header, which is also what keeps reaction rings reading correctly in dark mode. Add a [Shadcn Button](/components/button) row under a turn for retry, copy, or insert actions, and a [Shadcn Badge](/components/badge) on the header for the model or the channel.",
+        "For longer answers, fold the remainder behind a [Shadcn Collapsible](/components/collapsible) rather than truncating a string, render code with [Shadcn Code Block](/docs/components/base/code-block), and reserve a streaming turn with a [Shadcn Skeleton](/components/skeleton). Pair the thread with [Shadcn Message](/components/message) for avatars and timestamps, [Shadcn Message Scroller](/components/message-scroller) for stick to bottom scrolling, and [Shadcn Attachment](/components/attachment) for file chips.",
+        "When the surface has to become a product rather than a transcript, the 12 [AI Chat blocks](/blocks/ai-agents/ai-chat) assemble these same parts into full pages, docked panels, and sheets, with streaming, thread switching, model pickers, citations, and composers already wired. All but 1 of those 12 import this Bubble component, so your message rendering carries over unchanged."
       ]
     }
   },
@@ -2562,7 +2818,7 @@
           "title": "Why Use Shadcn Data Grid?",
           "paragraphs": [
             "Admin panels, analytics dashboards, CRM tables, audit logs, and billing history all need a table that scales with data. TanStack Table v9 handles thousands of rows without re-rendering the entire DOM: TanStack Virtual extends that to tens of thousands by only mounting visible rows. Together they let you ship a fast, accessible table without building sort state, filter logic, or pagination from scratch.",
-            "The DnD Kit integration adds drag-and-drop column reordering and row reordering that works with keyboard and pointer devices. Pair with [Shadcn Filters](/docs/components/base/filters) for faceted search, [Shadcn Pagination](/components/pagination) for standalone controls, and [Sonner](/components/toast) for async feedback on CRUD operations."
+            "The DnD Kit integration adds drag-and-drop column reordering and row reordering that works with keyboard and pointer devices. Pair with [Shadcn Filters](/docs/components/base/filters) for faceted search, [Shadcn Pagination](/components/pagination) for standalone controls, and [Sonner](/components/sonner) for async feedback on CRUD operations."
           ]
         },
         {
@@ -5086,6 +5342,127 @@
       ]
     }
   },
+  "marker": {
+    "description": "Shadcn Marker components for agent run logs, tool call rows, and labeled separators. {{count}} free Tailwind CSS examples for React and Next.js, compatible with shadcn/ui.",
+    "intro": "Browse {{count}} production-ready Shadcn Marker components for agent run logs, tool call rows, live run status, and labeled dividers inside a transcript. Shadcn Marker ships in a *Radix UI* build and a *Base UI* build and is fully aligned with Shadcn Create style options, so the radius, fonts, and color tokens in these previews match the code you export.",
+    "keywords": [
+      "shadcn marker",
+      "shadcn/ui marker",
+      "shadcn marker component",
+      "react agent activity log",
+      "ai agent run log component",
+      "react tool call log ui",
+      "react inline status line",
+      "react activity log component",
+      "shadcn separator with label",
+      "react labeled divider component",
+      "tailwind agent status row",
+      "react streaming status text",
+      "next.js agent activity feed",
+      "base ui marker component",
+      "react run log ui component",
+      "shadcn create",
+      "reui marker examples"
+    ],
+    "content": {
+      "title": "Shadcn Marker: Run Logs, Status Rows, and Labeled Separators",
+      "summary": [
+        "Shadcn Marker is a single-line row for small status text. It has 3 parts (Marker for the row, MarkerIcon for the glyph, MarkerContent for the text) and one variant prop that sets the shape. It ships in a *Radix UI* build and a *Base UI* build from the same structure, and Shadcn Create radius, font, and color tokens apply to it like any other primitive.",
+        "On screen it renders muted, small text with a fixed icon column, so a long column of rows stays aligned however much the labels differ in length. The separator variant turns the same row into a divider that carries a label, and the border variant draws a rule under it.",
+        "ReUI shows markers where they actually get used: tool call logs, run status columns with one step still in flight, agent transcripts grouped by phase, and changed-file summaries, next to [Shadcn Badge](/components/badge), [Shadcn Card](/components/card), and [Shadcn Spinner](/components/spinner). The sections below cover what the component is, why teams use it, which features matter, and how it fits into a larger surface."
+      ],
+      "sections": [
+        {
+          "title": "What is Shadcn Marker?",
+          "paragraphs": [
+            "In UI terms, a marker is one line of secondary text with an optional glyph in front of it. Shadcn Marker fixes that structure so you stop rebuilding it in every file: Marker is the flex row, MarkerIcon is the icon slot, and MarkerContent is the text. MarkerIcon is aria-hidden, so the glyph stays decorative and MarkerContent carries the meaning of the row.",
+            "The variant prop takes 3 values. Default is a plain row. Separator draws a hairline rule on both sides of the label, so a divider can read Planning or Verify instead of nothing. Border adds a rule under the row, which turns a short list into ruled lines. The {{count}} components here show all 3, with icons, status badges, a step that is still running, and markers rendered as links and as a button."
+          ]
+        },
+        {
+          "title": "Why Use Shadcn Marker?",
+          "paragraphs": [
+            "Agent consoles, chat threads, and activity feeds are mostly made of these rows, and writing them by hand means re-deciding icon size, text color, and row rhythm in each file until they drift apart. Marker moves those decisions into the style layer. MarkerIcon never shrinks and MarkerContent is min-width zero with word breaking, so a long file path wraps inside the row instead of widening it.",
+            "The same rows are what the paid blocks are assembled from. 14 of the 17 blocks in [AI and Agents](/blocks/ai-agents) import Marker directly, 11 in [AI Chat](/blocks/ai-agents/ai-chat) and 3 in [Agent Activity](/blocks/ai-agents/agent-activity). The examples on this page are the row on its own; those blocks are the screen around it, with approval steps, Summary, Detailed and Raw log views, and a run outcome report."
+          ]
+        },
+        {
+          "title": "Shadcn Marker Features",
+          "featureItems": [
+            {
+              "title": "3 Variants.",
+              "description": "One variant prop switches the row between a plain line, a labeled separator with a rule on each side, and a bordered row with a rule underneath."
+            },
+            {
+              "title": "Decorative Icon Slot.",
+              "description": "MarkerIcon holds an icon or a [Shadcn Spinner](/components/spinner) and is aria-hidden by construction, so a screen reader reads the content text once and never announces the glyph."
+            },
+            {
+              "title": "Per-Style Icon Sizing.",
+              "description": "An icon that carries no size class of its own takes the size the active style defines, so the same markup reads correctly in the compact styles and the roomy ones."
+            },
+            {
+              "title": "Long Text Handling.",
+              "description": "MarkerContent is min-width zero and breaks long words, so a file path, a URL, or a command wraps inside the row rather than pushing it past its container."
+            },
+            {
+              "title": "Polymorphic Root.",
+              "description": "Render the row as an anchor or a button with `render` in the *Base UI* build or `asChild` in the *Radix UI* build. An anchor root picks up an underline and a hover color from the style layer."
+            },
+            {
+              "title": "Shadcn Create Compatible.",
+              "description": "All 8 Shadcn Create styles (Vega, Nova, Maia, Lyra, Mira, Luma, Sera, and Rhea) and the *Radius*, *Font Family*, and *Color Scale* controls apply to marker previews and to the code you export."
+            }
+          ]
+        },
+        {
+          "title": "Shadcn Marker in Chat and Agent Interfaces",
+          "paragraphs": [
+            "In a chat thread, markers are the lines that are not messages: a system note, a tool the assistant just called, a dated divider between sessions. They sit between [Shadcn Message](/components/message) rows and [Shadcn Bubble](/components/bubble) turns without competing with them, because the muted small scale reads as chrome rather than as content. Keep a labeled divider as a plain marker and do not give it role=\"separator\", since a separator takes its name from aria-label and treats its contents as presentational, which would drop the visible label.",
+            "In a run panel, wrap the column in a [Shadcn Card](/components/card), group the phases with separator markers, and put a [Shadcn Spinner](/components/spinner) in the icon slot of the step that is still running, with role=\"status\" on that row. Status color belongs on a [Shadcn Badge](/components/badge) inside the content rather than on the row text, so the row keeps the same muted scale in every style. For a long log, a [Shadcn Scroll Area](/components/scroll-area) bounds the height without changing the rows."
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is a Shadcn Marker used for in real products?",
+          "answer": "Agent run logs, tool call rows, chat system lines, changed-file summaries, and labeled dividers between the phases of a long transcript. Anywhere a screen needs one line of secondary status text with an optional icon, a marker is faster than another flex row with its own spacing rules."
+        },
+        {
+          "question": "What is the difference between Marker and Separator?",
+          "answer": "[Shadcn Separator](/components/separator) draws a rule and holds nothing. The marker separator variant draws the rule on both sides of a visible label, so the divider can name a phase. Leave role=\"separator\" off that marker: a separator is named by aria-label and its contents count as presentational, so the label you can see would not be announced."
+        },
+        {
+          "question": "How do I show a step that is still running?",
+          "answer": "Put a [Shadcn Spinner](/components/spinner) in MarkerIcon and set role=\"status\" on the Marker root. Because the icon slot is aria-hidden, the spinner's own role never reaches the accessibility tree, so the marker row makes the announcement once instead of twice."
+        },
+        {
+          "question": "How do I size the icon inside a marker?",
+          "answer": "Leave it alone. The style layer sizes any icon in the row that has no size class of its own, and the value differs per style. Adding a size class opts that one icon out of the ladder, so it looks right in the style you were previewing and wrong in the rest."
+        },
+        {
+          "question": "Can a marker be a link or a button?",
+          "answer": "Yes. The root is polymorphic: pass `render` in the *Base UI* build or `asChild` in the *Radix UI* build. A marker rendered as an anchor gets an underline and a hover color from the style layer at no cost. A marker rendered as a button does not, so give the button its own hover treatment."
+        },
+        {
+          "question": "When should I use Marker instead of Timeline?",
+          "answer": "Marker is one flat row, so a column of them reads as a log. [Shadcn Timeline](/components/timeline) adds a vertical rail with connectors and is the better fit for dated events, ordered milestones, or anything where the line between items carries meaning. Agent runs usually want markers; audit histories usually want a timeline."
+        },
+        {
+          "question": "How are ReUI Marker components different from a minimal demo?",
+          "answer": "The {{count}} examples here put markers in surfaces that behave like production: a tool call log with real labels, a run card with a failed row and a live one, a transcript grouped by phase, and a changed-file summary with counts. For the assembled version, [AI and Agents](/blocks/ai-agents) in ReUI Pro has 17 blocks built on the same parts."
+        }
+      ]
+    },
+    "relatedComponents": {
+      "title": "Integrating With Other Components",
+      "integrationBody": [
+        "Use markers as the non-message lines of a conversation. Place them between [Shadcn Message](/components/message) rows and [Shadcn Bubble](/components/bubble) turns for system notes and tool calls, add a separator marker as a dated divider between sessions, and keep [Shadcn Attachment](/components/attachment) cards and [Shadcn Message Scroller](/components/message-scroller) behavior around them unchanged.",
+        "In a run panel, wrap markers in a [Shadcn Card](/components/card) and carry state with a [Shadcn Badge](/components/badge) in the content, a [Shadcn Spinner](/components/spinner) in the icon slot, and a [Shadcn Progress](/components/progress) bar above the column. Fold a finished phase into a [Shadcn Collapsible](/components/collapsible), bound a long log with a [Shadcn Scroll Area](/components/scroll-area), and switch to [Shadcn Timeline](/components/timeline) when the run needs a rail rather than a flat list.",
+        "For the assembled screen, ReUI Pro ships 17 [AI and Agents](/blocks/ai-agents) blocks on these same primitives: 12 in [AI Chat](/blocks/ai-agents/ai-chat) and 5 in [Agent Activity](/blocks/ai-agents/agent-activity), covering approval steps, a live run feed with Summary, Detailed and Raw views, a research trace, an MCP call table, and a run outcome report. 14 of them import Marker directly, so the rows on this page are the exact parts those blocks are built from."
+      ]
+    }
+  },
   "menubar": {
     "description": "{{count}} free shadcn menubar components for desktop application menus and hierarchical command organization. Build React menubars with Tailwind CSS styling.",
     "intro": "Browse {{count}} production-ready shadcn menubar components for application menus, desktop navigation, and hierarchical command structure. Shadcn Menubar is compatible with Radix UI and Base UI menu components and is fully aligned with Shadcn Create style options so your previews match your design tokens.",
@@ -5184,6 +5561,261 @@
         "Use Shadcn Kbd inside menubar items to display keyboard shortcuts. Pair with Shadcn Dropdown Menu for checkbox or radio options within menu sections.",
         "Add Shadcn Separator to group related commands visually. Combine with Shadcn Dialog or Shadcn Drawer when a menu item opens a form or settings panel.",
         "Render menu item icons from lucide-react for visual scanning. Use Shadcn Tooltip on menu items to explain less obvious commands. Combine menubars with a main content area and optional Shadcn Sidebar for full app structure."
+      ]
+    }
+  },
+  "message": {
+    "description": "{{count}} free shadcn Message components for chat transcripts, AI assistant replies, and support threads. Side alignment, avatars, sender headers, delivery footers, and grouped runs in React and Tailwind CSS.",
+    "intro": "Browse {{count}} production-ready shadcn Message components for chat transcripts, AI assistant replies, shared files, and streaming answers. Message is the same plain markup in the *Base UI* and *Radix UI* builds and is fully aligned with Shadcn Create style options, so radius, colors, and typography match your design tokens.",
+    "keywords": [
+      "shadcn message",
+      "shadcn/ui message",
+      "react chat message component",
+      "next.js chat ui component",
+      "tailwind css chat message",
+      "chat transcript component react",
+      "ai chat message ui",
+      "ai assistant message component",
+      "streaming chat message react",
+      "chat message avatar layout",
+      "message actions copy regenerate",
+      "chat message attachments react",
+      "grouped chat messages react",
+      "message delivery status ui",
+      "accessible chat message",
+      "shadcn create",
+      "reui message examples"
+    ],
+    "content": {
+      "title": "Shadcn Message: Chat Transcripts, Assistant Replies, and Threads",
+      "summary": [
+        "Shadcn Message is the row of a chat transcript, built from 6 wrappers (MessageGroup, Message, MessageAvatar, MessageContent, MessageHeader, and MessageFooter) that hold the portrait, the message surface, and the small print above and below it. None of them carry state, context, or a provider, so the row renders exactly what you pass it.",
+        "One prop does the work that usually costs a page of layout code. `align` writes a data attribute on the row, the row reverses its direction, and the style sheet pulls the bubble, any attachment, and the footer to the same side. An outgoing message needs no alignment classes of its own.",
+        "ReUI lists {{count}} Message components as real transcripts rather than isolated rows, so you can judge avatar anchoring, metadata alignment, and grouping next to [Shadcn Bubble](/components/bubble), [Shadcn Attachment](/components/attachment), and [Shadcn Marker](/components/marker). The sections below cover what the component is, why teams use it, which features matter, and how it composes into a full chat surface."
+      ],
+      "sections": [
+        {
+          "title": "What is Shadcn Message?",
+          "paragraphs": [
+            "In UI terms, a message is one turn in a conversation: who said it, what they said, and the metadata around it. Shadcn Message splits that into an avatar slot and a content column, with optional header and footer rows inside the column. Every part is a div with a data-slot and no behavior of its own, and the file is identical in the Base UI and Radix builds, so a transcript ports between the two twins without a rewrite.",
+            "The {{count}} components here show a two-sided conversation, avatars that stay level with the last line of a long message, a sender name paired with a read receipt, a copy and regenerate toolbar under an assistant answer, image and document attachments inside a thread, a run of messages stacked under one avatar, and a reply that moves from pending to streaming to settled. They answer the layout questions before you wire a transport: which side a turn sits on, where the timestamp goes, and what 3 messages in a row from one person should look like."
+          ]
+        },
+        {
+          "title": "Why Use Shadcn Message?",
+          "paragraphs": [
+            "Transcript layout is fiddly in ways that surface late. The avatar drifts to the top of a three-line message, the timestamp lands a few pixels off the text above it, the outgoing side grows its own margin rules, and a run of 5 messages from one person repeats the same portrait 5 times. Message keeps those decisions in CSS, keyed off the row, so your code holds content instead of spacing.",
+            "A row is the start of a chat surface, not the end of one. When the thread needs a composer, a scroll container that keeps up with new turns, saved conversations, and streaming controls, the 12 [AI Chat](/blocks/ai-agents/ai-chat) blocks in ReUI Pro assemble that surface, and 9 of them import this same component. Nothing you learn on this page is thrown away when you move up."
+          ]
+        },
+        {
+          "title": "Shadcn Message Features",
+          "featureItems": [
+            {
+              "title": "Side Switching With One Prop.",
+              "description": "Set `align` to 'end' on the row. It writes data-align, reverses the flex direction, and the per-style rule pulls every direct child of MessageContent that carries a data-slot to the end, so the outgoing turn needs no alignment classes."
+            },
+            {
+              "title": "Bottom-Anchored Avatar.",
+              "description": "MessageAvatar aligns to the end of the row, so the portrait stays level with the last line of a multi-line message instead of floating beside the first. It keeps a minimum width from the active style, so an empty one still holds the column open as a spacer."
+            },
+            {
+              "title": "Header and Footer Slots.",
+              "description": "MessageHeader carries the sender name and time, MessageFooter carries delivery state or reply actions. Both render in small muted text and are padded to line up with the message surface above them, and the footer follows whichever side the row is on."
+            },
+            {
+              "title": "Message Grouping.",
+              "description": "MessageGroup stacks consecutive messages from one sender with its own gap, tighter than the gap you set between senders. Render the avatar on the last row of the run and leave MessageAvatar empty on the others so the whole run sits on one spine."
+            },
+            {
+              "title": "Unframed Assistant Rows.",
+              "description": "A ghost [Shadcn Bubble](/components/bubble) drops the frame, the background, and the content padding, and the header and footer drop their matching padding with it. That is the full-width layout most AI answers use, and it sits in the same row component as a framed reply."
+            },
+            {
+              "title": "Composition Over Configuration.",
+              "description": "MessageContent takes whatever you put in it: a bubble, a [Shadcn Attachment](/components/attachment) card, a [Shadcn Marker](/components/marker) status line, or your own renderer. Because the parts are wrappers rather than a widget, a transcript stays yours to restructure."
+            },
+            {
+              "title": "Shadcn Create Compatible.",
+              "description": "All 8 Shadcn Create styles (Nova, Vega, Maia, Lyra, Mira, Luma, Sera, and Rhea) set the row gap, the text size, and the avatar width for Message, so previews and exported code follow the same tokens as the rest of your UI."
+            }
+          ]
+        },
+        {
+          "title": "Composing Message With Bubble, Attachment, and Marker",
+          "paragraphs": [
+            "Message is the frame, and the content comes from its siblings. [Shadcn Bubble](/components/bubble) is the surface the text sits on and ships 7 variants, from a plain default to the unframed ghost used for assistant answers. [Shadcn Attachment](/components/attachment) is a file card with its own border and per-style radius, so a shared image or CSV drops into the content column with no container to hand-roll. [Shadcn Marker](/components/marker) is the one-line status row for a pending answer, usually paired with [Shadcn Spinner](/components/spinner). All of them sit inside MessageContent, and the row aligns them together.",
+            "Around the row, [Shadcn Avatar](/components/avatar) supplies the portrait and a presence badge, [Shadcn Button](/components/button) supplies the copy, regenerate, and rating actions in the footer, and [Shadcn Message Scroller](/components/message-scroller) supplies the scrolling viewport with a jump-to-latest control for threads longer than the screen. A [Shadcn Textarea](/components/textarea) composer below the list completes the surface."
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is a Shadcn Message used for in real products?",
+          "answer": "Chat transcripts, AI assistant replies, support inboxes, comment threads, and agent run logs. Anywhere a list of turns needs a consistent layout for the author, the text, the timestamp, and the actions, the row component is faster than writing the flex rules again per surface."
+        },
+        {
+          "question": "How do I put an outgoing message on the other side?",
+          "answer": "Set `align` to 'end' on the Message row. That writes a data attribute, reverses the row so the avatar trails the text, and the style sheet pulls the bubble, the attachments, and the footer to the end. Do not add margin or text alignment classes to compensate, since the row already handles it."
+        },
+        {
+          "question": "What is the difference between Message and Bubble?",
+          "answer": "Message is the row: the avatar slot, the content column, and the header and footer around the text. [Shadcn Bubble](/components/bubble) is the surface the text sits on, with variants for default, secondary, muted, tinted, outline, ghost, and destructive. A bubble works on its own, but the side switching, the avatar anchoring, and the metadata alignment live in Message."
+        },
+        {
+          "question": "How do I stack a run of messages under one avatar?",
+          "answer": "Wrap the run in MessageGroup, which applies its own tighter gap. Render the real avatar on the last row only and leave MessageAvatar empty on the rows above it, so they keep the same left offset without repeating the portrait. Put the sender name in MessageHeader on the first row of the run."
+        },
+        {
+          "question": "How do I show a streaming or pending assistant reply?",
+          "answer": "The component holds no state, so the sequence is yours. Keep MessageContent mounted and swap its child: a [Shadcn Marker](/components/marker) with a spinner and role='status' while the request is in flight, then a ghost bubble with aria-busy while the text arrives, then the footer when it settles. One of the components on this page does exactly that and reveals the full answer at once under prefers-reduced-motion."
+        },
+        {
+          "question": "Can I put files and images inside a message?",
+          "answer": "Yes. An [Shadcn Attachment](/components/attachment) card is a direct child of MessageContent, so the row aligns it exactly as it aligns the bubble, and it can sit above or below the text in the same turn. The card brings its own border, radius, and media slot, in both a horizontal document layout and a vertical thumbnail layout."
+        },
+        {
+          "question": "Is Shadcn Message accessible out of the box?",
+          "answer": "The parts render plain divs with no roles and no live regions, which is deliberate: a transcript that announces every chunk is unreadable with a screen reader. The semantics are your job. Put role='status' on a pending row, aria-busy on text that is still arriving, an aria-label on icon-only footer buttons, and a text label behind any presence dot that is otherwise conveyed by color."
+        }
+      ]
+    },
+    "relatedComponents": {
+      "title": "Integrating With Other Components",
+      "integrationBody": [
+        "Pair Message with [Shadcn Bubble](/components/bubble) for the message surface and [Shadcn Avatar](/components/avatar) for identity and presence. Put [Shadcn Button](/components/button) actions in MessageFooter for copy, regenerate, and rating, and give each icon-only button a label so 4 identical glyphs in a thread stay distinguishable.",
+        "Add [Shadcn Attachment](/components/attachment) for files shared in a turn, [Shadcn Marker](/components/marker) with [Shadcn Spinner](/components/spinner) for a pending row, and [Shadcn Message Scroller](/components/message-scroller) around the list so a long thread stays pinned to the newest turn. A [Shadcn Textarea](/components/textarea) composer and a [Shadcn Dropdown Menu](/components/dropdown-menu) for per-message actions finish the surface, and [Shadcn Skeleton](/components/skeleton) covers the first load before any turn exists.",
+        "When the thread needs the product around it, the 12 [AI Chat](/blocks/ai-agents/ai-chat) blocks in ReUI Pro are the assembled version of this page: 9 of them import this same component, in 10 files, and add the composer, the conversation rail, citations, tool traces, and streaming controls on top. Start with the free components here, then move up when the transcript becomes an app."
+      ]
+    }
+  },
+  "message-scroller": {
+    "description": "{{count}} free shadcn message scroller components for chat transcripts: stick-to-bottom streaming, anchored turns, and older messages that load without losing the reader's place. React, Next.js and Tailwind CSS.",
+    "intro": "Browse {{count}} production-ready shadcn message scroller components for AI chat transcripts, streaming replies, anchored turns, jump-to-latest controls, and history that prepends above the reader. The scroll container is headless underneath and composes with Message, Bubble, Card and Input Group, so the transcript matches your Shadcn Create tokens without a chat framework.",
+    "keywords": [
+      "shadcn message scroller",
+      "react chat scroll to bottom",
+      "stick to bottom react",
+      "auto scroll chat messages react",
+      "scroll to bottom on new message react",
+      "react streaming chat autoscroll",
+      "jump to latest message button react",
+      "react chat load older messages keep scroll position",
+      "preserve scroll position on prepend react",
+      "chat transcript component react",
+      "react chat ui scroll behavior",
+      "ai chat scroll anchor react",
+      "shadcn ai chat components",
+      "tailwind chat scroll container",
+      "next.js chat scroll to bottom",
+      "react message list scroll container",
+      "shadcn chat message component",
+      "reui message scroller examples"
+    ],
+    "searchAliases": [
+      "stick to bottom",
+      "scroll to bottom"
+    ],
+    "content": {
+      "title": "Shadcn Message Scroller: Streaming, Anchored Turns and Prepended History",
+      "summary": [
+        "Shadcn Message Scroller is the scroll container under a chat transcript. It owns the 4 things that go wrong when the scrolling is written by hand: opening at the newest message, following a reply while tokens arrive, letting go the instant the reader scrolls up, and holding the reader's place when older turns mount above them.",
+        "The {{count}} components here take those one at a time. A transcript that opens at the live edge with a jump-to-latest control. A reply that streams and follows the bottom until the reader intervenes. A sent message anchored near the top with a peek of the turn before it. The 3 opening positions compared side by side. Older messages prepended with no jump. A footer navigator that steps between turns from outside the scroll area.",
+        "It is composed, not configured. A headless provider holds the scroll state, the viewport is the element that scrolls, the content region is the log, each row is an item, and the button is the jump control. Rows are yours: pair them with [Shadcn Message](/components/message) for layout, [Shadcn Bubble](/components/bubble) for the body, and [Shadcn Marker](/components/marker) for day separators and system notes."
+      ],
+      "sections": [
+        {
+          "title": "What is Shadcn Message Scroller?",
+          "paragraphs": [
+            "A message scroller is a bounded scroll region for a list that grows at the bottom. Shadcn Message Scroller splits that into 6 parts: MessageScrollerProvider holds the state and renders no DOM, MessageScroller is the positioning root, MessageScrollerViewport is the element that actually scrolls, MessageScrollerContent is the log, MessageScrollerItem is a row, and MessageScrollerButton is the jump control. The button is a sibling of the viewport rather than a child of it, because the root is what positions it.",
+            "The accessible defaults are already wired. The viewport ships a region role, an aria-label of 'Messages' and tabIndex 0, so the transcript is reachable and scrollable from the keyboard with no prop of your own. The content region is a log with aria-relevant set to additions, so assistive technology announces the new turn instead of re-reading the thread. Rows carry content-visibility auto, so a long transcript only pays layout for what is near the viewport."
+          ]
+        },
+        {
+          "title": "Why Use Shadcn Message Scroller?",
+          "paragraphs": [
+            "Hand-rolled chat scrolling fails in a predictable order. An effect that calls scrollIntoView on every token fights the reader who scrolled up to re-read something. An at-the-bottom check that tests for exact zero never fires on a fractional device pixel. Loading older messages resets the scroll offset and throws the reader to the top of the thread. This component answers each one: autoScroll follows the live edge only while the reader is already there, scrollEdgeThreshold gives at-the-bottom an 8 pixel tolerance, and preserveScrollOnPrepend restores the reader's row after older turns mount above it.",
+            "These {{count}} components stop at the transcript, which is where the paid work starts. The composer with context chips, a stop control while the model is still typing, citations, branching threads, and the assistant panel docked beside a page all live in the [ReUI Pro AI Chat blocks](/blocks/ai-agents/ai-chat), 12 assembled screens built on this exact component. 11 of those 12 import the same shadcn MessageScroller you install from this page, so what you evaluate for free here is the foundation they sit on."
+          ]
+        },
+        {
+          "title": "Shadcn Message Scroller Features",
+          "featureItems": [
+            {
+              "title": "Follow the Live Edge.",
+              "description": "autoScroll pins the viewport to the newest message while a reply streams, and releases the moment the reader scrolls, spins the wheel, drags on touch, or presses ArrowUp, ArrowDown, PageUp, PageDown, Home, End or Space. The jump-to-latest button re-engages it."
+            },
+            {
+              "title": "3 Opening Positions.",
+              "description": "defaultScrollPosition takes 'start', 'end' (the default) or 'last-anchor'. The last option opens a reopened thread at the top of the final exchange rather than at its last line, which is what makes a saved conversation readable again."
+            },
+            {
+              "title": "Anchored Turns.",
+              "description": "scrollAnchor on a row lifts it near the top when it arrives, and scrollPreviousItemPeek (64 pixels by default) keeps a slice of the previous turn on screen so the thread reads as continuous instead of restarted."
+            },
+            {
+              "title": "Prepend Without a Jump.",
+              "description": "preserveScrollOnPrepend is on by default. When older messages mount above the reader, the row they were reading stays where it was. Give rows a stable messageId so the restore has a specific row to hold."
+            },
+            {
+              "title": "A Jump Control That Goes Inert.",
+              "description": "MessageScrollerButton takes a direction of 'start' or 'end' and smooth or instant behavior. With nothing to scroll toward it drops to tabIndex -1 and reports itself inactive, so it fades out and leaves no empty keyboard stop behind. It renders through a [Shadcn Button](/components/button), so variant and size are yours."
+            },
+            {
+              "title": "Hooks for Controls Outside the Frame.",
+              "description": "useMessageScroller returns scrollToEnd, scrollToStart and scrollToMessage. useMessageScrollerScrollable reports whether more thread exists in either direction. useMessageScrollerVisibility reports the current anchor and the visible message ids, and only tracks while something subscribes to it."
+            },
+            {
+              "title": "Shadcn Create Compatible.",
+              "description": "All 8 Shadcn Create styles (Vega, Nova, Maia, Lyra, Mira, Luma, Sera and Rhea) and the *Radius*, *Font Family* and *Color Scale* controls apply to these previews and to the code you export, so the transcript matches the rest of your app."
+            }
+          ]
+        },
+        {
+          "title": "Composing the Transcript Around It",
+          "paragraphs": [
+            "The scroller owns scrolling and nothing else, so the row is yours to build. [Shadcn Message](/components/message) places an avatar beside the body and flips the side for the reader's own turns, [Shadcn Bubble](/components/bubble) styles the body, [Shadcn Avatar](/components/avatar) fills the media slot, and [Shadcn Marker](/components/marker) handles day separators, system notes and handoff rows. Wrap the whole thing in a [Shadcn Card](/components/card): the root fills its parent, so the parent is what gives it a height to scroll inside.",
+            "The chrome around the transcript is ordinary shadcn too. A composer is a [Shadcn Input Group](/components/input-group) in the card footer. A working or answered state is a [Shadcn Badge](/docs/components/base/badge) in the header, with a [Shadcn Spinner](/components/spinner) while a reply is in flight. Code inside an answer is a [Shadcn Code Block](/docs/components/base/code-block), which brings its own stick-to-bottom handling for source that is still streaming. None of it assumes a chat SDK."
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How do I stop the transcript from scrolling while someone is reading?",
+          "answer": "Pass autoScroll and let it release itself. Following the live edge stops on any sign of reader intent: a scroll, a wheel tick, a touch drag, or ArrowUp, ArrowDown, PageUp, PageDown, Home, End or Space. It resumes when the reader returns to the bottom or presses the jump-to-latest button. There is no flag of yours to manage."
+        },
+        {
+          "question": "Why is the transcript invisible for one frame on first paint?",
+          "answer": "That is deliberate. The root reports a pending scroll until the opening position has been applied, and the viewport stays invisible for that frame. The trade is a blank frame instead of watching the view jump from the top of the thread to the bottom. It resolves on the first paint after mount."
+        },
+        {
+          "question": "How do I load older messages without throwing the reader to the top?",
+          "answer": "preserveScrollOnPrepend is already on, so mounting older rows above the reader keeps their row in place. One placement rule matters: put the load control outside the content list, in the card header for example. The viewport recognises a prepend by the row that used to be first moving down the list, so a permanent 'Load earlier' row rendered as the first child never moves and the restore never runs."
+        },
+        {
+          "question": "What does the last-anchor opening position do?",
+          "answer": "It opens the thread at the top of the last anchored turn rather than at the very bottom, so someone reopening a conversation lands on the question and reads down into the answer. It keys on rows marked with scrollAnchor, not on who sent them, and falls back to the end when there is no anchor to use."
+        },
+        {
+          "question": "Can I drive the scroll from a control outside the transcript?",
+          "answer": "Yes, and that is the reason the provider is separate from the scroll frame. Put the provider around the whole card and any header chip or footer navigator can call useMessageScroller to run scrollToEnd, scrollToStart or scrollToMessage, read useMessageScrollerScrollable for whether more thread exists either way, or read useMessageScrollerVisibility for the turn being read. The hooks only work inside the provider."
+        },
+        {
+          "question": "Is it accessible to keyboard and screen reader users?",
+          "answer": "The defaults cover the structural part: the viewport is a focusable region with an aria-label you should replace with something specific, the content is a log that announces additions, and the jump button carries an sr-only label and stops being a focus stop when it is inactive. You still own the rest. Set aria-busy on the content while a reply streams and announce the in-flight state from a separate live region, or the log narrates every token."
+        },
+        {
+          "question": "Does it lock me into a chat SDK or a framework?",
+          "answer": "No. The behavior comes from the framework-neutral `@shadcn/react` package, the parts render plain elements, and the component never touches your data. Rows come from whatever state you already have, streaming or not. Installing it through the shadcn CLI pulls the package and the [Shadcn Button](/components/button) it renders the jump control with, and nothing else."
+        }
+      ]
+    },
+    "relatedComponents": {
+      "title": "Integrating With Other Components",
+      "integrationBody": [
+        "Build the row from [Shadcn Message](/components/message) for the avatar and side, [Shadcn Bubble](/components/bubble) for the body, and [Shadcn Avatar](/components/avatar) in the media slot. Use [Shadcn Marker](/components/marker) for day separators, system notes and handoff rows, and mark only the turn-starting rows with scrollAnchor so anchoring and the last-anchor opening position have something to aim at.",
+        "Give the scroller a height with a [Shadcn Card](/components/card), then fill the chrome around it: a [Shadcn Input Group](/components/input-group) composer in the footer, a [Shadcn Badge](/docs/components/base/badge) and a [Shadcn Spinner](/components/spinner) for reply state in the header, [Shadcn Tabs](/components/tabs) when one panel holds several threads, and a [Shadcn Code Block](/docs/components/base/code-block) for source inside an answer.",
+        "When the transcript is done and the product around it is not, the [ReUI Pro AI Chat blocks](/blocks/ai-agents/ai-chat) are 12 assembled screens on this same component, 11 of them importing the shadcn MessageScroller from this page: copilot shells, docked and floating panels, welcome screens, branching threads and grounded answers with citations. Next to them sit 5 [Agent Activity](/blocks/ai-agents/agent-activity) blocks for the operator view of a run and 10 [Agents](/blocks/solutions/agents) dashboards, which lay their feeds out themselves rather than through this scroller."
       ]
     }
   },
@@ -5939,6 +6571,136 @@
         "Pair progress with Shadcn Spinner when you want to show both indeterminate motion (early stages) and a deterministic percentage (later stages). Combine with Shadcn Button for cancel or pause actions that users can trigger if the operation takes too long.",
         "Show progress inside a Shadcn Card or modal for prominent uploads. Add a Shadcn Field label above the bar ('Uploading file.pdf...') and helper text below ('3 of 5 files done, 45 seconds remaining').",
         "When the operation completes, replace the progress bar with a Shadcn Alert showing success or failure. Use Shadcn Badge to mark completed tasks in a list, and Shadcn Skeleton to preview final content while previous uploads are finishing."
+      ]
+    }
+  },
+  "questionnaire": {
+    "description": "Free shadcn questionnaire components for onboarding surveys, multi-step question flows, and guided feedback. {{count}} React and Next.js examples styled with Tailwind CSS.",
+    "intro": "Browse {{count}} production-ready shadcn questionnaire components for onboarding surveys, intake forms, feedback flows, and guided setup. Questionnaire renders a real form and shows one question at a time, ships for both the *Base UI* and *Radix UI* variants, and follows Shadcn Create style options so previews match your design tokens.",
+    "keywords": [
+      "shadcn questionnaire",
+      "shadcn/ui questionnaire",
+      "react questionnaire component",
+      "react survey component",
+      "multi step form react",
+      "shadcn multi step form",
+      "react onboarding survey",
+      "survey form tailwind",
+      "next.js survey form",
+      "react form with progress bar",
+      "one question at a time form",
+      "conditional logic survey react",
+      "survey skip logic react",
+      "react multi select survey question",
+      "accessible survey form react",
+      "shadcn onboarding flow",
+      "react feedback form component",
+      "reui questionnaire examples"
+    ],
+    "searchAliases": [
+      "survey",
+      "survey form"
+    ],
+    "content": {
+      "title": "Shadcn Questionnaire: One Question at a Time, in a Real Form",
+      "summary": [
+        "Shadcn Questionnaire is a multi-step question flow built on the headless questionnaire engine in `@shadcn/react`. The root is a real form element, each question is a fieldset, and every answer is a native radio, checkbox, or text input, so submitted answers arrive as ordinary FormData with no extra state library.",
+        "Only the active question is on screen: the others carry `hidden` and `inert`, which keeps them out of the tab order and out of the accessibility tree. Progress, navigation buttons, skip, and the error message all read from the same engine, so a flow stays consistent when you add or reorder questions.",
+        "ReUI lists questionnaire components inside cards, branching flows, and custom progress treatments so you can judge step height, choice density, and how the flow pairs with [Shadcn Card](/components/card), [Shadcn Button](/components/button), and [Shadcn Label](/components/label). The sections below cover what the component is, why teams use it, its features, and how it fits the rest of your form stack."
+      ],
+      "sections": [
+        {
+          "title": "What is Shadcn Questionnaire?",
+          "paragraphs": [
+            "A questionnaire is a sequence of questions answered one screen at a time, with progress, back and next navigation, and a submit at the end. Shadcn Questionnaire supplies that sequence: Questionnaire is the form, QuestionnaireItem is a question, QuestionnaireChoices holds the answers, and QuestionnaireProgress, QuestionnairePrevious, QuestionnaireSkip, QuestionnaireNext, and QuestionnaireSubmit are the chrome around them. Navigation buttons hide themselves when they do not apply, so Previous is absent on the first question and Submit appears only on the last.",
+            "Components here show a guided setup in a card, a multi-answer question, a typed answer sitting beside fixed choices, a segmented progress bar, an optional question with skip, a cross-question rule that sends the visitor back, and a branch that only joins the flow after a matching answer. They are meant to answer whether your product needs a short intake, a long onboarding survey, or a wizard with rules, before you commit to a shape."
+          ]
+        },
+        {
+          "title": "Why Use Shadcn Questionnaire?",
+          "paragraphs": [
+            "Hand-rolled question flows usually break in the same places: the back button loses an answer, an optional question cannot be told apart from an unanswered one, and the progress count drifts once a step becomes conditional. This component keeps that bookkeeping in one place. Each question reports a status of unanswered, answered, or skipped, submit fires only once every enabled question is satisfied, and a question marked `disabled` drops out of both the flow and the progress count.",
+            "When the flow is the whole page rather than one component, ReUI Pro picks it up: the 9 [Onboarding](/blocks/application/onboarding) blocks are the same one-question-per-step idea finished, with 6-step and 8-step wizards, stepper sidebars, avatar upload, timezone pickers, invite steps, and a success screen. The 12 [AI Chat](/blocks/ai-agents/ai-chat) blocks include 2 that already compose this component inside a conversation, so the free examples and the paid blocks run on the same API."
+          ]
+        },
+        {
+          "title": "Shadcn Questionnaire Features",
+          "featureItems": [
+            {
+              "title": "Native Form Submission.",
+              "description": "The root is a form and every answer is a real input, so you read results with FormData in onSubmit. Native validation is off by default, and you can pass noValidate={false} to switch it back on."
+            },
+            {
+              "title": "Single or Multi-Answer Questions.",
+              "description": "Choices render as radios by default. Add `multiple` to a question and the same markup renders checkboxes, with every selected value carried in the submitted data."
+            },
+            {
+              "title": "Skip and Status Tracking.",
+              "description": "Skip renders only while the active question is not required, and onStatusChange reports unanswered, answered, or skipped, so a declined question is never confused with one that was never reached."
+            },
+            {
+              "title": "Progress You Can Redraw.",
+              "description": "QuestionnaireProgress prints the current position, for example \"Question 2 of 5\", and ships role=\"progressbar\" with aria-valuenow. Its render prop hands you current, first, last, and total, so a segmented bar or a named step keeps the same accessible semantics."
+            },
+            {
+              "title": "Typed Answers Beside Fixed Choices.",
+              "description": "QuestionnaireInput adds an \"other, please specify\" field to a question. The engine attaches the name to whichever control holds the answer, so typing clears the selected choice and only one value per question is submitted. Pair it with [Shadcn Label](/components/label) for an accessible name."
+            },
+            {
+              "title": "Keyboard and Shortcuts.",
+              "description": "Arrow keys move between answers and between questions, Cmd or Ctrl plus Enter advances or submits, and `shortcuts` set to letters or numbers puts a single-key badge on each choice. Shortcuts are suppressed while focus is in a text field."
+            },
+            {
+              "title": "Shadcn Create Compatible.",
+              "description": "All 8 Shadcn Create themes (Vega, Nova, Maia, Lyra, Mira, Luma, Sera, and Rhea) style the choice rows, indicators, inputs, and error text, so radius, color scale, and font family carry into previews and exported code."
+            }
+          ]
+        },
+        {
+          "title": "Wiring Questionnaire Into Your Form Stack",
+          "paragraphs": [
+            "Because the root is a form, the parts you already use still apply. Wrap a question in [Shadcn Card](/components/card) and pass the card title through the QuestionnaireTitle render prop so the legend keeps its semantics. Put [Shadcn Label](/components/label) above a typed answer, and end the flow with [Shadcn Empty](/components/empty) or a summary card rather than a toast, which is easy to miss on a long form.",
+            "For rules that no single question can decide, keep the flow controlled: pass item and onItemChange, run the check in onSubmit, then mark the offending question invalid, supply your own QuestionnaireError copy, and move the flow back to it. For a question that only applies sometimes, toggle `disabled` on an item that sits after the answer controlling it, and it rejoins the flow and the progress count when it becomes relevant."
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is a Shadcn Questionnaire used for in real products?",
+          "answer": "First-run onboarding, account setup, migration intake, NPS and feedback prompts, lead qualification, and support triage. Anywhere a long form would be abandoned, asking one question per screen with visible progress keeps completion rates higher and keeps each answer in context."
+        },
+        {
+          "question": "How is this different from a Radio Group inside a Stepper?",
+          "answer": "[Shadcn Radio Group](/components/radio-group) is one control and [Shadcn Stepper](/docs/components/base/stepper) is a progress indicator, so you still own the flow: which question is active, when Next is allowed, what a skip means, and how answers are collected. Questionnaire owns that layer and leaves the presentation to you. Use Stepper when the steps are whole screens of mixed inputs, and Questionnaire when each step is a single question."
+        },
+        {
+          "question": "How do I read the answers when the flow is submitted?",
+          "answer": "In onSubmit, call new FormData(event.currentTarget). Each question submits under its name, so get returns a single-choice answer and getAll returns every checked value on a question marked `multiple`. Submit only fires once every enabled question is answered or skipped, so you are not handling half-filled data."
+        },
+        {
+          "question": "Can a question accept several answers at once?",
+          "answer": "Yes. Add `multiple` to QuestionnaireItem. The choice markup does not change: the engine swaps the hidden radios for checkboxes and the indicator switches from a dot to a check mark on its own."
+        },
+        {
+          "question": "What happens when a question is optional?",
+          "answer": "Leave required off and a Skip button appears while that question is active. Skipping records a status of skipped rather than an empty answer, which is the distinction that matters when you report on the results later. An optional question that is neither answered nor skipped still blocks Next, so nobody falls through a question by accident."
+        },
+        {
+          "question": "Can I show a question only when an earlier answer calls for it?",
+          "answer": "Yes. Mark the item `disabled` while it does not apply and it leaves the flow and the progress count, then rejoins when it does. Keep the conditional question after the one that controls it: disabling the question currently on screen sends the visitor back to the first enabled question."
+        },
+        {
+          "question": "Is Shadcn Questionnaire keyboard and screen-reader accessible?",
+          "answer": "Each question is a fieldset with its title as the legend and its description wired into aria-describedby, the progress region carries role=\"progressbar\" with aria-valuenow, and the error takes role=\"alert\" once a question is invalid. Inactive questions are hidden and inert, so they stay out of the tab order. You still own copy quality, focus-visible styles, and a test pass with real assistive technology."
+        }
+      ]
+    },
+    "relatedComponents": {
+      "title": "Integrating With Other Components",
+      "integrationBody": [
+        "Wrap the flow in [Shadcn Card](/components/card) with progress in the header and [Shadcn Button](/components/button) actions in the footer, which is the shape most onboarding surfaces take. Use [Shadcn Label](/components/label) with a typed answer, [Shadcn Avatar](/components/avatar) inside a choice when the question is about people, and [Shadcn Badge](/docs/components/base/badge) beside the progress line for a live count or an optional-question state.",
+        "Questionnaire covers questions with fixed answers. When a step needs a date, a file, or a long free-text reply, switch to [Shadcn Field](/components/field) with [Shadcn Input](/components/input), [Shadcn Textarea](/components/textarea), or [Shadcn File Upload](/docs/components/base/file-upload), and finish the flow with [Shadcn Empty](/components/empty) as a success state. [Shadcn Stepper](/docs/components/base/stepper) is the better fit when a single step holds several inputs at once.",
+        "For the full screen rather than the component, ReUI Pro has the assembled versions: 9 [Onboarding](/blocks/application/onboarding) blocks with multi-step setup, invites, and success states, 7 [Wizard](/blocks/application/wizard) blocks for transactional flows such as billing and procurement, and 12 [Form](/blocks/application/form) blocks for the screens a questionnaire hands off to. They are built on the same primitives, so what you learn here carries straight over."
       ]
     }
   },
@@ -6836,6 +7598,132 @@
         "Use Sheet for mobile navigation driven by a [Shadcn Button](/components/button) menu icon in the header. Place a [Shadcn Navigation Menu](/components/navigation-menu) or custom link list inside the sheet so tap targets are large and touch-friendly.",
         "Pair Sheet with [Shadcn Input](/components/input) and [Shadcn Field](/components/field) for filter panels or search overlays. Add a [Shadcn Button](/components/button) to apply filters or close the sheet when done editing.",
         "Combine Sheet with [Shadcn Scroll Area](/components/scroll-area) when content overflows. Use [Shadcn Badge](/docs/components/base/badge) or [Shadcn Tag](/components/tag) inside the sheet to show active filters or selections. For mobile, use [Shadcn Drawer](/components/drawer) for swipe-dismiss gestures."
+      ]
+    }
+  },
+  "sidebar": {
+    "description": "{{count}} shadcn sidebar components for app shells, dashboard navigation, and collapsible side menus. Free React and Tailwind CSS layouts built on the shadcn Sidebar primitive.",
+    "intro": "Browse {{count}} production-ready shadcn sidebar components for dashboard navigation, documentation trees, project switchers, and right-hand inspector panels. Sidebar is compatible with *Radix UI* and *Base UI* composition and is fully aligned with Shadcn Create style options so radius, colors, and typography match your design tokens.",
+    "keywords": [
+      "shadcn sidebar",
+      "shadcn/ui sidebar",
+      "shadcn sidebar component",
+      "react sidebar component",
+      "sidebar layout",
+      "sidebar menu",
+      "sidenav",
+      "collapsible sidebar react",
+      "icon rail sidebar",
+      "tailwind sidebar",
+      "next.js dashboard sidebar",
+      "app shell sidebar",
+      "sidebar with submenu",
+      "responsive sidebar navigation",
+      "sidebar navigation react",
+      "dashboard side navigation",
+      "shadcn create",
+      "reui sidebar examples"
+    ],
+    "content": {
+      "title": "Shadcn Sidebar: App Shell Navigation, Icon Rails, and Sub-Menus",
+      "summary": [
+        "Shadcn Sidebar is not one component but 23 parts and a `useSidebar` hook: a provider that owns the open state, the sidebar shell itself, header, content and footer regions, groups, menus, sub-menus, count badges, row actions, an edge rail, and an inset region for the page beside it. It follows *Radix UI* composition, works the same way under *Base UI*, and takes every spacing and radius value from the active Shadcn Create style.",
+        "The provider holds a single open boolean, and that boolean decides the layout. The sidebar sits at 16rem, narrows to a 3rem icon rail, slides off canvas, or below 768px reopens as a [Shadcn Sheet](/components/sheet) at 18rem. The provider also writes a `sidebar_state` cookie on every toggle and registers cmd/ctrl+B on the window, so the state is recoverable on the server and reachable from the keyboard.",
+        "ReUI shows sidebars inside working screens rather than on their own, so you can judge nav density, active states, and how the column pairs with a [Shadcn Breadcrumb](/components/breadcrumb) header, a [Shadcn Avatar](/components/avatar) identity row, and a [Shadcn Dropdown Menu](/components/dropdown-menu) account menu. The sections below cover what the component is, why teams use it, which parts matter, and how to wire it into a Next.js layout."
+      ],
+      "sections": [
+        {
+          "title": "What is Shadcn Sidebar?",
+          "paragraphs": [
+            "A sidebar is the persistent navigation column an app is built around: a product or workspace switcher at the top, grouped links in the middle, an account menu at the bottom, and page content beside it. Shadcn Sidebar supplies all 4 regions as named parts, so the shell is composition instead of flex boilerplate rewritten per project. `SidebarProvider` wraps the screen, `Sidebar` holds the nav, and `SidebarInset` is the `main` element your routes render into.",
+            "The components here show the full anatomy on a single screen, a version that narrows to an icon rail with tooltips, a documentation sidebar with collapsible groups and sub-menus, a right-hand inspector panel, and a searchable project list with loading skeletons. Between them they answer the questions that actually decide a shell: how many nav levels you need, where counts and row actions go, and what the surface does while data is still in flight."
+          ]
+        },
+        {
+          "title": "Why Use Shadcn Sidebar?",
+          "paragraphs": [
+            "Hand-rolled sidebars fail in the same places every time: the collapsed width, the mobile fallback, the active trail through nested links, and focus order once rows grow their own action menus. Sidebar has a decision for each one. Menu rows take `isActive`, actions and count badges sit as siblings of the row button so both stay clickable, and the `tooltip` prop on a menu button only shows once the sidebar is collapsed, which is the only moment the label is missing.",
+            "The free components stop at a single screen, because a shell is only worth judging next to real content. That is where ReUI Pro continues: all 21 [App Shell blocks](/blocks/application/app-shell) are this primitive assembled into finished layouts, with 139 files across them importing Sidebar directly. They cover the branches a single preview cannot show at once, including the icon rail, the floating and inset variants, nav that runs 2 levels deep, command-K search, and the mobile sheet."
+          ]
+        },
+        {
+          "title": "Shadcn Sidebar Features",
+          "featureItems": [
+            {
+              "title": "Provider-Owned State.",
+              "description": "`SidebarProvider` holds a single open boolean and exposes it through `useSidebar` as `state`, `open`, `setOpen`, `isMobile`, and `toggleSidebar`. Pass `defaultOpen` for uncontrolled use, or `open` and `onOpenChange` when the state belongs to your own store."
+            },
+            {
+              "title": "3 Collapse Modes.",
+              "description": "`collapsible` takes offcanvas, icon, or none. Expanded is 16rem and the icon rail is 3rem, both set as CSS variables on the wrapper, so a different width is one `--sidebar-width` override away."
+            },
+            {
+              "title": "Mobile Sheet Below 768px.",
+              "description": "Unless `collapsible` is none, the same markup re-renders inside a [Shadcn Sheet](/components/sheet) at 18rem under 768px, with its own open state that `SidebarTrigger` toggles. You author the nav once and the phone layout follows."
+            },
+            {
+              "title": "Menu Rows With Actions and Badges.",
+              "description": "`SidebarMenuButton` carries `isActive`, an outline variant, and 3 sizes. `SidebarMenuAction` adds a trailing control that can stay hidden until hover, and `SidebarMenuBadge` holds a count that hides itself once the sidebar collapses to icons."
+            },
+            {
+              "title": "Nested Sub-Menus.",
+              "description": "`SidebarMenuSub` renders a second level of links, anchors by default and in 2 sizes, indented under the parent row. Pair it with [Shadcn Collapsible](/components/collapsible) for sections that open and close with the active trail."
+            },
+            {
+              "title": "Collapsed Tooltips and Loading Rows.",
+              "description": "The `tooltip` prop renders a [Shadcn Tooltip](/components/tooltip) that stays hidden until the sidebar is collapsed on a desktop width. `SidebarMenuSkeleton` builds on [Shadcn Skeleton](/components/skeleton) to give the menu a loading row, with an optional icon block, so nav that waits on data does not jump."
+            },
+            {
+              "title": "Shadcn Create Compatible.",
+              "description": "Sidebar spacing, radius, and control heights come from the active style, so all 8 Shadcn Create styles (Vega, Nova, Maia, Lyra, Mira, Luma, Sera, and Rhea) and the *Radius*, *Font Family*, and *Color Scale* controls apply to previews and exported code alike."
+            }
+          ]
+        },
+        {
+          "title": "Wiring Sidebar Into a Next.js Layout",
+          "paragraphs": [
+            "Put `SidebarProvider` in the layout that owns the shell rather than in a page, so the open state survives navigation. Render `Sidebar` and `SidebarInset` as siblings: the inset is a `main` element that takes the remaining width, and a [Shadcn Breadcrumb](/components/breadcrumb) next to `SidebarTrigger` in its header row gives every route a way back out.",
+            "For the first paint, read the `sidebar_state` cookie the provider writes and pass it to `defaultOpen` from your server layout. The provider writes that cookie but never reads it back, so without this step a collapsed sidebar snaps open after hydration. Mark the current route with `isActive`, and use the composition prop (`render` under *Base UI*, `asChild` under *Radix UI*) to make each row a real link so prefetching and middle-click keep working."
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "What is the difference between Shadcn Sidebar and Shadcn Sheet?",
+          "answer": "Sidebar is a layout: it reserves width in the page and content sits beside it. [Shadcn Sheet](/components/sheet) is an overlay that covers the page and traps focus. You rarely have to choose, because Sidebar already falls back to a Sheet below 768px unless `collapsible` is set to none."
+        },
+        {
+          "question": "How do I make the sidebar collapse to icons?",
+          "answer": "Set `collapsible` to icon on `Sidebar`. At that width the shell drops to the 3rem `--sidebar-width-icon` value, sub-menus and count badges hide themselves, and a `tooltip` on each menu button carries the label the icon no longer shows. Add `SidebarRail` if you want the thin strip along the edge to toggle it as well."
+        },
+        {
+          "question": "How do I keep the sidebar open or closed between visits?",
+          "answer": "The provider writes a `sidebar_state` cookie with a 7 day life on every toggle, but it does not read that cookie back for you. Read it in your server layout and pass the value to `defaultOpen` so the server renders the state the visitor left. Use `open` and `onOpenChange` instead when the state lives in your own store."
+        },
+        {
+          "question": "What happens to the sidebar on mobile?",
+          "answer": "Under 768px the sidebar renders inside a [Shadcn Sheet](/components/sheet) at 18rem with its own open state, and `SidebarTrigger` toggles that instead of the desktop one. `collapsible` set to none is the exception: it is a plain column at every width. The components on this page are split between the two so you can see both. 3 of them run `collapsible` none and stay a fixed panel; 2 run the icon rail and the off-canvas branches, and their `SidebarInset` header keeps a trigger so the sheet is reachable when the layout is narrow enough to use it."
+        },
+        {
+          "question": "How do I show which page is active?",
+          "answer": "Pass `isActive` to `SidebarMenuButton` or `SidebarMenuSubButton` and compare against the current route yourself, usually with `usePathname`. Keep it on the button rather than the list item so the active style, the hover state, and the focus ring all land on a single element."
+        },
+        {
+          "question": "Can I put a search field or a deep tree in the sidebar?",
+          "answer": "Yes. `SidebarHeader` accepts any content, so a [Shadcn Input Group](/components/input-group) sits above the nav and filters the list below it. `SidebarMenuSub` covers 2 levels of links, and [Shadcn Tree](/docs/components/base/tree) handles deeper hierarchies inside `SidebarContent` when 2 levels are not enough."
+        },
+        {
+          "question": "How are ReUI sidebar components different from a minimal docs demo?",
+          "answer": "A docs demo shows the parts. These {{count}} components show decisions: a workspace switcher and account menu in place, an icon rail with accessible names kept, a documentation tree, a right-hand inspector, and a nav with search, loading, and empty states. When you need the finished screen behind the nav, the 21 [App Shell blocks](/blocks/application/app-shell) continue from the same primitive."
+        }
+      ]
+    },
+    "relatedComponents": {
+      "title": "Integrating With Other Components",
+      "integrationBody": [
+        "A sidebar is mostly other components arranged well. The header usually holds a [Shadcn Avatar](/components/avatar) and a [Shadcn Dropdown Menu](/components/dropdown-menu) for the workspace switcher, menu rows carry a [Shadcn Badge](/components/badge) for counts and a second dropdown for row actions, and the footer repeats the account menu. `SidebarSeparator` wraps [Shadcn Separator](/components/separator) so dividers keep the sidebar's own spacing.",
+        "In the inset, a [Shadcn Breadcrumb](/components/breadcrumb) beside `SidebarTrigger` is the standard header row. Once the nav grows past a scannable list, a [Shadcn Command](/components/command) palette with [Shadcn Kbd](/components/kbd) shortcut hints is the usual companion, and a [Shadcn Card](/components/card) in the footer is where plan and usage surfaces normally go.",
+        "When the nav is settled but the screen behind it is not, the 21 [App Shell blocks](/blocks/application/app-shell) are the next step: complete shells built on this primitive, covering icon rail, floating, inset, dual sidebar, and topbar layouts, plus command-K search and the mobile sheet. The same Sidebar frames 4 of the 12 [AI Chat blocks](/blocks/ai-agents/ai-chat) as well, so a conversation surface and an admin surface can share a single shell."
       ]
     }
   },

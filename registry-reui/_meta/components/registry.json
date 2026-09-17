@@ -25,6 +25,12 @@
       "count": 8
     },
     {
+      "name": "attachment",
+      "label": "Attachment",
+      "description": "Open-source shadcn attachment components for chat composers, upload states, and file previews.",
+      "count": 6
+    },
+    {
       "name": "autocomplete",
       "label": "Autocomplete",
       "description": "Open-source shadcn autocomplete components for smart search, typeahead inputs, and suggestion lists.",
@@ -47,6 +53,12 @@
       "label": "Breadcrumb",
       "description": "Open-source shadcn breadcrumb components for navigation trails, docs hierarchy, and app wayfinding.",
       "count": 15
+    },
+    {
+      "name": "bubble",
+      "label": "Bubble",
+      "description": "Open-source shadcn bubble components for chat threads, assistant replies, and message reactions.",
+      "count": 7
     },
     {
       "name": "button",
@@ -259,10 +271,28 @@
       "count": 13
     },
     {
+      "name": "marker",
+      "label": "Marker",
+      "description": "Open-source shadcn marker components for agent run logs, inline status lines, and labeled separators.",
+      "count": 6
+    },
+    {
       "name": "menubar",
       "label": "Menubar",
       "description": "Open-source shadcn menubar components for desktop navigation, editor menus, and app commands.",
       "count": 5
+    },
+    {
+      "name": "message",
+      "label": "Message",
+      "description": "Open-source shadcn message components for chat transcripts, assistant replies, and support threads.",
+      "count": 7
+    },
+    {
+      "name": "message-scroller",
+      "label": "Message Scroller",
+      "description": "Open-source shadcn message scroller components for chat transcripts, streaming replies, and jump-to-latest scrolling.",
+      "count": 6
     },
     {
       "name": "native-select",
@@ -305,6 +335,12 @@
       "label": "Progress",
       "description": "Open-source shadcn progress components for upload progress, goal tracking, and setup steps.",
       "count": 8
+    },
+    {
+      "name": "questionnaire",
+      "label": "Questionnaire",
+      "description": "Open-source shadcn questionnaire components for onboarding surveys, multi-step question flows, and guided feedback.",
+      "count": 7
     },
     {
       "name": "radio-group",
@@ -353,6 +389,12 @@
       "label": "Sheet",
       "description": "Open-source shadcn sheet components for slide-over details, side panels, and task flows.",
       "count": 4
+    },
+    {
+      "name": "sidebar",
+      "label": "Sidebar",
+      "description": "Open-source shadcn sidebar components for app shells, collapsible side navigation, and dashboard layouts.",
+      "count": 5
     },
     {
       "name": "skeleton",
@@ -445,5 +487,5 @@
       "count": 7
     }
   ],
-  "totalComponents": 1105
+  "totalComponents": 1149
 }

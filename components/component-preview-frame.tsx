@@ -84,6 +84,12 @@ export interface ComponentPreviewFrameProps {
   title: string
   /** Resolved by resolveComponentPreviewFrameHeight. Content height in px. */
   height: number
+  /**
+   * Resolved by resolveComponentPreviewFrameMinWidth. When the wrapper is
+   * narrower than this, the iframe is rendered at `minWidth` and scaled down
+   * to fit. 0 or omitted keeps the previous behaviour exactly.
+   */
+  minWidth?: number
   /** Design keys seeded into the src. Scoped per host surface. */
   designKeys?: readonly string[]
   /**
@@ -114,6 +120,7 @@ export function ComponentPreviewFrame({
   base,
   title,
   height,
+  minWidth = 0,
   designKeys,
   fallback,
   className,
@@ -122,6 +129,36 @@ export function ComponentPreviewFrame({
   const wrapperRef = React.useRef<HTMLDivElement>(null)
   const iframeRef = React.useRef<HTMLIFrameElement>(null)
   const [config] = useConfig()
+
+  // Measured only when a category asked for a minimum width, so every other
+  // category keeps the exact markup it had before this existed.
+  //
+  // Observing the WRAPPER, not the iframe's content: the wrapper's width comes
+  // from the card, so nothing the example renders can feed back into it. That
+  // is what makes this safe where auto-MEASURING a height is not.
+  const [wrapperWidth, setWrapperWidth] = React.useState(0)
+
+  React.useEffect(() => {
+    const node = wrapperRef.current
+    if (!minWidth || !node) {
+      return
+    }
+
+    const update = () => setWrapperWidth(node.getBoundingClientRect().width)
+    update()
+
+    const observer = new ResizeObserver(update)
+    observer.observe(node)
+    return () => observer.disconnect()
+  }, [minWidth])
+
+  // Before the first measurement `wrapperWidth` is 0, which must NOT read as
+  // "narrower than minWidth" or the frame would mount scaled and snap on the
+  // next frame. Unscaled until we actually know.
+  const scale =
+    minWidth && wrapperWidth > 0 && wrapperWidth < minWidth
+      ? wrapperWidth / minWidth
+      : 1
 
   // NOTE: the wrapper below is rendered unconditionally, and only its CONTENTS
   // switch. useIntersectionObserver bails when the ref is null and its deps are
@@ -289,6 +326,23 @@ export function ComponentPreviewFrame({
           loading="lazy"
           title={`${title} preview`}
           className="h-full w-full border-0 bg-transparent"
+          /*
+            At scale 1 this is `undefined`, so the element carries no inline
+            style at all and renders exactly as it did before `minWidth`
+            existed. Scaled, the iframe is laid out at the full minWidth and at
+            `height / scale`, so that multiplying both by `scale` lands it back
+            on the wrapper's own box: same painted size, more CSS pixels inside.
+          */
+          style={
+            scale === 1
+              ? undefined
+              : {
+                  width: minWidth,
+                  height: height / scale,
+                  transform: `scale(${scale})`,
+                  transformOrigin: "top left",
+                }
+          }
           onLoad={() => {
             // Backstop only. The real reveal is the example's `iframe-ready`
             // message, which fires once it has actually rendered.

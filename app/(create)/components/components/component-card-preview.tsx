@@ -6,6 +6,7 @@ import { RotateCwIcon } from "lucide-react"
 import {
   CATALOG_FRAME_DESIGN_KEYS,
   resolveComponentPreviewFrameHeight,
+  resolveComponentPreviewFrameMinWidth,
   shouldFrameComponentPreview,
 } from "@/lib/component-preview-frame"
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer"
@@ -111,6 +112,7 @@ export function ComponentCardPreview({
         category,
         metaPreviewHeight: previewHeight,
       })}
+      minWidth={resolveComponentPreviewFrameMinWidth(category)}
       designKeys={CATALOG_FRAME_DESIGN_KEYS}
       // NOT `preview`: FrameContent centers that slot and caps it at
       // `sm:max-w-[80%]`, which is right for an inline demo but boxes a frame

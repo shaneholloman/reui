@@ -2,6 +2,7 @@ import * as React from "react"
 import Link from "next/link"
 
 import { isCanonicalComponentDoc } from "@/lib/component-doc-paths"
+import { siteConfig } from "@/lib/config"
 import type {
   ComponentCategorySeo,
   RelatedComponentsBlock,
@@ -15,8 +16,19 @@ import {
 } from "@/components/ui/accordion"
 import { Badge } from "@/components/ui/badge"
 
+/**
+ * The category copy is synced from reui.io and links the Pro blocks built on
+ * each primitive. This repo has no /blocks route, so those paths go to reui.io
+ * instead of 404ing here.
+ */
+function resolveSeoHref(href: string) {
+  return href === "/blocks" || href.startsWith("/blocks/")
+    ? `${siteConfig.url}${href}`
+    : href
+}
+
 function SeoInlineLink({
-  href,
+  href: rawHref,
   children,
   className,
 }: {
@@ -24,6 +36,7 @@ function SeoInlineLink({
   children: React.ReactNode
   className?: string
 }) {
+  const href = resolveSeoHref(rawHref)
   const cls = cn(
     "text-site-primary underline-offset-4 font-medium underline",
     className

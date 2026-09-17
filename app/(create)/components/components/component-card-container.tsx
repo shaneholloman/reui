@@ -12,6 +12,12 @@ interface ComponentCardContainerProps {
   footer: React.ReactNode
   className?: string
   isFullWidth?: boolean
+  /**
+   * Drop the card's own inset so a framed preview meets the card border. See
+   * `shouldFullBleedComponentPreview` in lib/component-preview-frame.ts for
+   * which categories qualify and why.
+   */
+  fullBleed?: boolean
 }
 
 export function ComponentName({ name }: { name: string }) {
@@ -30,6 +36,7 @@ export function ComponentCardContainer({
   footer,
   className,
   isFullWidth,
+  fullBleed = false,
 }: ComponentCardContainerProps) {
   const containerRef = React.useRef<HTMLDivElement>(null)
   const isIntersecting = useIntersectionObserver(containerRef, {
@@ -58,7 +65,11 @@ export function ComponentCardContainer({
     >
       <FrameContent
         className={cn(
-          "bg-site-background flex min-h-44 min-w-0 flex-1 flex-col flex-wrap items-center justify-center overflow-x-auto p-6 font-sans **:data-[slot=preview]:mx-auto **:data-[slot=preview]:w-full sm:**:data-[slot=preview]:max-w-[80%] lg:px-8 lg:py-10"
+          "bg-site-background flex min-h-44 min-w-0 flex-1 flex-col flex-wrap items-center justify-center overflow-x-auto font-sans **:data-[slot=preview]:mx-auto **:data-[slot=preview]:w-full sm:**:data-[slot=preview]:max-w-[80%]",
+          // An app shell wants the card border as its own chrome, so the
+          // inset comes off entirely and `overflow-hidden` lets the frame
+          // take the card's radius instead of squaring its corners.
+          fullBleed ? "overflow-hidden p-0" : "p-6 lg:px-8 lg:py-10"
         )}
       >
         {hasBeenVisible ? (

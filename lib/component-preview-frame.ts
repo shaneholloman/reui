@@ -27,6 +27,20 @@ import { BLOCK_PREVIEW_DESIGN_PARAM_KEYS } from "@/lib/block-preview-url"
  * a panel needs would pad every card. The docs still frame it, because a docs
  * page mounts several cascaders plus the surrounding prose and code blocks.
  *
+ * sidebar and message-scroller join the catalog list for a reason the first
+ * five did not have: CORRECTNESS, not only interaction latency. Both size
+ * themselves against a VIEWPORT rather than against their parent box.
+ * SidebarProvider renders `flex min-h-svh w-full`, and shadcn's Sidebar
+ * branches on `window.innerWidth < 768` and on a `hidden md:block` wrapper the
+ * `className` prop never reaches; MessageScroller anchors a scroll position
+ * inside a bounded viewport. Inline, both read the HOST document, so a sidebar
+ * example would take the desktop branch while sitting in a 705px card, and
+ * that branch's container is `fixed inset-y-0 h-svh`, which escapes the card
+ * and paints down the left edge of the page. Framed, the example's viewport is
+ * its own box and the branch it takes matches the space it has. Neither has a
+ * docs page (content/docs/(components) documents ReUI primitives only), so
+ * both are catalog-only.
+ *
  * KILL SWITCH: empty both arrays. Every surface falls back to the inline
  * preview it used before, with no other code change.
  */
@@ -36,7 +50,15 @@ export const COMPONENT_PREVIEW_FRAME_CATEGORIES: Record<
   ComponentPreviewSurface,
   readonly string[]
 > = {
-  catalog: ["code-block", "data-grid", "event-calendar", "filters", "gantt"],
+  catalog: [
+    "code-block",
+    "data-grid",
+    "event-calendar",
+    "filters",
+    "gantt",
+    "message-scroller",
+    "sidebar",
+  ],
   docs: [
     "cascader",
     "code-block",
@@ -143,6 +165,82 @@ const DEFAULT_FRAME_HEIGHT: Record<string, number> = {
    * MDX - the docs surface can be exact where the catalog cannot.
    */
   "code-block": 720,
+  /**
+   * Both of these are BACKSTOPS in the strict sense: every shipped example in
+   * the two categories carries its own `previewHeight`, and the example's own
+   * fixed height is authored to match it, so the frame never has to guess.
+   * Each value sits just above the tallest authored height in its category
+   * (sidebar 548, message-scroller 500), on the table's rule that erring tall
+   * costs whitespace while erring short clips silently.
+   *
+   * Sidebar has one width caveat worth writing down, because it is invisible
+   * until someone resizes: a full-row catalog card is about 705px in a 1024px
+   * browser window and about 1121px in a 1440px one, and shadcn's Sidebar
+   * takes its MOBILE branch under 768px. MIN_FRAME_WIDTH below is what keeps
+   * the narrow band on the desktop branch; the examples survive the mobile one
+   * regardless, because each mounts a `SidebarInset` header carrying a
+   * `SidebarTrigger`.
+   */
+  sidebar: 560,
+  "message-scroller": 520,
+}
+
+/**
+ * Minimum CSS width the frame's own document is given, whatever the card is.
+ *
+ * Only sidebar needs this, and it needs it for correctness rather than taste.
+ * shadcn's Sidebar picks its branch from `window.innerWidth < 768` and from a
+ * `hidden md:block` wrapper that no `className` reaches, and inside a frame
+ * that window is the FRAME, so the branch follows the card width rather than
+ * the visitor's screen. A full-row catalog card measures about 705px in a
+ * 1024px browser window and about 1121px in a 1440px one, so between roughly
+ * 992 and 1100 the card would fall under 768 and every sidebar example would
+ * paint its off-canvas sheet: a page called Sidebar showing no sidebar.
+ *
+ * `ComponentPreviewFrame` renders the iframe at this width and scales it down
+ * to fit, so the example always takes the branch the page is about, at the
+ * cost of rendering at roughly 0.88 in the narrow band. Measuring the WRAPPER
+ * is safe in a way measuring content is not: the wrapper's width does not
+ * depend on what the iframe renders, so there is no feedback loop and none of
+ * the oscillation the explicit-height rule above exists to prevent.
+ *
+ * 800 rather than 768: the breakpoint is inclusive, so 768 would sit exactly
+ * on it, and 32px of slack costs nothing at a scale factor.
+ *
+ * A category with no entry here is untouched, and `resolveComponentPreviewFrameMinWidth`
+ * returns 0 for it, which the frame reads as "no scaling, exactly as before".
+ */
+const MIN_FRAME_WIDTH: Record<string, number> = {
+  sidebar: 800,
+}
+
+/**
+ * Categories whose framed preview fills the card edge to edge, with none of
+ * the `p-6 lg:px-8 lg:py-10` the catalog card normally insets a preview by.
+ *
+ * Only sidebar qualifies today, and the test is what the example IS rather
+ * than how big it is: an app shell is a whole screen, so the chrome it wants
+ * around it is the card's own border, not a band of page background. An
+ * inset shell reads as a screenshot of an app; a bled one reads as the app.
+ * Every other category is an object placed ON a surface, and those keep the
+ * padding that separates them from it.
+ *
+ * Only ever combined with a FRAMED category. Bleeding an inline preview would
+ * put the example's own background against the card border with no document
+ * boundary between them.
+ */
+const FULL_BLEED_FRAME_CATEGORIES: readonly string[] = ["sidebar"]
+
+export function shouldFullBleedComponentPreview(
+  category: string | null | undefined
+): boolean {
+  return !!category && FULL_BLEED_FRAME_CATEGORIES.includes(category)
+}
+
+export function resolveComponentPreviewFrameMinWidth(
+  category: string | null | undefined
+): number {
+  return (category && MIN_FRAME_WIDTH[category]) || 0
 }
 
 /**

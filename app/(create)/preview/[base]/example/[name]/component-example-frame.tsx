@@ -2,6 +2,8 @@
 
 import * as React from "react"
 
+import { shouldFullBleedComponentPreview } from "@/lib/component-preview-frame"
+import { cn } from "cn"
 import { Spinner } from "@/components/ui/spinner"
 import { ComponentLivePreviewRuntime } from "@/app/(create)/components/components/component-live-preview-runtime"
 import { PreviewReadyMarker } from "@/app/(create)/preview/preview-ready-marker"
@@ -49,7 +51,14 @@ export function ComponentExampleFrame({
       and event-calendar are unaffected.
     */
     <div
-      className="flex w-full justify-center p-1"
+      className={cn(
+        "flex w-full justify-center",
+        // `p-1` clears the ring and shadow every style paints OUTSIDE a card's
+        // border box. A full-bleed category draws no such card: it fills the
+        // frame, so the 4px would just be document background showing through
+        // inside the host card's border.
+        shouldFullBleedComponentPreview(category) ? "p-0" : "p-1"
+      )}
       data-slot="component-example"
     >
       <React.Suspense

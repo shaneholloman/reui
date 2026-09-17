@@ -1,0 +1,51 @@
+[
+  {
+    "name": "c-bubble-1",
+    "title": "Support thread with sender alignment",
+    "description": "A two sided billing thread where align and variant carry the sender.",
+    "order": 1,
+    "gridSize": 2
+  },
+  {
+    "name": "c-bubble-2",
+    "title": "Bubble variants in a release thread",
+    "description": "All seven variants doing the job each one is for, in one deploy thread.",
+    "order": 2,
+    "gridSize": 2
+  },
+  {
+    "name": "c-bubble-3",
+    "title": "Grouped consecutive messages",
+    "description": "Consecutive turns from one sender collapse into a single BubbleGroup.",
+    "order": 3,
+    "gridSize": 2
+  },
+  {
+    "name": "c-bubble-4",
+    "title": "Message reactions and a reaction button",
+    "description": "A static emoji row, a pressable reaction with a count, and a top anchored row.",
+    "order": 4,
+    "gridSize": 2
+  },
+  {
+    "name": "c-bubble-5",
+    "title": "Long reply with show more",
+    "description": "A long assistant answer folds to its first paragraph behind a Collapsible.",
+    "order": 5,
+    "gridSize": 2
+  },
+  {
+    "name": "c-bubble-6",
+    "title": "Quick reply bubbles and an action row",
+    "description": "Tinted bubbles that are real buttons and a link, plus an action row after the pick.",
+    "order": 6,
+    "gridSize": 2
+  },
+  {
+    "name": "c-bubble-7",
+    "title": "Assistant answer with formatted content",
+    "description": "A ghost bubble carrying a heading, a list, emphasis and inline code.",
+    "order": 7,
+    "gridSize": 1
+  }
+]

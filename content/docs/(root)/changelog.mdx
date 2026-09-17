@@ -3,6 +3,25 @@ title: Changelog
 description: Latest updates and announcements.
 ---
 
+## v2.6.0 - 17 September, 2026.
+
+7 new free component categories with 44 examples in each base, covering chat transcripts, agent run logs, app shells and guided surveys.
+
+**New Free Components:**
+
+- New Sidebar category: 5 app shell examples covering a workspace switcher with count badges and row menus, a collapsing icon rail, docs navigation with sub-menus, a floating off-canvas inspector, and filtering, loading and empty states - [Preview](/components/sidebar).
+- New Message category: 7 chat transcript examples covering two-sided rows, avatars, sender and delivery metadata, reply actions, shared files, grouped turns and a streaming reply - [Preview](/components/message).
+- New Message Scroller category: 6 transcript examples covering jump to latest, a streaming reply that follows the live edge, an anchored turn, the opening position of a saved thread, loading earlier messages without losing your place, and a thread navigator - [Preview](/components/message-scroller).
+- New Bubble category: 7 chat bubble examples covering sender alignment, all 7 variants, grouped turns, reactions, a long reply that expands, quick replies and formatted assistant output - [Preview](/components/bubble).
+- New Attachment category: 6 file chip examples covering a file in an assistant reply, a composer tray, an image strip, all 3 sizes, all 5 upload states and a file picker - [Preview](/components/attachment).
+- New Marker category: 6 agent run log examples covering the default, separator and border variants, a tool call log, run status with a live step, phase separators, a changed files summary, and markers as links - [Preview](/components/marker).
+- New Questionnaire category: 7 guided survey examples covering a workspace setup flow, multi-select answers, a written answer beside the choices, segmented progress, an optional question with skip, a cross-question rule and a conditional branch - [Preview](/components/questionnaire).
+
+**Fixes & Improvements:**
+
+- Sidebar and Message Scroller previews render in their own frame, so each example sizes itself against its card instead of the page, and a sidebar card narrower than 800px shows the desktop layout scaled down - [Preview](/components/sidebar).
+- The Data Grid and Alert Dialog pages linked Sonner at `/components/toast`, which is not a page; both now link [Sonner](/components/sonner) - [Preview](/components/sonner).
+
 ## v2.5.5 - 16 September, 2026.
 
 ReUI follows shadcn onto the `cn` package, and the Event Calendar and Data Grid each get back an interaction that was unreachable before.
