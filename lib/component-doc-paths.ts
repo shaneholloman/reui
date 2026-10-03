@@ -18,8 +18,10 @@ export const CANONICAL_COMPONENT_DOC_SLUGS = [
   "phone-input",
   "rating",
   "scrollspy",
+  "signature-pad",
   "sortable",
   "stepper",
+  "time-picker",
   "timeline",
   "tree",
 ] as const

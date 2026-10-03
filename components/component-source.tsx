@@ -31,6 +31,11 @@ export async function ComponentSource({
   async = false,
   eventName,
   showCopyButton = true,
+  // Accepted and ignored. The synced docs preview passes it for the compact
+  // code panel on upstream's heavy docs pages, which needs a Web Worker
+  // highlighter and the MDX override that turns it on - neither is part of
+  // the open-source surface, so nothing here ever sets it to a number.
+  compactHeadLines: _compactHeadLines,
 }: React.ComponentProps<"div"> & {
   name?: string
   src?: string
@@ -44,6 +49,7 @@ export async function ComponentSource({
   async?: boolean
   eventName?: "copy_component_code"
   showCopyButton?: boolean
+  compactHeadLines?: number
 }) {
   const resolvedRegistryOptions = resolveRegistryOptions({
     styleName,

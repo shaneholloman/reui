@@ -10,6 +10,7 @@ import {
   shouldFrameComponentPreview,
 } from "@/lib/component-preview-frame"
 import { useIntersectionObserver } from "@/hooks/use-intersection-observer"
+import { useMediaQuery } from "@/hooks/use-media-query"
 import { Button } from "@/components/ui/button"
 import { Spinner } from "@/components/ui/spinner"
 import { ComponentPreviewFrame } from "@/components/component-preview-frame"
@@ -73,6 +74,21 @@ function loadLivePreviewModule() {
 }
 
 /**
+ * Below this width a card cannot carry a category's MIN_FRAME_WIDTH. The frame
+ * would lay the example out at that width and paint it scaled to fit, so a
+ * sidebar shell at 800px lands at ~0.4 on a 375px phone and its 14px chrome
+ * renders at ~6px.
+ *
+ * Upstream never reaches that state: its card swaps in a generated still below
+ * the same breakpoint. This repo carries no thumbnails (see the NOT SYNCED note
+ * in reui.io's scripts/sync-oss.mts), so it drops the minimum instead and lets
+ * the example take its own mobile branch inside the frame, which every sidebar
+ * example is built to survive - each mounts a SidebarInset header carrying a
+ * SidebarTrigger.
+ */
+const MIN_WIDTH_VIEWPORT_QUERY = "(min-width: 48rem)"
+
+/**
  * Picks between the iframe-backed preview (heavy categories only) and the
  * inline one every other category keeps using. See
  * lib/component-preview-frame.ts for the allowlist and the kill switch.
@@ -90,6 +106,11 @@ export function ComponentCardPreview({
   category?: string
   previewHeight?: string
 }) {
+  // Tri-state on purpose: `undefined` until the first client effect resolves.
+  // Only the minWidth branch below reads it, so every other category mounts
+  // exactly as it did before this existed.
+  const isWideViewport = useMediaQuery(MIN_WIDTH_VIEWPORT_QUERY)
+
   const inline = (
     <InlineComponentCardPreview
       name={name}
@@ -103,16 +124,36 @@ export function ComponentCardPreview({
     return inline
   }
 
+  const height = resolveComponentPreviewFrameHeight({
+    category,
+    metaPreviewHeight: previewHeight,
+  })
+  const categoryMinWidth = resolveComponentPreviewFrameMinWidth(category)
+
+  // Hold the frame back until the breakpoint is known, so it cannot mount at
+  // one width and re-lay-out under the reader a frame later. Only categories
+  // that ask for a minimum width wait; the box keeps the frame's own height,
+  // so nothing shifts when it swaps in.
+  if (categoryMinWidth > 0 && isWideViewport === undefined) {
+    return (
+      <div
+        data-slot="preview-frame"
+        aria-label={`${title} preview loading`}
+        className="flex w-full items-center justify-center"
+        style={{ height }}
+      >
+        <Spinner className="text-site-muted-foreground/40 size-4" />
+      </div>
+    )
+  }
+
   return (
     <ComponentPreviewFrame
       name={name}
       base={base}
       title={title}
-      height={resolveComponentPreviewFrameHeight({
-        category,
-        metaPreviewHeight: previewHeight,
-      })}
-      minWidth={resolveComponentPreviewFrameMinWidth(category)}
+      height={height}
+      minWidth={isWideViewport ? categoryMinWidth : 0}
       designKeys={CATALOG_FRAME_DESIGN_KEYS}
       // NOT `preview`: FrameContent centers that slot and caps it at
       // `sm:max-w-[80%]`, which is right for an inline demo but boxes a frame

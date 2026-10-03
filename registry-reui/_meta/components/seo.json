@@ -193,6 +193,7 @@
   },
   "accordion": {
     "description": "Shadcn Accordion components for collapsible FAQs, settings, and onboarding flows. {{count}} free Tailwind CSS layouts for React and Next.js, compatible with shadcn/ui.",
+    "metaDescription": "Shadcn Accordion components for FAQs, settings, and onboarding flows. {{count}} free Tailwind CSS layouts for React and Next.js, compatible with shadcn/ui.",
     "intro": "Browse {{count}} production-ready Shadcn Accordion components for FAQ layouts, settings panels, onboarding checklists, and help sections. Shadcn Accordion is compatible with *Radix UI* and *Base UI* interaction models and is fully aligned with Shadcn Create style options so your previews match your design tokens.",
     "keywords": [
       "shadcn accordion",
@@ -297,7 +298,7 @@
       "title": "Integrating with Other Components",
       "integrationBody": [
         "Place [Shadcn Button](/components/button) actions inside expanded panels or next to triggers when users must confirm, save, or navigate to another flow. Use a [Shadcn Badge](/components/badge) on the header row for counts, beta labels, or status so closed and open states stay scannable at a glance.",
-        "Split long forms with [Shadcn Form](/components/form) field groups per accordion section so validation messages and helper text stay near their inputs. Wrap the whole module in a [Shadcn Card](/components/card) when the page mixes tables, charts, or other content blocks and you need a clear visual boundary.",
+        "Split long forms with Shadcn Form field groups per accordion section so validation messages and helper text stay near their inputs. Wrap the whole module in a [Shadcn Card](/components/card) when the page mixes tables, charts, or other content blocks and you need a clear visual boundary.",
         "Use [Shadcn Popover](/components/popover) for quick edits or filters without expanding a full section, and [Shadcn Tooltip](/components/tooltip) for short hints on trigger icons. Together they keep small tasks lightweight while the accordion holds the primary content story."
       ]
     }
@@ -1935,7 +1936,7 @@
             },
             {
               "title": "Per-Level and Deep Search.",
-              "description": "Typing filters the current level. `searchScope=\"deep\"` searches the level you are on and everything under it, trailing each hit with its ancestor path. Node `keywords` add extra matchable terms, and `filter` replaces the matcher outright."
+              "description": "Typing filters the current level. `searchScope=\"deep\"` searches the level you are on and everything under it, and `searchScope=\"global\"` the whole tree from any level, trailing each hit with its ancestor path. Node `keywords` add extra matchable terms, and `filter` replaces the matcher outright."
             },
             {
               "title": "Async Levels with Paging and Retry.",
@@ -1967,7 +1968,7 @@
           "title": "Selection, Cascade, Search and Keyboard",
           "paragraphs": [
             "By default only leaves are selectable and branches navigate. Set `selectable=\"any\"` or pass a predicate to let a category be committed too, in which case the chevron becomes its own target so the branch can still be opened. `multiple` turns rows into checkboxes, keeps the popup open while picking, and `max` caps the selection. `cascade` propagates a commit over the pressed node's loaded subtree and reconciles its ancestors, so a branch with some but not all of its subtree selected renders indeterminate, a state that is derived rather than stored.",
-            "Typing filters the current level. With `searchScope=\"deep\"` it searches the level you are on AND everything under it, not the whole tree, and annotates each result with its ancestor path so identically named leaves in different branches stay distinguishable; tree mode always matches at any depth and auto-expands the ancestors of every hit. `onSearch` replaces the local scan with a server query, debounced by `searchDebounce`.",
+            "Typing filters the current level. With `searchScope=\"deep\"` it searches the level you are on AND everything under it, not the whole tree. `searchScope=\"global\"` searches the whole tree from whatever level is on screen. Both annotate each result with its ancestor path so identically named leaves in different branches stay distinguishable; tree mode always matches at any depth and auto-expands the ancestors of every hit. `onSearch` replaces the local scan with a server query, debounced by `searchDebounce`.",
             "Arrow Right drills into the highlighted branch when the caret is at the end of the query, Arrow Left steps back out when it is at the start, and Backspace steps back when the query is empty, so the level keys never take caret movement away from an edit. Tree mode follows the ARIA tree keys instead. A polite live region announces each level change, each expand and collapse, and each result count, because the breadcrumb that gives sighted users their bearings is invisible to a screen reader."
           ]
         }
@@ -1987,7 +1988,7 @@
         },
         {
           "question": "How does search work across levels?",
-          "answer": "Typing filters the current level by default (`searchScope=\"level\"`). Set `searchScope=\"deep\"` and it searches the level you are on AND everything under it, not the whole tree, annotating each hit with its ancestor path so two leaves with the same name in different branches stay distinguishable. Tree mode always matches at any depth and auto-expands the ancestors of each hit. Node `keywords` add extra matchable terms, `filter` replaces the matcher, and `onSearch` hands the query to your backend, debounced by `searchDebounce`."
+          "answer": "Typing filters the current level by default (`searchScope=\"level\"`). Set `searchScope=\"deep\"` and it searches the level you are on AND everything under it, not the whole tree. Set `searchScope=\"global\"` and it searches the whole tree from whatever level you are on. Both annotate each hit with its ancestor path so two leaves with the same name in different branches stay distinguishable. Tree mode always matches at any depth and auto-expands the ancestors of each hit. Node `keywords` add extra matchable terms, `filter` replaces the matcher, and `onSearch` hands the query to your backend, debounced by `searchDebounce`."
         },
         {
           "question": "Is the cascader keyboard accessible and screen-reader ready?",
@@ -2018,6 +2019,7 @@
   },
   "chart": {
     "description": "Shadcn Chart components powered by Recharts and Motion. Bar, area, line, pie, and radar charts with animations, gradients, and responsive layouts. {{count}} examples.",
+    "metaDescription": "Shadcn Chart components powered by Recharts. Bar, area, line, pie, and radar charts with animations, gradients, and responsive layouts. {{count}} examples.",
     "intro": "Browse {{count}} production-ready shadcn chart components built on Recharts and Motion. Covers bar, vertical bar, area, step area, stacked area, line, forecast, donut, pie, radar, and 3D isometric chart types with gradient fills, animation, stripe component overlays, glowing markers, and crosshatch textures.",
     "keywords": [
       "shadcn chart",
@@ -2243,7 +2245,9 @@
   },
   "code-block": {
     "title": "Shadcn Code Block: Highlight, Streaming, Diffs, AI Chat and more",
+    "metaTitle": "Shadcn Code Block: Highlighting and Diffs",
     "description": "{{count}} free shadcn code block components for AI chat, agent patch review, streaming code, diffs, terminal output, and docs. Copy-ready for React and Next.js. Syntax highlighting with Shiki and Tailwind CSS.",
+    "metaDescription": "{{count}} free shadcn code block components for AI chat, streaming code, diffs, terminal output, and docs. Shiki syntax highlighting for React and Tailwind CSS.",
     "intro": "Browse {{count}} production-ready shadcn code block components for streaming agent responses, AI chat with markdown code fences, diff review, focus walkthroughs, line selection, gutter actions, terminal output, and multi-file patches: a custom ReUI component built on Shiki and composable with Card, Frame, Tabs, and Badge.",
     "keywords": [
       "shadcn code block",
@@ -2571,6 +2575,7 @@
   },
   "command": {
     "description": "Shadcn Command components for keyboard-driven interfaces. Command palettes, search filters, and navigation shortcuts with grouped commands and custom rendering.",
+    "metaDescription": "Shadcn Command components for keyboard-driven interfaces. Command palettes, search filters, and navigation shortcuts with grouped commands.",
     "intro": "Browse {{count}} production-ready shadcn command components for command palettes, quick-action menus, and searchable shortcuts. Shadcn Command is compatible with Radix UI and Base UI interaction models and is fully aligned with Shadcn Create style options so your previews match your design tokens.",
     "keywords": [
       "shadcn command",
@@ -2774,6 +2779,7 @@
   },
   "data-grid": {
     "description": "Shadcn Data Grid components using TanStack React Table with virtual scrolling. Spreadsheet cell selection, clipboard, inline editing, sortable and filterable columns, i18n. {{count}} examples.",
+    "metaDescription": "Shadcn Data Grid components using TanStack Table with virtual scrolling. Cell selection, inline editing, sortable and filterable columns. {{count}} examples.",
     "intro": "Browse {{count}} production-ready shadcn data grid components built on TanStack Table v9 and TanStack Virtual. Sorting, filtering, pagination, pinning, column resizing, drag and drop, tree rows, CRUD, infinite scroll, row and column virtualization, spreadsheet cell selection with clipboard and inline editing, and localized labels through one i18n prop.",
     "keywords": [
       "shadcn data grid",
@@ -3496,6 +3502,7 @@
   },
   "event-calendar": {
     "description": "{{count}} free shadcn event calendar components with month, week, day, N-day and agenda views. Copy-ready React calendar with drag-and-drop, recurrence, and Tailwind CSS.",
+    "metaDescription": "{{count}} free shadcn event calendar components with month, week, day, N-day and agenda views. React calendar with drag-and-drop, recurrence, and Tailwind CSS.",
     "intro": "Browse {{count}} production-ready shadcn event calendar components built on a headless-first ReUI primitive. Covers month, week, day, N-day and agenda views, drag to move, resize, drag-to-create, recurring events, time zones, and a settings-driven feature tour - all composable with shadcn Button, Dropdown Menu, Popover, and Tooltip.",
     "keywords": [
       "shadcn event calendar",
@@ -3856,7 +3863,7 @@
       "integrationBody": [
         "Pair File Upload with [Shadcn Sortable](/docs/components/base/sortable) to build a complete image management flow: upload first, then drag-and-drop to set display order before saving. The sortable image gallery component in ReUI demonstrates this exact composition.",
         "Use [Shadcn Dialog](/components/dialog) to wrap the upload zone for a modal crop-and-confirm flow, [Shadcn Progress](/components/progress) for per-file upload bars, and [Shadcn Table](/components/table) for document list views with file metadata and remove actions.",
-        "Combine with [Shadcn Field](/components/field) and [Shadcn Label](/components/label) for form-integrated upload fields. Use [Shadcn Sonner](/components/`sonner`) for non-blocking upload error and success toasts, and [Shadcn Alert](/docs/components/base/alert) for persistent validation messages."
+        "Combine with [Shadcn Field](/components/field) and [Shadcn Label](/components/label) for form-integrated upload fields. Use [Shadcn Sonner](/components/sonner) for non-blocking upload error and success toasts, and [Shadcn Alert](/docs/components/base/alert) for persistent validation messages."
       ]
     },
     "inHouse": true,
@@ -4137,6 +4144,7 @@
   },
   "gantt": {
     "description": "{{count}} free shadcn gantt chart components with split tree and timeline panes, day to year scales, drag scheduling, and progress. Copy-ready React gantt with Tailwind CSS.",
+    "metaDescription": "{{count}} free shadcn gantt chart components with split tree and timeline panes, day to year scales, drag scheduling, and progress. React gantt with Tailwind CSS.",
     "intro": "Browse {{count}} production-ready shadcn gantt components built on a headless-first ReUI primitive. Covers a resizable task tree, day through year scales, zoom, drag and resize scheduling with live validation, summary rollups, and a settings-driven feature tour - all composable with shadcn Button, Checkbox, Context Menu, and Tooltip.",
     "keywords": [
       "shadcn gantt chart",
@@ -4284,7 +4292,7 @@
       "summary": [
         "Shadcn Hover Card is a floating popover that opens on hover or focus, displaying rich content like previews or metadata. It maps to Radix UI Hover Card semantics so keyboard and screen reader behavior stays predictable, and it works with Radix UI and Base UI-style projects.",
         "It shows detailed information or preview content when users hover over a trigger element, keeping the page clean while offering supplementary context on demand.",
-        "ReUI lists hover-card components in realistic dashboards and link-rich pages so you evaluate trigger sizing, popover positioning, and animations next to a [navigation elements](/components/link) or [Shadcn Button](/components/button) group, not only a minimal story. The sections below cover what it is, why teams use it, features, and integration ideas."
+        "ReUI lists hover-card components in realistic dashboards and link-rich pages so you evaluate trigger sizing, popover positioning, and animations next to a navigation elements or [Shadcn Button](/components/button) group, not only a minimal story. The sections below cover what it is, why teams use it, features, and integration ideas."
       ],
       "sections": [
         {
@@ -4359,7 +4367,7 @@
       "integrationBody": [
         "Use hover cards with a [Shadcn Avatar](/components/avatar) and [Shadcn Badge](/docs/components/base/badge) for user profile previews in comments or mention contexts. Add [Shadcn Button](/components/button) links inside cards for actions like follow, message, or view profile.",
         "Pair hover cards with [Shadcn Tooltip](/components/tooltip) for a two-tier disclosure component: tooltip for a label, hover card for rich preview when users linger. Use [Shadcn Popover](/components/popover) when the content is interactive or requires explicit interaction.",
-        "Combine hover cards with a [link component](/components/link) group or [Shadcn Table](/components/table) for product previews, user summaries, or metadata detail that stays lightweight while scanning a list."
+        "Combine hover cards with a link component group or [Shadcn Table](/components/table) for product previews, user summaries, or metadata detail that stays lightweight while scanning a list."
       ]
     }
   },
@@ -4686,7 +4694,7 @@
       "title": "Integrating with Other Components",
       "integrationBody": [
         "Wrap inputs with [Shadcn Field](/components/field) to add labels, descriptions, and error messages. Pair with [Shadcn Label](/components/label) to create proper form associations so screen readers announce the input correctly.",
-        "Use [Shadcn Input Group](/components/input-group) to add icons, buttons, or text addons before or after the input. Combine with [Shadcn Input OTP](/components/`input-otp`) for verification codes and [Shadcn Number Field](/docs/components/base/number-field) for numeric entry with step controls.",
+        "Use [Shadcn Input Group](/components/input-group) to add icons, buttons, or text addons before or after the input. Combine with [Shadcn Input OTP](/components/input-otp) for verification codes and [Shadcn Number Field](/docs/components/base/number-field) for numeric entry with step controls.",
         "Add [Shadcn Button](/components/button) next to or inside the input for search, submit, or clear actions. Use [Shadcn Button Group](/components/button-group) when multiple input-related actions need to sit together."
       ]
     }
@@ -4789,7 +4797,7 @@
       "integrationBody": [
         "Pair input groups with [Shadcn Field](/components/field) to add labels and error messages. Wrap both together for a complete, accessible form field that includes context, input, and validation feedback.",
         "Use [Shadcn Button](/components/button) as suffixes inside input groups for search, submit, or clear actions. Combine with [Shadcn Dropdown Menu](/components/dropdown-menu) when the suffix needs a menu of options.",
-        "Add icons from lucide-react or heroicons as prefix elements. Use [Shadcn Tooltip](/components/tooltip) on icon buttons to explain their purpose, and combine with [Shadcn Input OTP](/components/`input-otp`) for verification code groups with separators."
+        "Add icons from lucide-react or heroicons as prefix elements. Use [Shadcn Tooltip](/components/tooltip) on icon buttons to explain their purpose, and combine with [Shadcn Input OTP](/components/input-otp) for verification code groups with separators."
       ]
     }
   },
@@ -4908,7 +4916,7 @@
       "title": "Integrating With Other Components",
       "integrationBody": [
         "Always wrap Input OTP in [Shadcn Field](/components/field) with a [Shadcn Label](/components/label) for the slot group label and an error message slot for invalid code feedback. Use [Shadcn Button](/components/button) for the verify action and [Shadcn Spinner](/components/spinner) inside the button during async verification.",
-        "Combine with [Shadcn Sonner](/components/`sonner`) for resend-code confirmation toasts and expired-code error notifications. Use [Shadcn Alert](/docs/components/base/alert) for persistent error messages when the code is incorrect or has expired.",
+        "Combine with [Shadcn Sonner](/components/sonner) for resend-code confirmation toasts and expired-code error notifications. Use [Shadcn Alert](/docs/components/base/alert) for persistent error messages when the code is incorrect or has expired.",
         "Pair with [Shadcn Stepper](/docs/components/base/stepper) in multi-step authentication flows where OTP verification is one step in a larger identity confirmation sequence."
       ]
     }
@@ -5344,6 +5352,7 @@
   },
   "marker": {
     "description": "Shadcn Marker components for agent run logs, tool call rows, and labeled separators. {{count}} free Tailwind CSS examples for React and Next.js, compatible with shadcn/ui.",
+    "metaDescription": "Shadcn Marker components for agent run logs, tool call rows, and labeled separators. {{count}} free Tailwind CSS examples for React, compatible with shadcn/ui.",
     "intro": "Browse {{count}} production-ready Shadcn Marker components for agent run logs, tool call rows, live run status, and labeled dividers inside a transcript. Shadcn Marker ships in a *Radix UI* build and a *Base UI* build and is fully aligned with Shadcn Create style options, so the radius, fonts, and color tokens in these previews match the code you export.",
     "keywords": [
       "shadcn marker",
@@ -5566,6 +5575,7 @@
   },
   "message": {
     "description": "{{count}} free shadcn Message components for chat transcripts, AI assistant replies, and support threads. Side alignment, avatars, sender headers, delivery footers, and grouped runs in React and Tailwind CSS.",
+    "metaDescription": "{{count}} free shadcn Message components for chat transcripts, AI assistant replies, and support threads. Avatars and grouped runs in React and Tailwind CSS.",
     "intro": "Browse {{count}} production-ready shadcn Message components for chat transcripts, AI assistant replies, shared files, and streaming answers. Message is the same plain markup in the *Base UI* and *Radix UI* builds and is fully aligned with Shadcn Create style options, so radius, colors, and typography match your design tokens.",
     "keywords": [
       "shadcn message",
@@ -5691,6 +5701,7 @@
   },
   "message-scroller": {
     "description": "{{count}} free shadcn message scroller components for chat transcripts: stick-to-bottom streaming, anchored turns, and older messages that load without losing the reader's place. React, Next.js and Tailwind CSS.",
+    "metaDescription": "{{count}} free shadcn message scroller components for chat transcripts: stick-to-bottom streaming and older messages that load without losing the reader's place.",
     "intro": "Browse {{count}} production-ready shadcn message scroller components for AI chat transcripts, streaming replies, anchored turns, jump-to-latest controls, and history that prepends above the reader. The scroll container is headless underneath and composes with Message, Bubble, Card and Input Group, so the transcript matches your Shadcn Create tokens without a chat framework.",
     "keywords": [
       "shadcn message scroller",
@@ -6576,6 +6587,7 @@
   },
   "questionnaire": {
     "description": "Free shadcn questionnaire components for onboarding surveys, multi-step question flows, and guided feedback. {{count}} React and Next.js examples styled with Tailwind CSS.",
+    "metaDescription": "Free shadcn questionnaire components for onboarding surveys, multi-step question flows, and guided feedback. {{count}} React examples styled with Tailwind CSS.",
     "intro": "Browse {{count}} production-ready shadcn questionnaire components for onboarding surveys, intake forms, feedback flows, and guided setup. Questionnaire renders a real form and shows one question at a time, ships for both the *Base UI* and *Radix UI* variants, and follows Shadcn Create style options so previews match your design tokens.",
     "keywords": [
       "shadcn questionnaire",
@@ -6799,7 +6811,7 @@
     "relatedComponents": {
       "title": "Integrating with Other Components",
       "integrationBody": [
-        "Wrap radio-group in a [Shadcn Field](/components/field) to add a label, description, and validation errors. Use [Shadcn Fieldset](/components/fieldset) and [Shadcn Legend](/components/legend) to group radios with an overall title, following WAI-ARIA fieldset semantics.",
+        "Wrap radio-group in a [Shadcn Field](/components/field) to add a label, description, and validation errors. Use Shadcn Fieldset and Shadcn Legend to group radios with an overall title, following WAI-ARIA fieldset semantics.",
         "Pair radios with [Shadcn Badge](/docs/components/base/badge) or [Shadcn Tooltip](/components/tooltip) to add clarifying context (e.g., 'Free', 'Pro', 'Limited time'). Show [Shadcn Button](/components/button) for form submission after the radio group.",
         "Combine radio-group with [Shadcn Card](/components/card) when presenting pricing tiers or plan options so each radio has clear visual boundaries. Use [Shadcn Alert](/docs/components/base/alert) above the group to highlight a recommended or limited option, guiding user choice."
       ]
@@ -7390,7 +7402,7 @@
     "relatedComponents": {
       "title": "Integrating with Other Components",
       "integrationBody": [
-        "Wrap select with [Shadcn Field](/components/field) to add a label, description, and validation error messages. Use [Shadcn Fieldset](/components/fieldset) and [Shadcn Legend](/components/legend) to group multiple select fields under a common title.",
+        "Wrap select with [Shadcn Field](/components/field) to add a label, description, and validation error messages. Use Shadcn Fieldset and Shadcn Legend to group multiple select fields under a common title.",
         "For large searchable lists, use [Shadcn Combobox](/components/combobox) instead. For simple single-choice forms with few options, use [Shadcn Radio Group](/components/radio-group) so all options are visible without opening a dropdown.",
         "Pair select with [Shadcn Button](/components/button) for form submission. Add [Shadcn Popover](/components/popover) to provide help text or examples if users are unsure which option to pick. For mobile optimization, offer [Shadcn Native Select](/components/native-select) as an alternative that uses OS-level pickers."
       ]
@@ -7496,7 +7508,7 @@
       "integrationBody": [
         "Use separators inside [Shadcn Card](/components/card) to divide sections (header, body, footer). Add separators between [Shadcn Field](/components/field) groups in long forms to signal logical groupings without full section breaks.",
         "Pair separators with [Shadcn Button](/components/button) groups (e.g., 'Save | Cancel | Delete') using vertical orientation. Use horizontal separators in [Shadcn Accordion](/components/accordion) panels or [Shadcn Table](/components/table) rows for visual clarity.",
-        "Add separators to [Shadcn Navigation Menu](/components/menu) or [Shadcn Dropdown Menu](/components/dropdown-menu) to group related actions. For layouts with [Shadcn Sidebar](/components/sidebar), use horizontal separators to divide navigation sections, improving scannability."
+        "Add separators to [Shadcn Navigation Menu](/components/navigation-menu) or [Shadcn Dropdown Menu](/components/dropdown-menu) to group related actions. For layouts with [Shadcn Sidebar](/components/sidebar), use horizontal separators to divide navigation sections, improving scannability."
       ]
     }
   },
@@ -7597,12 +7609,13 @@
       "integrationBody": [
         "Use Sheet for mobile navigation driven by a [Shadcn Button](/components/button) menu icon in the header. Place a [Shadcn Navigation Menu](/components/navigation-menu) or custom link list inside the sheet so tap targets are large and touch-friendly.",
         "Pair Sheet with [Shadcn Input](/components/input) and [Shadcn Field](/components/field) for filter panels or search overlays. Add a [Shadcn Button](/components/button) to apply filters or close the sheet when done editing.",
-        "Combine Sheet with [Shadcn Scroll Area](/components/scroll-area) when content overflows. Use [Shadcn Badge](/docs/components/base/badge) or [Shadcn Tag](/components/tag) inside the sheet to show active filters or selections. For mobile, use [Shadcn Drawer](/components/drawer) for swipe-dismiss gestures."
+        "Combine Sheet with [Shadcn Scroll Area](/components/scroll-area) when content overflows. Use [Shadcn Badge](/docs/components/base/badge) or Shadcn Tag inside the sheet to show active filters or selections. For mobile, use [Shadcn Drawer](/components/drawer) for swipe-dismiss gestures."
       ]
     }
   },
   "sidebar": {
     "description": "{{count}} shadcn sidebar components for app shells, dashboard navigation, and collapsible side menus. Free React and Tailwind CSS layouts built on the shadcn Sidebar primitive.",
+    "metaDescription": "{{count}} shadcn sidebar components for app shells, dashboard navigation, and collapsible side menus. Free React and Tailwind CSS layouts on the Sidebar primitive.",
     "intro": "Browse {{count}} production-ready shadcn sidebar components for dashboard navigation, documentation trees, project switchers, and right-hand inspector panels. Sidebar is compatible with *Radix UI* and *Base UI* composition and is fully aligned with Shadcn Create style options so radius, colors, and typography match your design tokens.",
     "keywords": [
       "shadcn sidebar",
@@ -7724,6 +7737,136 @@
         "A sidebar is mostly other components arranged well. The header usually holds a [Shadcn Avatar](/components/avatar) and a [Shadcn Dropdown Menu](/components/dropdown-menu) for the workspace switcher, menu rows carry a [Shadcn Badge](/components/badge) for counts and a second dropdown for row actions, and the footer repeats the account menu. `SidebarSeparator` wraps [Shadcn Separator](/components/separator) so dividers keep the sidebar's own spacing.",
         "In the inset, a [Shadcn Breadcrumb](/components/breadcrumb) beside `SidebarTrigger` is the standard header row. Once the nav grows past a scannable list, a [Shadcn Command](/components/command) palette with [Shadcn Kbd](/components/kbd) shortcut hints is the usual companion, and a [Shadcn Card](/components/card) in the footer is where plan and usage surfaces normally go.",
         "When the nav is settled but the screen behind it is not, the 21 [App Shell blocks](/blocks/application/app-shell) are the next step: complete shells built on this primitive, covering icon rail, floating, inset, dual sidebar, and topbar layouts, plus command-K search and the mobile sheet. The same Sidebar frames 4 of the 12 [AI Chat blocks](/blocks/ai-agents/ai-chat) as well, so a conversation surface and an admin surface can share a single shell."
+      ]
+    }
+  },
+  "signature-pad": {
+    "title": "Shadcn Signature Pad: Touch, Stylus, Forms and Export",
+    "metaTitle": "Shadcn Signature Pad: Draw and Export",
+    "description": "{{count}} free shadcn signature pad components for e-sign forms, agreements and proof of delivery. Touch and stylus input, undo, PNG, SVG and JSON export.",
+    "intro": "Browse {{count}} shadcn signature pad components with pressure-aware ink, touch and stylus input, undo and redo, native form fields and PNG, JPEG, SVG or JSON export.",
+    "keywords": [
+      "shadcn signature pad",
+      "react signature pad",
+      "shadcn/ui signature",
+      "react signature canvas",
+      "e-signature component react",
+      "signature capture react",
+      "touch signature pad",
+      "stylus signature input",
+      "signature pad tailwind",
+      "next.js signature pad",
+      "signature to png react",
+      "signature svg export",
+      "signature form field",
+      "proof of delivery signature",
+      "reui signature pad examples",
+      "draw signature react"
+    ],
+    "content": {
+      "title": "Shadcn Signature Pad: Capture, Validate and Export",
+      "summary": [
+        "ReUI Signature Pad is a custom shadcn component for capturing a handwritten signature with a mouse, a finger or a stylus. It is not part of the base shadcn/ui library, and its only dependencies are the shadcn Button and the cn utility.",
+        "Ink is drawn as SVG, so it stays sharp at any zoom and follows the theme's text color in dark mode. Width follows pen pressure on a stylus and drawing speed on a mouse or a finger, which is what makes a signature look written rather than traced.",
+        "{{count}} components cover the flows a product actually ships: a form field that submits with a native form, an agreement card that locks once signed, a dialog that saves a reusable signature, per-clause initials, proof of delivery on a phone, and export to 4 formats."
+      ],
+      "sections": [
+        {
+          "title": "What is Shadcn Signature Pad?",
+          "paragraphs": [
+            "A signature pad is a drawing surface scoped to one job: turning a pointer gesture into a signature you can store, verify and print. Shadcn Signature Pad is 10 composable parts and a useSignaturePad hook. The root holds the strokes and the history, the area is the surface, and a guide, a placeholder and the controls are children you place where your design wants them.",
+            "The value is plain data: an array of strokes, each a list of points with a position and an ink width. Store that JSON to redraw or edit a signature later, or export it once to an image for a PDF, an email or a receipt."
+          ]
+        },
+        {
+          "title": "Touch, stylus and palm rejection",
+          "paragraphs": [
+            "The area blocks page scrolling and the long-press menu while a finger is on it, so signing on a phone never drags the page. It captures the pointer, so a stroke that leaves the pad keeps drawing until the finger lifts, and it reads coalesced pointer samples, so a fast stylus draws round curves instead of straight segments.",
+            "Only the first touch draws, so a pinch or a second finger leaves no mark. A pen that lands during a touch stroke discards the touch as a resting palm, and pointerTypes restricts input to a stylus entirely for tablets where the hand rests on the glass."
+          ]
+        },
+        {
+          "title": "Shadcn Signature Pad Features",
+          "featureItems": [
+            {
+              "title": "Pressure and speed sized ink.",
+              "description": "Stylus strokes take their width from pen pressure, mouse and touch strokes from drawing speed, between a minWidth and a maxWidth you set."
+            },
+            {
+              "title": "Undo, redo and clear.",
+              "description": "A 100-step history with ready-made controls and Ctrl+Z, Ctrl+Shift+Z and Ctrl+Y shortcuts. Clearing is undoable like any other edit."
+            },
+            {
+              "title": "Native form field.",
+              "description": "Give the root a name and the signature submits with a plain form as a PNG, JPEG or SVG data URL or as JSON, with required and form reset support."
+            },
+            {
+              "title": "Export to 4 formats.",
+              "description": "PNG, JPEG, SVG and JSON, cropped to the ink with padding or framed to the whole pad, with a background color, a scale and a Blob for uploads."
+            },
+            {
+              "title": "Preview anywhere.",
+              "description": "SignaturePadPreview renders saved strokes as an inline SVG cropped to the ink, with no canvas, so it works on the server and in lists and receipts."
+            },
+            {
+              "title": "Controlled or uncontrolled.",
+              "description": "Pass value and onValueChange, or a defaultValue. onValueChange fires once per finished stroke, never per pointer move, so state updates stay cheap."
+            },
+            {
+              "title": "3 surfaces.",
+              "description": "A default surface that matches the shadcn Textarea in every style, a muted filled surface, and a ghost surface for cards and documents with their own chrome."
+            },
+            {
+              "title": "apiRef for outside code.",
+              "description": "Clear, undo or export from a form library's submit handler or a toolbar outside the pad through the same API the useSignaturePad hook returns."
+            }
+          ]
+        },
+        {
+          "title": "Accessibility and alternatives",
+          "paragraphs": [
+            "The area is a labelled, focusable application region with a signature pad role description, and it takes aria-invalid and aria-describedby like any form control. A control that disables itself, such as Clear on an emptied pad, hands focus back to the area instead of dropping it on the page.",
+            "Drawing is a pointer task, so a form that requires a signature should offer another route to the same outcome. The draw or type component shows the usual pattern: a tab that accepts the signer's typed name, which is also how screen reader and keyboard users complete the flow."
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "Does the signature pad work on phones and tablets?",
+          "answer": "Yes. The area disables touch scrolling and the long-press menu while drawing, captures the pointer so strokes continue past the edge, and ignores a second finger. On a tablet, a pen landing during a touch stroke discards the touch as a resting palm."
+        },
+        {
+          "question": "How is this different from a canvas signature library?",
+          "answer": "Ink is SVG built from a stroke outline rather than pixels on a canvas. It stays sharp when the page zooms, follows the theme color without a redraw, and exports to SVG losslessly. A canvas is only used at export time, to produce PNG or JPEG."
+        },
+        {
+          "question": "How do I send the signature to my server?",
+          "answer": "For a plain form, give SignaturePad a name and a format and it submits with the form. For an upload, call toBlob from the hook or from apiRef and append the Blob to a FormData. Store JSON if you need to redraw or edit the signature later."
+        },
+        {
+          "question": "Why is the exported image black when my UI is dark?",
+          "answer": "Exports default to black ink because they usually land on paper, a PDF or a white email. Pass a color in the export options to keep the theme's ink, and a background color to fill the transparent area, which JPEG always does with white."
+        },
+        {
+          "question": "Can the signature be read-only after signing?",
+          "answer": "Yes. readOnly keeps the ink visible, stops input and takes the pad out of the tab order, and disabled also dims it. To show a saved signature elsewhere, render SignaturePadPreview with the stored strokes, which needs no pad around it."
+        },
+        {
+          "question": "Is a drawn signature legally binding?",
+          "answer": "The component captures the mark. Whether it is binding depends on the process around it: identifying the signer, recording consent and the time, and keeping an audit trail on your server. Those belong to your backend, not to a UI component."
+        },
+        {
+          "question": "What happens when the pad is resized?",
+          "answer": "Strokes are stored in pixels from the pad's top-left corner and keep their position when the pad grows or shrinks. Exports crop to the ink by default, so the saved image is the same size whatever the pad measured when it was signed."
+        }
+      ]
+    },
+    "relatedComponents": {
+      "title": "Integrating With Other Components",
+      "integrationBody": [
+        "Wrap the pad in [Shadcn Field](/components/field) for a label, a description and an error message, and point the area's aria-labelledby at the label. Pair it with [Shadcn Input](/components/input) for the signer's printed name.",
+        "Put it in [Shadcn Dialog](/components/dialog) when the signature is saved once and reused, and in [Shadcn Card](/components/card) for an agreement that signs in place. [Shadcn Tabs](/components/tabs) switch between drawing and typing a signature.",
+        "The [Form blocks](/blocks/application/form) are the assembled version of a signing flow's surroundings, 12 complete forms with fields, validation and actions. The [Signature Pad docs](/docs/components/base/signature-pad) list every prop, part and export option."
       ]
     }
   },
@@ -8025,13 +8168,14 @@
       "title": "Integrating with Other Components",
       "integrationBody": [
         "Pair toasts with [Shadcn Button](/components/button) form submissions so the click triggers an async action and a toast confirms success or shows an error.",
-        "Use toasts with [Shadcn Data Table](/components/data-table) or [Shadcn Card](/components/card) for bulk operations (delete rows, archive items) so feedback is instant and non-blocking.",
+        "Use toasts with [Shadcn Data Grid](/components/data-grid) or [Shadcn Card](/components/card) for bulk operations (delete rows, archive items) so feedback is instant and non-blocking.",
         "Combine toasts with [Shadcn Dialog](/components/dialog) for workflows where the dialog completes a task and the toast confirms the outcome (e.g., save dialog, then success toast)."
       ]
     }
   },
   "sortable": {
     "description": "{{count}} free shadcn sortable list components built with DnD Kit. Reorder items in lists, grids, nested layouts, playlists, settings, and image galleries. Copy-ready for React and Next.js. Reorder React list and grid items with Tailwind CSS-styled drag-and-drop sortables.",
+    "metaDescription": "{{count}} free shadcn sortable list components built with DnD Kit for React. Reorder items in lists, grids, nested layouts, playlists, and image galleries.",
     "intro": "Browse {{count}} production-ready shadcn sortable components using `@dnd-kit/sortable`. Covers vertical lists, grid galleries, nested layouts, playlist ordering, settings priority, sidebar navigation, and image gallery sorting: all keyboard accessible and composable with shadcn primitives.",
     "keywords": [
       "shadcn sortable list",
@@ -8161,6 +8305,7 @@
   },
   "spinner": {
     "description": "{{count}} free shadcn spinner components for loading states, async feedback, and skeleton combos. Indicate React loading operations with Tailwind CSS-styled animated spinners.",
+    "metaDescription": "{{count}} free shadcn spinner components for loading states, async feedback, and skeleton combos. Indicate React loading with Tailwind CSS-styled spinners.",
     "intro": "Browse {{count}} production-ready shadcn spinner components for loading indicators, progress feedback, and async operation states. Shadcn Spinner includes accessible ARIA labels and pairs seamlessly with Shadcn Create styles.",
     "keywords": [
       "shadcn spinner",
@@ -8256,12 +8401,13 @@
       "integrationBody": [
         "Place spinners inside [Shadcn Button](/components/button) components with the disabled prop to prevent double-clicks during async operations. Disable the button and show a spinner until the operation completes.",
         "Pair spinners with [Shadcn Skeleton](/components/skeleton) loaders for faster perceived performance. Skeleton placeholders fill the layout while spinners indicate data is still fetching.",
-        "Use spinners in [Shadcn Card](/components/card) or [Shadcn Data Table](/components/data-table) to show item-level loading. Combine with [Shadcn Alert](/docs/components/base/alert) or [Shadcn Sonner](/components/sonner) to show completion or errors once the operation finishes."
+        "Use spinners in [Shadcn Card](/components/card) or [Shadcn Data Grid](/components/data-grid) to show item-level loading. Combine with [Shadcn Alert](/docs/components/base/alert) or [Shadcn Sonner](/components/sonner) to show completion or errors once the operation finishes."
       ]
     }
   },
   "stepper": {
     "description": "{{count}} free shadcn stepper components: progress bars, segmented bars, vertical, loading state, controlled, icons, badges, and inline titles. Copy-ready for React and Next.js. Walk React users through multi-step forms with Tailwind CSS-styled step indicators.",
+    "metaDescription": "{{count}} free shadcn stepper components: progress bars, icons, and badges. Walk React users through multi-step forms with Tailwind CSS-styled step indicators.",
     "intro": "Browse {{count}} production-ready shadcn stepper components for multi-step forms, onboarding flows, and checkout processes. Covers progress bar, segmented progress, vertical orientation, completed state, loading state, controlled navigation, icons and badges, step descriptions, and inline title variants: a custom ReUI component.",
     "keywords": [
       "shadcn stepper",
@@ -8699,6 +8845,7 @@
   },
   "textarea": {
     "description": "{{count}} free shadcn textarea components for multi-line text input, comments, and form fields. Accept React multi-line text input with Tailwind CSS-styled textarea components.",
+    "metaDescription": "{{count}} free shadcn textarea components for multi-line text input, comments, and form fields. React text input with Tailwind CSS-styled textarea components.",
     "intro": "Browse {{count}} production-ready shadcn textarea components for multi-line text input, form submission, and accessible form fields. Textarea is fully compatible with React Hook Form and Shadcn Create style options.",
     "keywords": [
       "shadcn textarea",
@@ -8798,8 +8945,142 @@
       ]
     }
   },
+  "time-picker": {
+    "title": "Shadcn Time Picker: Columns, Typed Input, Steps and Bounds",
+    "metaTitle": "Shadcn Time Picker: Hours, Minutes and AM/PM",
+    "description": "{{count}} free shadcn time picker components for booking forms, opening hours and shifts. Hour, minute, second and AM/PM columns, a typed input and time bounds.",
+    "intro": "Browse {{count}} shadcn time picker components with hour, minute, second and AM/PM columns, a typable input, minute steps, min and max bounds and localized labels.",
+    "keywords": [
+      "shadcn time picker",
+      "react time picker",
+      "shadcn/ui time picker",
+      "time picker tailwind",
+      "next.js time picker",
+      "react time input",
+      "24 hour time picker",
+      "am pm time picker react",
+      "time picker with seconds",
+      "time picker popover",
+      "time slot picker react",
+      "time picker min max",
+      "localized time picker",
+      "accessible time picker react",
+      "shadcn date time picker",
+      "reui time picker examples"
+    ],
+    "searchAliases": [
+      "timepicker"
+    ],
+    "content": {
+      "title": "Shadcn Time Picker: Pick, Type and Limit a Time of Day",
+      "summary": [
+        "ReUI Time Picker is a custom shadcn component for choosing a time of day from scrollable hour, minute, second and AM/PM columns, in a popover or in place. It is not part of the base shadcn/ui library, and it is built on the shadcn Button, Input Group and Popover with no date library.",
+        "The value is a string in the format a native time input uses, HH:mm or HH:mm:ss in 24-hour time, whatever the picker shows on screen. A 12-hour clock with AM/PM is only a display setting, so a form, an API and a database always receive 14:30 rather than 2:30 PM.",
+        "The examples cover the places a time picker actually lands: appointment slots with booked times disabled, opening hours on 15-minute steps, and a meeting start and end. Others confirm a shift change with OK, validate a required form field, and show labels in 4 languages including right-to-left Arabic."
+      ],
+      "sections": [
+        {
+          "title": "What is Shadcn Time Picker?",
+          "paragraphs": [
+            "A time picker turns a time of day into a value you can store without parsing free text: each unit is a column, and a pick in one column keeps the others where it can. Shadcn Time Picker is 12 composable parts and a useTimePicker hook. With no children the root renders an outline trigger and a popover, TimePickerPanel inside it gives an always-open picker, and TimePickerInput gives a field people can type into.",
+            "Columns follow the granularity and the clock: hour only, hour and minute, or hour, minute and second, plus an AM/PM column on a 12-hour clock. Steps thin each column, so a 15-minute step shows 00, 15, 30 and 45, and each list of 5 rows centers its selected row."
+          ]
+        },
+        {
+          "title": "Steps, bounds and unavailable times",
+          "paragraphs": [
+            "min and max are inclusive, and a min later than max is an overnight window, so a night shift can run from 22:00 to 02:00. isTimeDisabled marks single times unavailable, such as a lunch hour or booked slots, and an hour with nothing left to pick is disabled in its column.",
+            "Every route in respects them. A column pick lands on the nearest selectable time, a tie going to the earlier one, a typed time outside the bounds or marked unavailable moves to the nearest one that is not, and Now floors the clock to the steps, so 14:38 on a 15-minute step becomes 14:30. A value you set in code through value or setValue is kept as given."
+          ]
+        },
+        {
+          "title": "Shadcn Time Picker Features",
+          "featureItems": [
+            {
+              "title": "Scrollable listbox columns.",
+              "description": "Each unit is a listbox. Arrow keys, Home, End, Page Up and Page Down move the selection, Left and Right switch columns, and typing 1 then 4 within a second jumps to 14."
+            },
+            {
+              "title": "Typable input.",
+              "description": "TimePickerInput reads 930, 14:30, 14h30, 2:30 pm and 2p, plus full-width, Arabic-Indic and Persian digits, on blur or Enter. Up and Down step to the next or previous free time."
+            },
+            {
+              "title": "Steps, bounds and blocked times.",
+              "description": "hourStep, minuteStep and secondStep thin the columns, min and max set the window, overnight included, and isTimeDisabled greys out single times."
+            },
+            {
+              "title": "12 or 24-hour clock.",
+              "description": "hourCycle switches the display and periodPosition puts AM/PM before the time for Chinese, Japanese and Korean. The value stays 24-hour either way."
+            },
+            {
+              "title": "Confirm with OK.",
+              "description": "requireConfirm keeps picks, Now and Clear as a draft until OK, and closing the popover discards them, so a change applies once or not at all."
+            },
+            {
+              "title": "Native form field.",
+              "description": "Give the root a name and the value submits with a plain form or a server action, with required, a form attribute, and a form reset that restores the default."
+            },
+            {
+              "title": "Localized labels.",
+              "description": "12 labels and 2 format functions cover the headers, AM and PM, the buttons, the placeholder, the accessible names and the digits. Override one key and the rest keep their defaults."
+            },
+            {
+              "title": "Every shadcn style.",
+              "description": "Rows copy the shadcn Select item height and radius in all 8 styles, and a --time-picker-rows variable sets how many rows show, 5 by default."
+            }
+          ]
+        },
+        {
+          "title": "Accessibility and right-to-left",
+          "paragraphs": [
+            "Each column is a listbox named by its header, the selection follows the arrow keys like a native wheel, and every list is described by the full time, so a screen reader hears 14:30 and not just 30. Given aria-labelledby, the trigger's name joins your label and the current value, and Tab cycles inside the open popover until Escape or OK closes it.",
+            "Columns always run left to right, because a time reads hour first in right-to-left text too, and forced colors mode marks the selection with the system highlight. readOnly keeps the columns focusable so the value can still be read, while keys and clicks leave it unchanged."
+          ]
+        }
+      ],
+      "faqs": [
+        {
+          "question": "How is this different from a native input type=time?",
+          "answer": "The native control's picker is drawn by the browser, so it looks different in each one, its popup cannot be styled, and it cannot mark single times such as booked slots unavailable. Time Picker renders your shadcn theme everywhere and keeps the native value format, HH:mm or HH:mm:ss in 24-hour time, so swapping one for the other does not change what your server receives."
+        },
+        {
+          "question": "How is it different from Date Selector, and how do I pick a date and a time?",
+          "answer": "Date Selector picks a date or a date range and has no time. Time Picker picks a time of day and carries no date. For both, place a calendar and a TimePickerPanel side by side, as the date and time example does, and combine the 2 values when you save."
+        },
+        {
+          "question": "Does it handle time zones?",
+          "answer": "No, by design. The value is a wall-clock time with no date and no zone, like a native time input. Convert it on your server together with the date it belongs to, and show the zone as text in the trigger, as the time zone example does."
+        },
+        {
+          "question": "How do I disable booked slots or a lunch break?",
+          "answer": "Pass isTimeDisabled. It receives each candidate as a zero-padded string and as hours, minutes and seconds, so a lunch break is a string comparison between 12:00 and 13:00 and booked slots are a Set lookup. Keep the function stable, because it runs for every candidate time."
+        },
+        {
+          "question": "How do I send the time to my server?",
+          "answer": "For a plain form or a server action, give TimePicker a name and read that field from FormData; required and form reset work like a native field. With a form library, bind value and onValueChange, which receives the new value or null when cleared, and pass inputRef so the library can focus the field on an error."
+        },
+        {
+          "question": "Can I leave out Now or the OK button?",
+          "answer": "Yes. Without children the footer shows Now and Clear, plus OK in a popover or under requireConfirm. Pass your own children to choose the buttons, as the time zone example does to leave out Now, which would read the viewer's clock rather than the venue's."
+        },
+        {
+          "question": "Is it safe to server render in Next.js?",
+          "answer": "Yes. It reads the clock only when Now is pressed, never while rendering, so the server and the client produce the same markup. The value is a plain string, so a server component can pass it down without serializing a Date."
+        }
+      ]
+    },
+    "relatedComponents": {
+      "title": "Integrating With Other Components",
+      "integrationBody": [
+        "Wrap the picker in [Shadcn Field](/components/field) for a label, a description and an error, and pass the label's id as aria-labelledby so the trigger reads both the label and the value. TimePickerInput is built on [Shadcn Input Group](/components/input-group) and the columns open in [Shadcn Popover](/components/popover), so both follow your theme.",
+        "For a date and a time, place [Shadcn Calendar](/components/calendar) and a TimePickerPanel side by side in one card, and keep [Shadcn Date Selector](/components/date-selector) for date ranges. For a start and an end, use 2 pickers and set the end's min from the start, which keeps the end after the start without validation code.",
+        "The [Schedule blocks](/blocks/application/schedule) are the assembled version of the screens around a time, 10 Pro layouts including booking widgets, agendas and time-slot lists. The [Time Picker docs](/docs/components/base/time-picker) list every part, prop and helper."
+      ]
+    }
+  },
   "timeline": {
     "description": "{{count}} free shadcn timeline components for deployment logs, activity feeds, git history, milestones, roadmaps, and pipeline steps. Copy-ready for React and Next.js. Visualize React event sequences with Tailwind CSS-styled timeline components.",
+    "metaDescription": "{{count}} free shadcn timeline components for deployment logs, activity feeds, milestones, and roadmaps. Visualize React event sequences with Tailwind CSS.",
     "intro": "Browse {{count}} production-ready shadcn timeline components for deployment logs, activity feeds with user avatars, horizontal milestone timelines, roadmaps, order status, git activity, pipeline steps, and vertical and horizontal orientations: a custom ReUI component composable with Avatar, Badge, Collapsible, and Frame.",
     "keywords": [
       "shadcn timeline",
@@ -9036,6 +9317,7 @@
   },
   "toggle-group": {
     "description": "{{count}} free shadcn toggle group components for exclusive selection, multi-select buttons. Group React toggle controls into Tailwind CSS-styled single or multi-select sets.",
+    "metaDescription": "{{count}} free shadcn toggle group components for exclusive selection and multi-select buttons. Group React toggles into Tailwind CSS single or multi-select sets.",
     "intro": "Browse {{count}} production-ready shadcn toggle-group components for exclusive and multi-select button groups. Toggle Group is built on Radix UI primitives and fully compatible with Shadcn Create style options.",
     "keywords": [
       "shadcn toggle-group",
@@ -9238,6 +9520,7 @@
   },
   "tree": {
     "description": "{{count}} free shadcn tree components built on Headless Tree. File explorer, org chart, permissions tree, indented lines, and keyboard navigation. Copy-ready for React and Next.js. Navigate React hierarchical data with Tailwind CSS-styled collapsible tree views.",
+    "metaDescription": "{{count}} free shadcn tree components built on Headless Tree for React. File explorer, org chart, permissions tree, indented lines, and keyboard navigation.",
     "intro": "Browse {{count}} production-ready shadcn tree components using `@headless-tree/core` and `@headless-tree/react`. Covers basic tree, indented guide lines, custom indentation, file explorer with type icons, organization chart with avatars, and permissions tree with checkboxes: all keyboard accessible with expand and collapse animations.",
     "keywords": [
       "shadcn tree",

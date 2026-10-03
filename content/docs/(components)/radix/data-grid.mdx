@@ -32,7 +32,7 @@ which features it uses, so the grid exports a ready-made bundle:
 ```tsx
 import { useTable } from "@tanstack/react-table"
 
-import { dataGridFeatures } from "@/components/reui/data-grid"
+import { dataGridFeatures } from "@/components/reui/data-grid/data-grid"
 
 const table = useTable({
   features: dataGridFeatures,
@@ -68,7 +68,7 @@ that is the type you write wherever a column, a row or the table appears in your
 ```tsx
 import type { ColumnDef, Row } from "@tanstack/react-table"
 
-import type { DataGridFeatures } from "@/components/reui/data-grid"
+import type { DataGridFeatures } from "@/components/reui/data-grid/data-grid"
 
 const columns: ColumnDef<DataGridFeatures, IData>[] = [
   // ...
@@ -219,12 +219,14 @@ import {
   DataGrid,
   DataGridContainer,
   dataGridFeatures,
-  DataGridPagination,
+  type DataGridFeatures,
+} from "@/components/reui/data-grid/data-grid"
+import { DataGridPagination } from "@/components/reui/data-grid/data-grid-pagination"
+import {
   DataGridTable,
   DataGridTableFootRow,
   DataGridTableFootRowCell,
-  type DataGridFeatures,
-} from "@/components/reui/data-grid"
+} from "@/components/reui/data-grid/data-grid-table"
 ```
 
 ```tsx
@@ -462,6 +464,8 @@ The root component that provides the table context.
 
 `columnsResizeMode` is resolved by the grid, not by TanStack. Left unset, the grid reads the table's own `columnResizeMode` and falls back to `"onEnd"` when that is undefined, which on v9 is the normal case: `useTable` hands back the options object you passed, so feature defaults never show up on `table.options`.
 
+In an RTL layout, also pass `columnResizeDirection: "rtl"` to `useTable`. The resize drag does not read `dir`: under TanStack's `"ltr"` default the column edge moves opposite to the pointer, and in `onEnd` mode the indicator line draws on the column's other edge.
+
 ---
 
 ### DataGridTableClassNames
@@ -509,6 +513,8 @@ Dedicated scroll wrapper for wide grids and sticky headers.
 | `orientation` | `"horizontal" \| "vertical" \| "both"` | `"both"` | Which scrollbars to render.             |
 | `className`   | `string`                               | -        | Additional CSS classes for the wrapper. |
 
+The scroll area reads its direction from the layout, so an RTL page (`dir="rtl"`) needs no `DirectionProvider` from either library. Both scrollbars are `--data-grid-scrollbar-size` thick (10px by default) with a thumb 3px narrower, and the whole track thickness grabs the thumb. Set the variable on an ancestor for a larger drag target.
+
 While the sticky-header scroll mode is active (`headerSticky` with a vertical orientation), the root carries `data-overflow-vertical="true"` whenever content overflows vertically. Use it as an ancestor selector to style scrollable vs short grids, for example a closing bottom border on the last row only when a fixed-height grid is partially filled: `[[data-slot=data-grid-scroll-area]:not([data-overflow-vertical])_&:last-child>td]:border-b` on `tableClassNames.bodyRow`.
 
 ---
@@ -516,6 +522,8 @@ While the sticky-header scroll mode is active (`headerSticky` with a vertical or
 ### DataGridTable
 
 The component that renders the actual HTML table. It automatically handles data rendering, loading states (skeletons/spinners), empty states, footer rows, and pinned rows when `rowsPinnable` is enabled on the parent `DataGrid`. The unpinned rows come from `table.getRowModel()`, which on v9 resolves to the paginated row model, and `dataGridFeatures` always registers `paginatedRowModel`, so a grid that must render every row sets `manualPagination: true` on `useTable`.
+
+Pinned cells and the `footerBackground` band paint an opaque surface from `--data-grid-surface`, which falls back to `--background` and follows `--card` inside a shadcn `Card`. Set it on an ancestor when the grid sits on any other surface.
 
 | Prop            | Type        | Default | Description                                        |
 | :-------------- | :---------- | :------ | :------------------------------------------------- |
@@ -597,8 +605,11 @@ Used for enabling column drag-and-drop reordering with optional footer rendering
 | :-------------- | :------------------------------ | :------ | :---------------------------------------------------------------- |
 | `handleDragEnd` | `(event: DragEndEvent) => void` | -       | `Required`. Callback triggered when a column drag operation ends. |
 | `footerContent` | `ReactNode`                     | -       | Optional footer content rendered inside `<tfoot>`.                |
+| `accessibility` | `DndContextProps["accessibility"]` | -    | Forwarded to dnd-kit's `DndContext`: localized screen-reader instructions and announcements. |
 
 The sortable items come from `table.state.columnOrder`, and TanStack starts that slice as an empty array, so you have to seed it and keep it controlled. Give every column an explicit `id`: `ColumnDef.id` is optional and is only derived from `accessorKey` on the built column, not on the definition object you map over.
+
+Pinned columns keep their pinned place, so they render without a grip and take no part in the reorder; with `columnsPinnable` they also stay sticky while the other columns scroll.
 
 ```tsx
 const [columnOrder, setColumnOrder] = useState<string[]>(() =>
@@ -680,6 +691,7 @@ The drag handle comes from `DataGridTableDndRowHandle` in a column of your own. 
 | `onDragMove`          | `(event: DragMoveEvent) => void`   | -                          | Forwarded from the drag context.                                                                                                                                           |
 | `onDragOver`          | `(event: DragOverEvent) => void`   | -                          | Forwarded from the drag context.                                                                                                                                           |
 | `onDragCancel`        | `(event: DragCancelEvent) => void` | -                          | Forwarded from the drag context, after the internal drag state resets.                                                                                                     |
+| `accessibility`       | `DndContextProps["accessibility"]` | -                          | Forwarded to dnd-kit's `DndContext`: localized screen-reader instructions and announcements.                                                                               |
 
 While a row is in flight the grid does four things, and all of them are built in:
 
@@ -727,7 +739,7 @@ Every built-in string - the header menu items, aria labels for row pin / select 
 >
 ```
 
-The merge is shallow per section: untouched keys keep their defaults, and a more specific component prop that predates `i18n` (`rowCreateLabel`, `loadingMessage`, `emptyMessage`, the `DataGridPagination` label props, the row-DnD `disabledLabel`) still wins over its `i18n` counterpart, so adopting `i18n` is never a breaking change. The full key set with defaults ships in `data-grid-i18n.tsx`; `DataGridI18nLabels`, `DataGridI18nConfig`, `DataGridI18nOverrides` and `mergeDataGridI18n` are exported from it.
+The merge is shallow per section: untouched keys keep their defaults, and a more specific component prop that predates `i18n` (`rowCreateLabel`, `loadingMessage`, `emptyMessage`, the `DataGridPagination` label props, the row-DnD `disabledLabel`) still wins over its `i18n` counterpart, so adopting `i18n` is never a breaking change. dnd-kit's own screen-reader instructions and drag announcements are not `i18n` keys: pass them as `accessibility` on `DataGridTableDnd` or `DataGridTableDndRows`. The full key set with defaults ships in `data-grid-i18n.tsx`; `DataGridI18nLabels`, `DataGridI18nConfig`, `DataGridI18nOverrides` and `mergeDataGridI18n` are exported from it.
 
 ---
 
@@ -860,7 +872,7 @@ Seed your input with `initialText` when it is present so typing replaces the val
 
 **Exports.** Alongside the components, the module exports the pure pieces so a consumer can build custom flows on the same contracts: `getDataGridVisibleSelectedCellCount(table, viewport)` (the selection count that matches what is painted), `invertDataGridCellsChange(details)` (the undo batch: values and previous values swapped, so feeding it through your `onCellsChange` state update implements undo, and inverting the inverse is redo), `getDataGridActiveRegionGrid`, `buildDataGridClearDetails`, `buildDataGridPasteDetails`, `parseDataGridClipboardText`, `serializeDataGridClipboardText`, `tileDataGridClipboardBlock`, and the types `DataGridCellSelectionApi`, `DataGridFocusCellOptions` and `DataGridPasteTarget` (`DataGridCellSelectionSnapshot`, `DataGridCellSelectionBound` and `DataGridCopyDetails` come from the `data-grid` module). Every `viewport` argument is the grid's body scroll viewport, `[data-slot="data-grid-table-viewport"]` inside `DataGridContainer`; passing null falls back to full-range math that can span off-page rows. For a custom cell renderer, the `data-grid` module exports `getDataGridCellSelectionCellAttrs(cell)`, the whole td contract (`aria-selected`, `data-col-id`, `data-cell-selected`, `data-cell-focused` and the four `data-cell-edge-*` sides), and `dataGridCellSelectionCellClasses`, the chrome those attributes drive; read both inside a `Subscribe source={table.atoms.cellSelection}` render. `DataGridTableAddRow` is exported from the table module for custom layouts. The selection overlay's boundary clamps are driven by the custom properties `--data-grid-overlay-start`, `--data-grid-overlay-end` and `--data-grid-overlay-bottom` (each defaults to -1px), which `dataGridCellSelectionCellClasses` consumers can zero out at their own boundaries.
 
-**`meta.autoSize`.** One column can absorb the container's free space into its committed width, and the absorbed width reflows LIVE with the container: growing the window widens the column, shrinking hands the space back down to its `minSize` (or its starting width when none is set), and a streaming window drag is coalesced into a leading commit plus one settle commit. A width the user dragged is never touched; a double-click reset on its handle re-arms the fill.
+**`meta.autoSize`.** One column can absorb the container's free space into its committed width, and the absorbed width reflows LIVE with the container: growing the window widens the column, shrinking hands the space back down to a `minSize` you set on the column or in `defaultColumn` (TanStack's built-in 20px does not count), or to its starting width when none is set, and a streaming window drag is coalesced into a leading commit plus one settle commit. A width the user dragged is never touched; a double-click reset on its handle re-arms the fill.
 
 **`meta.fillWidth`.** Under `columnsResizable`, one column can absorb the free space the filler strip would otherwise hold, so the grid always reads full-width and the built-in editor covers the whole cell. While free space remains, manually resizing that column is visually a no-op (the absorbed space compensates), the usual flex-column trade-off.
 

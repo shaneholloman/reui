@@ -118,5 +118,11 @@
     "title": "Expense accounts with a colour inherited down each branch.",
     "description": "Expense accounts with a colour inherited down each branch.",
     "order": 20
+  },
+  {
+    "name": "c-cascader-21",
+    "title": "Global search across the whole tree from a nested level.",
+    "description": "A product category field that reopens on its current level, where typing still searches the whole catalog and each hit shows the trail it lives under.",
+    "order": 21
   }
 ]

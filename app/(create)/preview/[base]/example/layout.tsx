@@ -40,8 +40,8 @@ export default function ComponentExamplePreviewLayout({
       <PreviewStyle />
       {/*
         The app's root layout is shared by every route, so its chrome renders
-        inside this frame too. Crisp and Analytics already opt out of embeds on
-        their own, and Toaster / TopProgressBar / ScrollToTop paint nothing
+        inside this frame too. Analytics already opts out of embeds on its
+        own, and Toaster / TopProgressBar / ScrollToTop paint nothing
         here, but the dev-only Tailwind breakpoint badge is `position: fixed`
         and shows up as a stray pill in the corner of every preview. Hide it so
         the frame really is a blank page.

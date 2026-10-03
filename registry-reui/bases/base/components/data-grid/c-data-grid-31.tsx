@@ -975,7 +975,7 @@ export default function Pattern() {
           "first:ps-4 last:pe-4 [&:has(+[data-slot=data-grid-table-fill-body-cell]:last-child)]:pe-4 [&:has(+[data-slot=data-grid-table-fill-head-cell]:last-child)]:pe-4",
         // The row the open context menu references, checkbox state untouched.
         bodyRow:
-          "data-[context-open]:bg-muted/50 data-[context-open]:[&>td[data-pinned]]:bg-[color-mix(in_oklab,var(--muted)_50%,var(--background))]",
+          "data-[context-open]:bg-muted/50 data-[context-open]:[&>td[data-pinned]]:bg-[color-mix(in_oklab,var(--muted)_50%,var(--data-grid-surface,var(--card)))]",
       }}
     >
       <Card ref={cardRef} className="w-full gap-3 py-3.5">

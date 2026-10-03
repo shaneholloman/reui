@@ -7497,6 +7497,31 @@
       }
     },
     {
+      "name": "c-cascader-21",
+      "type": "registry:block",
+      "title": "Global search across the whole tree from a nested level.",
+      "description": "A product category field that reopens on its current level, where typing still searches the whole catalog and each hit shows the trail it lives under.",
+      "dependencies": [],
+      "registryDependencies": [
+        "button",
+        "@reui/cascader",
+        "@reui/cascader-item",
+        "@reui/cascader-nav",
+        "@reui/cascader-types",
+        "field"
+      ],
+      "files": [
+        {
+          "path": "c-cascader-21.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-cascader-21.tsx"
+        }
+      ],
+      "meta": {
+        "order": 21
+      }
+    },
+    {
       "name": "c-cascader-3",
       "type": "registry:block",
       "title": "Deep search across every level with path-annotated results.",
@@ -21671,6 +21696,286 @@
       }
     },
     {
+      "name": "c-signature-pad-1",
+      "type": "registry:block",
+      "title": "Pinned clear and save",
+      "description": "Muted signing surface with clear and save controls pinned inside the pad.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@reui/signature-pad"
+      ],
+      "files": [
+        {
+          "path": "c-signature-pad-1.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-signature-pad-1.tsx"
+        }
+      ],
+      "meta": {
+        "order": 1
+      }
+    },
+    {
+      "name": "c-signature-pad-10",
+      "type": "registry:block",
+      "title": "Initials per clause",
+      "description": "Compact initial pads for each contract clause with a completion count.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@reui/badge",
+        "button",
+        "item",
+        "@reui/signature-pad"
+      ],
+      "files": [
+        {
+          "path": "c-signature-pad-10.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-signature-pad-10.tsx"
+        }
+      ],
+      "meta": {
+        "order": 10
+      }
+    },
+    {
+      "name": "c-signature-pad-11",
+      "type": "registry:block",
+      "title": "Proof of delivery",
+      "description": "Mobile delivery card with recipient name, a touch signature and confirmation.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@reui/badge",
+        "button",
+        "card",
+        "field",
+        "input",
+        "@reui/signature-pad"
+      ],
+      "files": [
+        {
+          "path": "c-signature-pad-11.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-signature-pad-11.tsx"
+        }
+      ],
+      "meta": {
+        "order": 11
+      }
+    },
+    {
+      "name": "c-signature-pad-12",
+      "type": "registry:block",
+      "title": "Upload with apiRef",
+      "description": "Read the pad from outside its tree and attach the signature as a PNG file.",
+      "dependencies": [],
+      "registryDependencies": [
+        "button",
+        "@reui/signature-pad"
+      ],
+      "files": [
+        {
+          "path": "c-signature-pad-12.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-signature-pad-12.tsx"
+        }
+      ],
+      "meta": {
+        "order": 12
+      }
+    },
+    {
+      "name": "c-signature-pad-2",
+      "type": "registry:block",
+      "title": "Undo and redo toolbar",
+      "description": "Toolbar with undo, redo and clear, plus Ctrl+Z and Ctrl+Shift+Z shortcuts.",
+      "dependencies": [],
+      "registryDependencies": [
+        "button-group",
+        "kbd",
+        "@reui/signature-pad"
+      ],
+      "files": [
+        {
+          "path": "c-signature-pad-2.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-signature-pad-2.tsx"
+        }
+      ],
+      "meta": {
+        "order": 2
+      }
+    },
+    {
+      "name": "c-signature-pad-3",
+      "type": "registry:block",
+      "title": "Form field with validation",
+      "description": "Native form field that submits an SVG signature, with a required check and reset.",
+      "dependencies": [],
+      "registryDependencies": [
+        "button",
+        "field",
+        "input",
+        "@reui/signature-pad"
+      ],
+      "files": [
+        {
+          "path": "c-signature-pad-3.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-signature-pad-3.tsx"
+        }
+      ],
+      "meta": {
+        "order": 3
+      }
+    },
+    {
+      "name": "c-signature-pad-4",
+      "type": "registry:block",
+      "title": "Signing workspace",
+      "description": "Ink colors, line weights, undo, redo, replay and PNG or SVG download in one signing card.",
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "@reui/badge",
+        "button",
+        "card",
+        "dropdown-menu",
+        "separator",
+        "@reui/signature-pad"
+      ],
+      "files": [
+        {
+          "path": "c-signature-pad-4.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-signature-pad-4.tsx"
+        }
+      ],
+      "meta": {
+        "order": 4
+      }
+    },
+    {
+      "name": "c-signature-pad-5",
+      "type": "registry:block",
+      "title": "Export PNG, JPEG, SVG or JSON",
+      "description": "Export the signature in 4 formats with a preview, payload size and download link.",
+      "dependencies": [],
+      "registryDependencies": [
+        "button",
+        "button-group",
+        "@reui/frame",
+        "@reui/signature-pad"
+      ],
+      "files": [
+        {
+          "path": "c-signature-pad-5.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-signature-pad-5.tsx"
+        }
+      ],
+      "meta": {
+        "order": 5
+      }
+    },
+    {
+      "name": "c-signature-pad-6",
+      "type": "registry:block",
+      "title": "Draw or type",
+      "description": "Tabs to draw a signature or type it, the keyboard route to the same outcome.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@reui/badge",
+        "button",
+        "field",
+        "input",
+        "@reui/signature-pad",
+        "tabs"
+      ],
+      "files": [
+        {
+          "path": "c-signature-pad-6.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-signature-pad-6.tsx"
+        }
+      ],
+      "meta": {
+        "order": 6
+      }
+    },
+    {
+      "name": "c-signature-pad-7",
+      "type": "registry:block",
+      "title": "Agreement signing card",
+      "description": "Agreement card that locks the signature read-only once it is signed and dated.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@reui/badge",
+        "button",
+        "card",
+        "checkbox",
+        "field",
+        "@reui/signature-pad"
+      ],
+      "files": [
+        {
+          "path": "c-signature-pad-7.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-signature-pad-7.tsx"
+        }
+      ],
+      "meta": {
+        "order": 7
+      }
+    },
+    {
+      "name": "c-signature-pad-8",
+      "type": "registry:block",
+      "title": "Signature in a dialog",
+      "description": "Saved profile signature with a dialog to draw, edit or remove it.",
+      "dependencies": [],
+      "registryDependencies": [
+        "button",
+        "dialog",
+        "item",
+        "@reui/signature-pad"
+      ],
+      "files": [
+        {
+          "path": "c-signature-pad-8.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-signature-pad-8.tsx"
+        }
+      ],
+      "meta": {
+        "order": 8
+      }
+    },
+    {
+      "name": "c-signature-pad-9",
+      "type": "registry:block",
+      "title": "Stylus mode with palm rejection",
+      "description": "Pen-only input that ignores a resting palm, with pressure-sensitive ink.",
+      "dependencies": [],
+      "registryDependencies": [
+        "@reui/badge",
+        "field",
+        "@reui/signature-pad",
+        "switch"
+      ],
+      "files": [
+        {
+          "path": "c-signature-pad-9.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-signature-pad-9.tsx"
+        }
+      ],
+      "meta": {
+        "order": 9
+      }
+    },
+    {
       "name": "c-skeleton-1",
       "type": "registry:block",
       "title": "Skeleton loader for avatars and user info.",
@@ -24390,6 +24695,284 @@
       ],
       "meta": {
         "order": 6
+      }
+    },
+    {
+      "name": "c-time-picker-1",
+      "type": "registry:block",
+      "title": "Inline time panel",
+      "description": "Hour and minute columns rendered in place, with Now, Clear and a live readout.",
+      "dependencies": [],
+      "registryDependencies": [
+        "card",
+        "@reui/time-picker"
+      ],
+      "files": [
+        {
+          "path": "c-time-picker-1.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-time-picker-1.tsx"
+        }
+      ],
+      "meta": {
+        "order": 1
+      }
+    },
+    {
+      "name": "c-time-picker-10",
+      "type": "registry:block",
+      "title": "Confirm before applying",
+      "description": "Column picks stay a draft until OK, so a shift change applies once.",
+      "dependencies": [],
+      "registryDependencies": [
+        "field",
+        "@reui/time-picker"
+      ],
+      "files": [
+        {
+          "path": "c-time-picker-10.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-time-picker-10.tsx"
+        }
+      ],
+      "meta": {
+        "order": 10
+      }
+    },
+    {
+      "name": "c-time-picker-11",
+      "type": "registry:block",
+      "title": "Localized labels",
+      "description": "English, German, Chinese and Arabic labels, clocks and digits, with Arabic right to left.",
+      "dependencies": [],
+      "registryDependencies": [
+        "card",
+        "tabs",
+        "@reui/time-picker"
+      ],
+      "files": [
+        {
+          "path": "c-time-picker-11.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-time-picker-11.tsx"
+        }
+      ],
+      "meta": {
+        "order": 11
+      }
+    },
+    {
+      "name": "c-time-picker-12",
+      "type": "registry:block",
+      "title": "Form field with validation",
+      "description": "Native form field with a required check, an error, reset and the submitted value.",
+      "dependencies": [],
+      "registryDependencies": [
+        "button",
+        "field",
+        "@reui/time-picker"
+      ],
+      "files": [
+        {
+          "path": "c-time-picker-12.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-time-picker-12.tsx"
+        }
+      ],
+      "meta": {
+        "order": 12
+      }
+    },
+    {
+      "name": "c-time-picker-13",
+      "type": "registry:block",
+      "title": "Date and time",
+      "description": "Schedule a post with a calendar and time columns side by side in one card.",
+      "dependencies": [],
+      "registryDependencies": [
+        "button",
+        "calendar",
+        "card",
+        "@reui/time-picker"
+      ],
+      "files": [
+        {
+          "path": "c-time-picker-13.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-time-picker-13.tsx"
+        }
+      ],
+      "meta": {
+        "order": 13,
+        "gridSize": 1
+      }
+    },
+    {
+      "name": "c-time-picker-2",
+      "type": "registry:block",
+      "title": "Popover picker",
+      "description": "Outline trigger in a labelled field that opens hour and minute columns with Now, Clear and OK.",
+      "dependencies": [],
+      "registryDependencies": [
+        "field",
+        "@reui/time-picker"
+      ],
+      "files": [
+        {
+          "path": "c-time-picker-2.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-time-picker-2.tsx"
+        }
+      ],
+      "meta": {
+        "order": 2
+      }
+    },
+    {
+      "name": "c-time-picker-3",
+      "type": "registry:block",
+      "title": "Typable time input",
+      "description": "Type 930, 14:30 or 2:30 pm, or step through free times with the arrow keys.",
+      "dependencies": [],
+      "registryDependencies": [
+        "field",
+        "@reui/time-picker"
+      ],
+      "files": [
+        {
+          "path": "c-time-picker-3.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-time-picker-3.tsx"
+        }
+      ],
+      "meta": {
+        "order": 3
+      }
+    },
+    {
+      "name": "c-time-picker-4",
+      "type": "registry:block",
+      "title": "12-hour clock with seconds",
+      "description": "Hour, minute, second and AM/PM columns for a stream go-live time.",
+      "dependencies": [],
+      "registryDependencies": [
+        "field",
+        "@reui/time-picker"
+      ],
+      "files": [
+        {
+          "path": "c-time-picker-4.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-time-picker-4.tsx"
+        }
+      ],
+      "meta": {
+        "order": 4
+      }
+    },
+    {
+      "name": "c-time-picker-5",
+      "type": "registry:block",
+      "title": "Hour only",
+      "description": "A daily digest send time picked by the hour in a settings row.",
+      "dependencies": [],
+      "registryDependencies": [
+        "item",
+        "@reui/time-picker"
+      ],
+      "files": [
+        {
+          "path": "c-time-picker-5.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-time-picker-5.tsx"
+        }
+      ],
+      "meta": {
+        "order": 5
+      }
+    },
+    {
+      "name": "c-time-picker-6",
+      "type": "registry:block",
+      "title": "Steps and opening hours",
+      "description": "15-minute steps limited to 08:30 to 17:30, with out-of-range hours disabled.",
+      "dependencies": [],
+      "registryDependencies": [
+        "field",
+        "@reui/time-picker"
+      ],
+      "files": [
+        {
+          "path": "c-time-picker-6.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-time-picker-6.tsx"
+        }
+      ],
+      "meta": {
+        "order": 6
+      }
+    },
+    {
+      "name": "c-time-picker-7",
+      "type": "registry:block",
+      "title": "Unavailable slots",
+      "description": "30-minute appointment slots with the lunch hour and booked times disabled.",
+      "dependencies": [],
+      "registryDependencies": [
+        "field",
+        "@reui/time-picker"
+      ],
+      "files": [
+        {
+          "path": "c-time-picker-7.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-time-picker-7.tsx"
+        }
+      ],
+      "meta": {
+        "order": 7
+      }
+    },
+    {
+      "name": "c-time-picker-8",
+      "type": "registry:block",
+      "title": "Start and end time",
+      "description": "A meeting range where the end stays after the start and the duration updates.",
+      "dependencies": [],
+      "registryDependencies": [
+        "field",
+        "@reui/time-picker"
+      ],
+      "files": [
+        {
+          "path": "c-time-picker-8.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-time-picker-8.tsx"
+        }
+      ],
+      "meta": {
+        "order": 8
+      }
+    },
+    {
+      "name": "c-time-picker-9",
+      "type": "registry:block",
+      "title": "Time zone label",
+      "description": "Event time in the venue's time zone, shown in the trigger, with a footer that leaves out Now.",
+      "dependencies": [],
+      "registryDependencies": [
+        "field",
+        "@reui/time-picker"
+      ],
+      "files": [
+        {
+          "path": "c-time-picker-9.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-time-picker-9.tsx"
+        }
+      ],
+      "meta": {
+        "order": 9
       }
     },
     {
@@ -27644,6 +28227,25 @@
       ]
     },
     {
+      "name": "signature-pad",
+      "type": "registry:ui",
+      "title": "Shadcn signature pad with pressure and velocity ink, touch and stylus input, undo and redo, form fields and PNG, JPEG or SVG export.",
+      "description": "Shadcn signature pad with pressure and velocity ink, touch and stylus input, undo and redo, form fields and PNG, JPEG or SVG export.",
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "signature-pad.tsx",
+          "type": "registry:ui",
+          "target": "components/reui/signature-pad.tsx"
+        }
+      ]
+    },
+    {
       "name": "sortable",
       "type": "registry:ui",
       "title": "Sortable",
@@ -27679,6 +28281,27 @@
           "path": "stepper.tsx",
           "type": "registry:ui",
           "target": "components/reui/stepper.tsx"
+        }
+      ]
+    },
+    {
+      "name": "time-picker",
+      "type": "registry:ui",
+      "title": "Shadcn time picker with scrollable hour, minute, second and AM/PM columns, a typable input, steps, bounds and localized labels.",
+      "description": "Shadcn time picker with scrollable hour, minute, second and AM/PM columns, a typable input, steps, bounds and localized labels.",
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "button",
+        "input-group",
+        "popover"
+      ],
+      "files": [
+        {
+          "path": "time-picker.tsx",
+          "type": "registry:ui",
+          "target": "components/reui/time-picker.tsx"
         }
       ]
     },

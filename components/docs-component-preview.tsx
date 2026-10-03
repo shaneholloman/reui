@@ -31,7 +31,19 @@ type DocsComponentPreviewProps = React.ComponentProps<"div"> & {
    * categories that still render inline.
    */
   previewHeight?: string | number
+  /**
+   * Ship the code panel compact (components/docs-compact-code.tsx): set by
+   * the heavy docs pages only, through their MDX overrides.
+   */
+  compactCode?: boolean
 }
+
+/**
+ * Lines a compact code panel highlights on the server. The collapsed panel
+ * (max-h-28 in ComponentPreviewTabs) shows about four, so the first paint
+ * matches the fully highlighted panel.
+ */
+const COMPACT_HEAD_LINES = 6
 
 function inferComponentCategoryFromName(name: string) {
   const normalizedName = name.trim().toLowerCase()
@@ -43,7 +55,10 @@ function inferComponentCategoryFromName(name: string) {
   return normalizedName.replace(/^c-/, "").replace(/-\d+$/, "") || undefined
 }
 
-export function DocsComponentPreview(props: DocsComponentPreviewProps) {
+export function DocsComponentPreview({
+  compactCode = false,
+  ...props
+}: DocsComponentPreviewProps) {
   const initialStyleName = resolveRegistryStyleName(props.styleName)
   const initialBase = getRegistryBaseName(initialStyleName)
   const initialIconLibrary = resolveRegistryIconLibrary(
@@ -115,6 +130,7 @@ export function DocsComponentPreview(props: DocsComponentPreviewProps) {
             iconLibrary={initialIconLibrary}
             code={code}
             showCopyButton
+            compactHeadLines={compactCode ? COMPACT_HEAD_LINES : undefined}
           />
         }
         {...rest}

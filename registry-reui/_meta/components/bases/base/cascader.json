@@ -674,6 +674,35 @@
       "meta": {
         "order": 20
       }
+    },
+    {
+      "name": "c-cascader-21",
+      "type": "registry:block",
+      "title": "Global search across the whole tree from a nested level.",
+      "categories": [
+        "cascader"
+      ],
+      "description": "A product category field that reopens on its current level, where typing still searches the whole catalog and each hit shows the trail it lives under.",
+      "descriptionLong": "Global search across the whole tree from a nested level. Built by composing Button, Cascader, Cascader Item, Cascader Nav, Cascader Types and 1 more. A free, open source shadcn cascader example you can install with npx shadcn@latest add @reui/c-cascader-21 and edit as your own code.",
+      "registryDependencies": [
+        "button",
+        "cascader",
+        "cascader-item",
+        "cascader-nav",
+        "cascader-types",
+        "field"
+      ],
+      "dependencies": [],
+      "files": [
+        {
+          "path": "components/cascader/c-cascader-21.tsx",
+          "type": "registry:block",
+          "target": "components/examples/c-cascader-21.tsx"
+        }
+      ],
+      "meta": {
+        "order": 21
+      }
     }
   ]
 }

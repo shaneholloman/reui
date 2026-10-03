@@ -21,8 +21,10 @@
     "phone-input",
     "rating",
     "scrollspy",
+    "signature-pad",
     "sortable",
     "stepper",
+    "time-picker",
     "timeline",
     "tree"
   ]

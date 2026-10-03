@@ -3,6 +3,62 @@ title: Changelog
 description: Latest updates and announcements.
 ---
 
+## v2.7.0 - 3 October, 2026.
+
+Two new in-house primitives, Signature Pad and Time Picker, with 25 examples per base, plus Cascader global search and a long round of Data Grid fixes. This entry covers every free change since v2.6.0.
+
+**New: Shadcn Signature Pad.**
+
+- New Signature Pad primitive: a `SignaturePadArea` drawing surface under a `SignaturePad` root, with optional `SignaturePadGuide`, `SignaturePadPlaceholder` and corner-pinned `SignaturePadControls`, and undo and redo from the `SignaturePadUndo` and `SignaturePadRedo` buttons or Ctrl+Z, Ctrl+Shift+Z and Ctrl+Y on the area - [Docs](/docs/components/base/signature-pad#signaturepad).
+- Ink is SVG and follows the area's text color unless you set `color`, so it stays sharp and tracks the theme; its width comes from pen pressure or drawing speed through `sizing`, between `minWidth` and `maxWidth`, and `pointerTypes={["pen"]}` ignores a resting palm - [Docs](/docs/components/base/signature-pad#signaturepad).
+- `serialize` returns the signature as PNG, JPEG, SVG or JSON, with `toSVG`, `toDataURL` and `toBlob` for the markup, a data URL or an upload-ready `Blob`; every export crops to the ink or takes a fixed frame through `padding`, `crop`, `scale`, `background` and `color`, and `SignaturePadPreview` redraws saved strokes as inline SVG with no pad around it - [Docs](/docs/components/base/signature-pad#signaturepadexportoptions).
+- `apiRef` on the root and `useSignaturePad` inside it hand `clear`, `undo`, `redo`, `focus` and the four export methods to your own code, and the export helpers also run on a saved stroke array with no pad mounted - [Docs](/docs/components/base/signature-pad#signaturepad).
+- A `name` on the root submits the signature with a native form in the chosen `format`, `required` fails while the pad is empty and a form reset restores `defaultValue`; 12 examples per base, from a validated form field and a four-format export to stylus palm rejection, per-clause initials and proof of delivery - [Preview](/components/signature-pad).
+
+**New: Shadcn Time Picker.**
+
+- New Time Picker primitive: hour, minute, second and AM/PM listbox columns in a popover behind `TimePickerTrigger`, or in place with `TimePickerPanel`; `hourCycle` picks a 12 or 24 hour clock, `granularity` the finest column, and the value is an `HH:mm` or `HH:mm:ss` string in 24-hour time whatever is shown - [Docs](/docs/components/base/time-picker#timepicker).
+- `hourStep`, `minuteStep` and `secondStep` set which times are offered, `min` and `max` bound them inclusively and run overnight when `min` is after `max`, `isTimeDisabled` marks single times unavailable, and `requireConfirm` keeps a pick a draft until OK - [Docs](/docs/components/base/time-picker#timepicker).
+- `TimePickerInput` is a typable field that reads `930`, `14:30`, `14h30` and `2:30 pm`, plus full-width, Arabic-Indic and Persian digits, snaps what you type to the steps and bounds, and steps to the next free time with the arrow keys - [Docs](/docs/components/base/time-picker#timepickerinput).
+- On a column the arrow keys move to the next available row without wrapping, Home and End jump to the ends, Page Up and Page Down move 5, Left and Right change column, and typing digits selects a row, with two within a second read as one number - [Docs](/docs/components/base/time-picker#timepicker).
+- `i18n` replaces every label and both formatters over the English defaults, `periodPosition="start"` puts AM/PM before the time as Chinese, Japanese and Korean read it, and a `name` submits the value with a native form; 13 examples per base, including EN, DE, ZH and AR labels with Arabic right to left - [Preview](/components/time-picker).
+
+**New Free Components:**
+
+- `Cascader`: new `searchScope="global"` searches the whole tree from whatever level is on screen, where `"deep"` matched only the current level and below; each hit still renders its ancestor trail, and opening a hit outside the current path replaces the path with that hit's own ancestors - [Docs](/docs/components/base/cascader#cascader).
+- `Cascader`: new `isCascaderDisabled(index, node)` helper and a matching `isDisabled` on `useCascaderActions()`, so a hand-written row, trigger or chip list can ask the same disabled question the built-in rows ask instead of reading `node.disabled` and missing a disabled ancestor - [Docs](/docs/components/base/cascader#cascader).
+- New Cascader example: a product category field that reopens on the level its value lives in and still searches the whole catalog, including two same-named rows that only their trails tell apart, taking the Cascader to 21 examples per base - [Preview](/components/cascader).
+- 26 new free examples across Signature Pad, Time Picker and Cascader, taking the catalog from 1,149 to 1,175 and the in-house primitives from 22 to 24 - [Preview](/components).
+
+**Fixes & Improvements:**
+
+- `Cascader`: `disabled` on a branch now disables its whole subtree - wherever a descendant surfaces, the row renders dimmed and `aria-disabled`, and row presses, the keyboard and hover-to-open all refuse it, where before pressing a leaf hit under a disabled branch selected it - [Docs](/docs/components/base/cascader#cascader).
+- `Cascader`: the two deliberate ways out of a disabled subtree still work - what `expanded` holds open in `mode="tree"` can be collapsed, and a disabled value already in the selection stays removable through its chip, `remove` or `clear` - [Docs](/docs/components/base/cascader#cascader).
+- `Cascader`: `CascaderItemState.disabled`, the second argument handed to `renderItem` and `renderLabel`, now reports the node's own flag or any ancestor's, so a custom row styles itself the way the built-in row does - [Docs](/docs/components/base/cascader#cascader).
+- `Cascader`: opening a search hit whose children still have to be fetched rebuilt the path from the level you were standing on, so a hit more than one level down landed under the wrong ancestors with the levels in between skipped - [Docs](/docs/components/base/cascader#cascader).
+- `Kanban`: the drop target follows the pointer instead of the dragged card's rectangle overlap, so dragging through the gap between two columns no longer flips the target back and forth and bounces the live preview between them - [Preview](/components/kanban).
+- `DataGrid`: picking an option in an in-cell select, combobox, popover or menu no longer starts or extends a cell selection and no longer fires `onRowClick`, so the pick applies instead of being swallowed by the selection session - [Docs](/docs/components/base/data-grid#datagridcellselection).
+- `DataGrid`: clicking a column header that is only resizable no longer sorts by it, so a column with sorting disabled can no longer replace the grid's active sort - [Docs](/docs/components/base/data-grid).
+- `DataGrid`: live column resizing (`columnsResizeMode: "onChange"`) moves the table width, the viewport width and the fill strip with the dragged column, so the remaining columns no longer jitter until the release - [Docs](/docs/components/base/data-grid#datagrid).
+- `DataGrid`: an armed `meta.autoSize` column reflows during a live resize of a neighbouring column instead of jumping once the drag is released - [Docs](/docs/components/base/data-grid).
+- `DataGrid`: a `meta.autoSize` column with no `minSize` of its own now shrinks only back to its starting width; TanStack's built-in 20px default no longer counts as a floor - [Docs](/docs/components/base/data-grid).
+- `DataGrid`: pinned cells, their hover, selected and `getRowStatus` tints and the footer band paint `--data-grid-surface`, which falls back to `--background` and follows `--card` inside a shadcn `Card`; set it on an ancestor for any other surface - [Docs](/docs/components/base/data-grid#datagridtable).
+- `DataGrid`: those premixed tints are gated on `columnsPinnable`, so pinning used only as a column-order lock no longer paints pinned cells a second hover colour - [Docs](/docs/components/base/data-grid#datagridtable).
+- `DataGrid`: loading skeleton cells carry the pinning of the columns they stand in, so a skeleton grid no longer unpins while it loads - [Docs](/docs/components/base/data-grid#datagridtable).
+- `DataGrid`: both scrollbars are `--data-grid-scrollbar-size` thick, 10px by default, and the whole track thickness grabs the thumb; set the variable on an ancestor for a larger drag target - [Docs](/docs/components/base/data-grid#datagridscrollarea).
+- `DataGrid`: on an RTL page the scrollbar thumb follows the scroll again, because `DataGridScrollArea` reads its direction off the rendered layout, so neither library's `DirectionProvider` is needed - [Docs](/docs/components/base/data-grid#datagridscrollarea).
+- `DataGrid`: pinned-column separators stay on their inline seam in an RTL layout, and keyboard column reordering works there too, where an arrow key near the start edge used to move nothing - [Docs](/docs/components/base/data-grid#datagridtable).
+- `DataGrid`: `DataGridPagination` and the column filter use `gap-x-*` instead of `space-x-*`, so an RTL install no longer has the shadcn CLI flip their spacing onto the wrong side - [Docs](/docs/components/base/data-grid#datagridpagination).
+- `DataGrid`: `DataGridTableDnd` and `DataGridTableDndRows` take an `accessibility` prop forwarded to dnd-kit's `DndContext`, so its screen-reader instructions and drag announcements can be localized alongside the grid's own `i18n` - [Docs](/docs/components/base/data-grid#datagridtablednd).
+- `DataGrid`: column drag and drop leaves pinned columns alone - a pinned column renders without a grip and is neither a drag source nor a drop target, and keeps its sticky position while the rest of the row is dragged - [Docs](/docs/components/base/data-grid#datagridtablednd).
+- `DataGrid`: `Move Left` and `Move Right` in the column header menu step over the columns the grid actually renders in that column's pin group, so they no longer swap with a hidden column and do nothing - [Preview](/components/data-grid).
+- `DataGrid`: the column visibility checkboxes only title-case a column whose label is its raw `id`, so a column with an authored header label keeps its own casing, and the empty message is centred on the visible part of a grid wider than its scroll area - [Preview](/components/data-grid).
+- The Data Grid docs import from `@/components/reui/data-grid/data-grid` and its siblings instead of the bare directory, which the installer never creates, and they now note that an RTL grid also needs `columnResizeDirection: "rtl"` on `useTable` - [Docs](/docs/components/base/data-grid).
+- The Radix docs for Badge, Date Selector, Sortable, Timeline and Tree told you to install `@reui/r-badge` and import from `@/components/reui/r-badge`, an `r-` prefixed item the registry has never published; both bases ship the same `@reui/<name>` - [Docs](/docs/components/radix/badge).
+- The integration notes on 12 component pages carried 15 links to pages that do not exist, such as `/components/form` and `/components/data-table`; each is now plain text or points at the real page - [Preview](/components).
+- Sidebar cards in the catalog laid their example out at a minimum of 800px and painted it scaled to fit, so on a phone the shell landed at roughly 0.4 scale; below 48rem the card now drops that minimum and lets the example take its own mobile branch - [Preview](/components/sidebar).
+- With an opaque menu color, the Base UI dropdown menu, menubar, context menu, select and combobox previews painted one fully opaque frame before their open animation restarted from zero; that frame is now held invisible - [Preview](/components/dropdown-menu).
+
 ## v2.6.0 - 17 September, 2026.
 
 7 new free component categories with 44 examples in each base, covering chat transcripts, agent run logs, app shells and guided surveys.
@@ -19,7 +75,7 @@ description: Latest updates and announcements.
 
 **Fixes & Improvements:**
 
-- Sidebar and Message Scroller previews render in their own frame, so each example sizes itself against its card instead of the page, and a sidebar card narrower than 800px shows the desktop layout scaled down - [Preview](/components/sidebar).
+- Sidebar and Message Scroller previews render in their own frame, so each example sizes itself against its card instead of the page, and a desktop-width sidebar card narrower than 800px shows the desktop layout scaled down - [Preview](/components/sidebar).
 - The Data Grid and Alert Dialog pages linked Sonner at `/components/toast`, which is not a page; both now link [Sonner](/components/sonner) - [Preview](/components/sonner).
 
 ## v2.5.5 - 16 September, 2026.

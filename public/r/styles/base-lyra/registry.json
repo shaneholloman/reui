@@ -1981,6 +1981,25 @@
       ]
     },
     {
+      "name": "signature-pad",
+      "type": "registry:ui",
+      "title": "Shadcn signature pad with pressure and velocity ink, touch and stylus input, undo and redo, form fields and PNG, JPEG or SVG export.",
+      "description": "Shadcn signature pad with pressure and velocity ink, touch and stylus input, undo and redo, form fields and PNG, JPEG or SVG export.",
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "button"
+      ],
+      "files": [
+        {
+          "path": "signature-pad.tsx",
+          "type": "registry:ui",
+          "target": "components/reui/signature-pad.tsx"
+        }
+      ]
+    },
+    {
       "name": "sortable",
       "type": "registry:ui",
       "title": "Sortable",
@@ -2016,6 +2035,27 @@
           "path": "stepper.tsx",
           "type": "registry:ui",
           "target": "components/reui/stepper.tsx"
+        }
+      ]
+    },
+    {
+      "name": "time-picker",
+      "type": "registry:ui",
+      "title": "Shadcn time picker with scrollable hour, minute, second and AM/PM columns, a typable input, steps, bounds and localized labels.",
+      "description": "Shadcn time picker with scrollable hour, minute, second and AM/PM columns, a typable input, steps, bounds and localized labels.",
+      "dependencies": [
+        "cn"
+      ],
+      "registryDependencies": [
+        "button",
+        "input-group",
+        "popover"
+      ],
+      "files": [
+        {
+          "path": "time-picker.tsx",
+          "type": "registry:ui",
+          "target": "components/reui/time-picker.tsx"
         }
       ]
     },

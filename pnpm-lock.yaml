@@ -291,6 +291,9 @@ importers:
       '@reui/components-base-sidebar':
         specifier: workspace:*
         version: link:packages/registry/bases/base/components/sidebar
+      '@reui/components-base-signature-pad':
+        specifier: workspace:*
+        version: link:packages/registry/bases/base/components/signature-pad
       '@reui/components-base-skeleton':
         specifier: workspace:*
         version: link:packages/registry/bases/base/components/skeleton
@@ -321,6 +324,9 @@ importers:
       '@reui/components-base-textarea':
         specifier: workspace:*
         version: link:packages/registry/bases/base/components/textarea
+      '@reui/components-base-time-picker':
+        specifier: workspace:*
+        version: link:packages/registry/bases/base/components/time-picker
       '@reui/components-base-timeline':
         specifier: workspace:*
         version: link:packages/registry/bases/base/components/timeline
@@ -534,6 +540,9 @@ importers:
       '@reui/components-radix-sidebar':
         specifier: workspace:*
         version: link:packages/registry/bases/radix/components/sidebar
+      '@reui/components-radix-signature-pad':
+        specifier: workspace:*
+        version: link:packages/registry/bases/radix/components/signature-pad
       '@reui/components-radix-skeleton':
         specifier: workspace:*
         version: link:packages/registry/bases/radix/components/skeleton
@@ -564,6 +573,9 @@ importers:
       '@reui/components-radix-textarea':
         specifier: workspace:*
         version: link:packages/registry/bases/radix/components/textarea
+      '@reui/components-radix-time-picker':
+        specifier: workspace:*
+        version: link:packages/registry/bases/radix/components/time-picker
       '@reui/components-radix-timeline':
         specifier: workspace:*
         version: link:packages/registry/bases/radix/components/timeline
@@ -1880,6 +1892,24 @@ importers:
         specifier: '>=18'
         version: 19.2.7(react@19.2.7)
 
+  packages/registry/bases/base/components/signature-pad:
+    dependencies:
+      '@base-ui/react':
+        specifier: 1.5.0
+        version: 1.5.0(@date-fns/tz@1.5.0)(@types/react@19.2.17)(date-fns@4.4.0)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      class-variance-authority:
+        specifier: ^0.7.1
+        version: 0.7.1
+      cn:
+        specifier: ^0.3.0
+        version: 0.3.0
+      react:
+        specifier: '>=18'
+        version: 19.2.7
+      react-dom:
+        specifier: '>=18'
+        version: 19.2.7(react@19.2.7)
+
   packages/registry/bases/base/components/skeleton:
     dependencies:
       react:
@@ -2032,6 +2062,18 @@ importers:
 
   packages/registry/bases/base/components/textarea:
     dependencies:
+      react:
+        specifier: '>=18'
+        version: 19.2.7
+      react-dom:
+        specifier: '>=18'
+        version: 19.2.7(react@19.2.7)
+
+  packages/registry/bases/base/components/time-picker:
+    dependencies:
+      cn:
+        specifier: ^0.3.0
+        version: 0.3.0
       react:
         specifier: '>=18'
         version: 19.2.7
@@ -3233,6 +3275,24 @@ importers:
         specifier: '>=18'
         version: 19.2.7(react@19.2.7)
 
+  packages/registry/bases/radix/components/signature-pad:
+    dependencies:
+      class-variance-authority:
+        specifier: ^0.7.1
+        version: 0.7.1
+      cn:
+        specifier: ^0.3.0
+        version: 0.3.0
+      radix-ui:
+        specifier: ^1.4.3
+        version: 1.6.2(@types/react-dom@19.2.3(@types/react@19.2.17))(@types/react@19.2.17)(react-dom@19.2.7(react@19.2.7))(react@19.2.7)
+      react:
+        specifier: '>=18'
+        version: 19.2.7
+      react-dom:
+        specifier: '>=18'
+        version: 19.2.7(react@19.2.7)
+
   packages/registry/bases/radix/components/skeleton:
     dependencies:
       react:
@@ -3385,6 +3445,18 @@ importers:
 
   packages/registry/bases/radix/components/textarea:
     dependencies:
+      react:
+        specifier: '>=18'
+        version: 19.2.7
+      react-dom:
+        specifier: '>=18'
+        version: 19.2.7(react@19.2.7)
+
+  packages/registry/bases/radix/components/time-picker:
+    dependencies:
+      cn:
+        specifier: ^0.3.0
+        version: 0.3.0
       react:
         specifier: '>=18'
         version: 19.2.7
@@ -3622,8 +3694,8 @@ packages:
       '@date-fns/tz': ^1.2.0
       '@types/react': ^17 || ^18 || ^19
       date-fns: ^4.0.0
-      react: 19.2.7
-      react-dom: 19.2.7
+      react: ^17 || ^18 || ^19
+      react-dom: ^17 || ^18 || ^19
     peerDependenciesMeta:
       '@date-fns/tz':
         optional: true

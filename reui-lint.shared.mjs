@@ -11,7 +11,7 @@
  * This file lives in reui.io/apps/web and is mirrored into pro-sandbox by
  * pro-sandbox/scripts/sync-reui.mts, and into the public reui-oss repo by
  * scripts/sync-oss.mts. EDIT IT HERE ONLY. A change in either mirrored copy is
- * overwritten by the next `reui:sync` / `sync:oss`.
+ * overwritten by the next `reui:sync` / `oss:sync`.
  *
  * Each repo's reui-lint.config.mjs imports this and adds only what is genuinely
  * local: which paths it authors, and which non-Tailwind classes are legitimate

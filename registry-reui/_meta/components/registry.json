@@ -94,7 +94,7 @@
       "name": "cascader",
       "label": "Cascader",
       "description": "Nested multi-level selection with drill-down navigation, breadcrumbs, search and custom rows.",
-      "count": 20
+      "count": 21
     },
     {
       "name": "chart",
@@ -397,6 +397,12 @@
       "count": 5
     },
     {
+      "name": "signature-pad",
+      "label": "Signature Pad",
+      "description": "Open-source shadcn signature pad components for e-signature forms, agreements, and proof of delivery.",
+      "count": 12
+    },
+    {
       "name": "skeleton",
       "label": "Skeleton",
       "description": "Open-source shadcn skeleton components for loading placeholders, perceived performance, and content previews.",
@@ -457,6 +463,12 @@
       "count": 6
     },
     {
+      "name": "time-picker",
+      "label": "Time Picker",
+      "description": "Open-source shadcn time picker components for booking forms, opening hours, and shift scheduling.",
+      "count": 13
+    },
+    {
       "name": "timeline",
       "label": "Timeline",
       "description": "Open-source shadcn timeline components for activity feeds, roadmaps, and event history.",
@@ -487,5 +499,5 @@
       "count": 7
     }
   ],
-  "totalComponents": 1149
+  "totalComponents": 1175
 }

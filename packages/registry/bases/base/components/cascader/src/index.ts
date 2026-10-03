@@ -22,6 +22,7 @@ export const componentPreviewLoaders = {
   "c-cascader-18": () => import("@/registry-reui/bases/base/components/cascader/c-cascader-18.tsx"),
   "c-cascader-19": () => import("@/registry-reui/bases/base/components/cascader/c-cascader-19.tsx"),
   "c-cascader-20": () => import("@/registry-reui/bases/base/components/cascader/c-cascader-20.tsx"),
+  "c-cascader-21": () => import("@/registry-reui/bases/base/components/cascader/c-cascader-21.tsx"),
 } as const
 
 export type ComponentName = keyof typeof componentPreviewLoaders

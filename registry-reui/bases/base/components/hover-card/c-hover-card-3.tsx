@@ -38,7 +38,7 @@ export default function Pattern() {
           }
         />
         <HoverCardContent className="w-64">
-          <div className="flex space-x-2">
+          <div className="flex gap-2">
             <Avatar className="size-10 shrink-0">
               <AvatarImage
                 src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=96&h=96&dpr=2&q=80"

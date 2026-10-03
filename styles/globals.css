@@ -29,6 +29,26 @@
   font-family: var(--font-heading);
 }
 
+/* Base UI menu surfaces: no opaque flash on the first frame.
+
+   The shadcn parts (dropdown menu, menubar, context menu, select, combobox)
+   ship with `cn-menu-translucent`, whose `animate-none!` in the shadcn/create
+   styles suppresses the enter animation. When the design system has an opaque
+   menu color, the design system provider strips that class after mount, but
+   Base UI mounts the popup inside an animation frame, so the strip lands one
+   frame after the first paint: frame 1 painted the fully opaque menu with no
+   animation, frame 2 restarted the fade and zoom from zero. That is the
+   flicker on every Base UI menu open. Base UI marks that first frame with
+   `data-starting-style`; while it is present on a surface that still carries
+   the translucent class, keep the surface invisible so the not yet restyled
+   frame never paints. A menu that keeps the class on purpose (translucent
+   menu color) appears one frame later, still without animation, as before.
+   Overrides `registry/styles/*.css`, which is shadcn/create output and is not
+   edited here. Measured frame by frame on 2026-09-17. */
+.cn-menu-target.cn-menu-translucent[data-starting-style] {
+  opacity: 0;
+}
+
 @custom-variant dark (&:is(.dark *));
 @custom-variant fixed (&:is(.layout-fixed *));
 
